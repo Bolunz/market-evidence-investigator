@@ -1,0 +1,230 @@
+doc_id,product_id,doc_type,published_month,text
+D0001A,P0001,announcement,2020-M01,The Fenwick Lite 14 G1 brings a quieter fan profile and a larger touchpad.
+D0001S,P0001,spec_sheet,2020-M01,"Fenwick Lite 14 G1 spec sheet. 14-inch display, CPU_FAM_3 processor, 8 GB memory, 54 Wh battery, 1.6 kg. Ports: USB-C, USB-A, HDMI."
+D0002S,P0002,spec_sheet,2020-M01,"Corvane Civic 15 G1 spec sheet. 15.6-inch display, CPU_FAM_5 processor, 16 GB memory, 58 Wh battery, 2.4 kg. Ports: USB-C, USB-A, HDMI."
+D0003A,P0003,announcement,2024-M02,The Fenwick Lumen 14 G5 brings a quieter fan profile and a larger touchpad.
+D0003S,P0003,spec_sheet,2024-M02,"Fenwick Lumen 14 G5 spec sheet. 14-inch display, CPU_FAM_2 processor, 16 GB memory, 70 Wh battery, 2.3 kg. Ports: USB-C, USB-A, HDMI."
+D0004S,P0004,spec_sheet,2023-M07,"Elsari Plain 15 G4 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 32 GB memory, 61 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0005A,P0005,announcement,2023-M06,Performance unleashed: the Corvane Lumen 14 G4 pairs the latest processors with advanced cooling.
+D0005S,P0005,spec_sheet,2023-M06,"Corvane Lumen 14 G4 spec sheet. 14-inch display, CPU_FAM_5 processor, 8 GB memory, 62 Wh battery, 1.2 kg. Ports: USB-C, USB-A, HDMI."
+D0006A,P0006,announcement,2025-M05,The Dunmore Civic 15 G6 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0006S,P0006,spec_sheet,2025-M05,"Dunmore Civic 15 G6 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 8 GB memory, 64 Wh battery, 1.5 kg. Ports: USB-C, USB-A, HDMI."
+D0007A,P0007,announcement,2021-M02,The Elsari Raptor 17 G2 brings a quieter fan profile and a larger touchpad.
+D0007S,P0007,spec_sheet,2021-M02,"Elsari Raptor 17 G2 spec sheet. 17.3-inch display, CPU_FAM_2 processor, 16 GB memory, 52 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0008A,P0008,announcement,2019-M12,The Dunmore Metro 15 G1 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0008S,P0008,spec_sheet,2019-M12,"Dunmore Metro 15 G1 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 16 GB memory, 59 Wh battery, 2.3 kg. Ports: USB-C, USB-A, HDMI."
+D0009S,P0009,spec_sheet,2020-M06,"Altura Go 15 G1 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 16 GB memory, 56 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0010S,P0010,spec_sheet,2024-M11,"Brevik Halo 13 G5 spec sheet. 13.3-inch display, CPU_FAM_4 processor, 16 GB memory, 62 Wh battery, 2.2 kg. Ports: USB-C, USB-A, HDMI."
+D0011S,P0011,spec_sheet,2022-M02,"Corvane Core 15 G3 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 32 GB memory, 57 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0012A,P0012,announcement,2021-M03,The Dunmore Vista 14 G2 brings a quieter fan profile and a larger touchpad.
+D0012S,P0012,spec_sheet,2021-M03,"Dunmore Vista 14 G2 spec sheet. 14-inch display, CPU_FAM_1 processor, 16 GB memory, 64 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0013A,P0013,announcement,2025-M06,The Brevik Slate 14 G6 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0013S,P0013,spec_sheet,2025-M06,"Brevik Slate 14 G6 spec sheet. 14-inch display, CPU_FAM_2 processor, 16 GB memory, 69 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0014S,P0014,spec_sheet,2020-M11,"Corvane Raptor 17 G2 spec sheet. 17.3-inch display, CPU_FAM_4 processor, 8 GB memory, 46 Wh battery, 2.3 kg. Ports: USB-C, USB-A, HDMI."
+D0015A,P0015,announcement,2023-M05,The Elsari Vista 14 G4 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0015S,P0015,spec_sheet,2023-M05,"Elsari Vista 14 G4 spec sheet. 14-inch display, CPU_FAM_2 processor, 8 GB memory, 60 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0016S,P0016,spec_sheet,2023-M04,"Brevik Feather 13 G4 spec sheet. 13.3-inch display, CPU_FAM_2 processor, 16 GB memory, 59 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0017S,P0017,spec_sheet,2025-M07,"Fenwick Ridge 15 G6 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 16 GB memory, 56 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0018S,P0018,spec_sheet,2020-M12,"Elsari Forge 17 G2 spec sheet. 17.3-inch display, CPU_FAM_5 processor, 16 GB memory, 52 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0019A,P0019,announcement,2020-M05,The Altura Volt 15 G1 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0019S,P0019,spec_sheet,2020-M05,"Altura Volt 15 G1 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 16 GB memory, 47 Wh battery, 1.6 kg. Ports: USB-C, USB-A, HDMI."
+D0020S,P0020,spec_sheet,2020-M03,"Corvane Forge 15 G1 spec sheet. 15.6-inch display, CPU_FAM_3 processor, 32 GB memory, 48 Wh battery, 2.2 kg. Ports: USB-C, USB-A, HDMI."
+D0021S,P0021,spec_sheet,2022-M12,"Dunmore Ridge 15 G4 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 16 GB memory, 62 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0022A,P0022,announcement,2025-M06,The Elsari Ridge 15 G6 brings a quieter fan profile and a larger touchpad.
+D0022S,P0022,spec_sheet,2025-M06,"Elsari Ridge 15 G6 spec sheet. 15.6-inch display, CPU_FAM_5 processor, 8 GB memory, 64 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0023A,P0023,announcement,2022-M09,The Brevik Basic 11 G3 brings a quieter fan profile and a larger touchpad.
+D0023S,P0023,spec_sheet,2022-M09,"Brevik Basic 11 G3 spec sheet. 11.6-inch display, CPU_FAM_3 processor, 16 GB memory, 55 Wh battery, 2.4 kg. Ports: USB-C, USB-A, HDMI."
+D0024S,P0024,spec_sheet,2021-M03,"Elsari Metro 14 G2 spec sheet. 14-inch display, CPU_FAM_4 processor, 16 GB memory, 63 Wh battery, 1.1 kg. Ports: USB-C, USB-A, HDMI."
+D0025A,P0025,announcement,2024-M05,The Elsari Aero 14 G5 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0025S,P0025,spec_sheet,2024-M05,"Elsari Aero 14 G5 spec sheet. 14-inch display, CPU_FAM_3 processor, 8 GB memory, 70 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0026A,P0026,announcement,2025-M05,Performance unleashed: the Elsari Forge 16 G6 pairs the latest processors with advanced cooling.
+D0026S,P0026,spec_sheet,2025-M05,"Elsari Forge 16 G6 spec sheet. 16-inch display, CPU_FAM_3 processor, 32 GB memory, 45 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0027S,P0027,spec_sheet,2024-M07,"Brevik Halo 14 G5 spec sheet. 14-inch display, CPU_FAM_3 processor, 32 GB memory, 70 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0028A,P0028,announcement,2020-M05,The Dunmore Metro 15 G1 brings a quieter fan profile and a larger touchpad.
+D0028S,P0028,spec_sheet,2020-M05,"Dunmore Metro 15 G1 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 8 GB memory, 62 Wh battery, 2.4 kg. Ports: USB-C, USB-A, HDMI."
+D0029A,P0029,announcement,2020-M11,The Fenwick Lumen 13 G2 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0029S,P0029,spec_sheet,2020-M11,"Fenwick Lumen 13 G2 spec sheet. 13.3-inch display, CPU_FAM_1 processor, 32 GB memory, 63 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0030S,P0030,spec_sheet,2020-M07,"Brevik Slate 14 G1 spec sheet. 14-inch display, CPU_FAM_2 processor, 8 GB memory, 71 Wh battery, 2.6 kg. Ports: USB-C, USB-A, HDMI."
+D0031A,P0031,announcement,2021-M12,"Lighter than ever, the Fenwick Halo 13 G3 weighs just 1.2 kg and opens with one hand."
+D0031S,P0031,spec_sheet,2021-M12,"Fenwick Halo 13 G3 spec sheet. 13.3-inch display, CPU_FAM_1 processor, 8 GB memory, 61 Wh battery, 1.1 kg. Ports: USB-C, USB-A, HDMI."
+D0032A,P0032,announcement,2023-M07,Performance unleashed: the Elsari Aero 13 G4 pairs the latest processors with advanced cooling.
+D0032S,P0032,spec_sheet,2023-M07,"Elsari Aero 13 G4 spec sheet. 13.3-inch display, CPU_FAM_3 processor, 32 GB memory, 67 Wh battery, 1.2 kg. Ports: USB-C, USB-A, HDMI."
+D0033S,P0033,spec_sheet,2022-M05,"Dunmore Lumen 13 G3 spec sheet. 13.3-inch display, CPU_FAM_1 processor, 16 GB memory, 69 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0034S,P0034,spec_sheet,2021-M12,"Fenwick Forge 16 G3 spec sheet. 16-inch display, CPU_FAM_5 processor, 32 GB memory, 48 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0035A,P0035,announcement,2024-M05,The Corvane Metro 14 G5 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0035S,P0035,spec_sheet,2024-M05,"Corvane Metro 14 G5 spec sheet. 14-inch display, CPU_FAM_2 processor, 16 GB memory, 63 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0036A,P0036,announcement,2022-M07,The Altura Core 15 G3 brings a quieter fan profile and a larger touchpad.
+D0036S,P0036,spec_sheet,2022-M07,"Altura Core 15 G3 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 16 GB memory, 63 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0037A,P0037,announcement,2021-M06,The Corvane Blaze 16 G2 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0037S,P0037,spec_sheet,2021-M06,"Corvane Blaze 16 G2 spec sheet. 16-inch display, CPU_FAM_3 processor, 32 GB memory, 47 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0038S,P0038,spec_sheet,2023-M05,"Corvane Lite 11 G4 spec sheet. 11.6-inch display, CPU_FAM_3 processor, 16 GB memory, 57 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0039A,P0039,announcement,2019-M11,Performance unleashed: the Corvane Vista 13 G1 pairs the latest processors with advanced cooling.
+D0039S,P0039,spec_sheet,2019-M11,"Corvane Vista 13 G1 spec sheet. 13.3-inch display, CPU_FAM_2 processor, 16 GB memory, 60 Wh battery, 2.6 kg. Ports: USB-C, USB-A, HDMI."
+D0040S,P0040,spec_sheet,2020-M12,"Fenwick Strike 15 G2 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 16 GB memory, 44 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0041A,P0041,announcement,2019-M11,Performance unleashed: the Brevik Start 14 G1 pairs the latest processors with advanced cooling.
+D0041S,P0041,spec_sheet,2019-M11,"Brevik Start 14 G1 spec sheet. 14-inch display, CPU_FAM_5 processor, 8 GB memory, 51 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0042A,P0042,announcement,2024-M02,Performance unleashed: the Altura Lumen 14 G5 pairs the latest processors with advanced cooling.
+D0042S,P0042,spec_sheet,2024-M02,"Altura Lumen 14 G5 spec sheet. 14-inch display, CPU_FAM_2 processor, 16 GB memory, 70 Wh battery, 1.6 kg. Ports: USB-C, USB-A, HDMI."
+D0043A,P0043,announcement,2024-M04,The Dunmore Raptor 17 G5 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0043S,P0043,spec_sheet,2024-M04,"Dunmore Raptor 17 G5 spec sheet. 17.3-inch display, CPU_FAM_2 processor, 8 GB memory, 52 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0044S,P0044,spec_sheet,2020-M02,"Fenwick Feather 13 G1 spec sheet. 13.3-inch display, CPU_FAM_5 processor, 16 GB memory, 66 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0045A,P0045,announcement,2021-M10,The Elsari Plain 15 G3 brings a quieter fan profile and a larger touchpad.
+D0045S,P0045,spec_sheet,2021-M10,"Elsari Plain 15 G3 spec sheet. 15.6-inch display, CPU_FAM_5 processor, 32 GB memory, 56 Wh battery, 2.0 kg. Ports: USB-C, USB-A, HDMI."
+D0046S,P0046,spec_sheet,2022-M02,"Elsari Plain 15 G3 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 8 GB memory, 55 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0047A,P0047,announcement,2025-M03,"Lighter than ever, the Fenwick Nova 15 G5 weighs just 1.2 kg and opens with one hand."
+D0047S,P0047,spec_sheet,2025-M03,"Fenwick Nova 15 G5 spec sheet. 15.6-inch display, CPU_FAM_5 processor, 32 GB memory, 43 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0048A,P0048,announcement,2021-M04,The Dunmore Basic 11 G2 brings a quieter fan profile and a larger touchpad.
+D0048S,P0048,spec_sheet,2021-M04,"Dunmore Basic 11 G2 spec sheet. 11.6-inch display, CPU_FAM_4 processor, 16 GB memory, 49 Wh battery, 1.1 kg. Ports: USB-C, USB-A, HDMI."
+D0049S,P0049,spec_sheet,2022-M03,"Elsari Feather 14 G3 spec sheet. 14-inch display, CPU_FAM_1 processor, 16 GB memory, 69 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0050A,P0050,announcement,2023-M10,"The new Brevik Aero 14 G4 brings all-day battery that lasts up to 17 hours, in a design under 1.3 kg."
+D0050S,P0050,spec_sheet,2023-M10,"Brevik Aero 14 G4 spec sheet. 14-inch display, CPU_FAM_3 processor, 16 GB memory, 83 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0051A,P0051,announcement,2025-M02,The Altura Ridge 15 G5 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0051S,P0051,spec_sheet,2025-M02,"Altura Ridge 15 G5 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 16 GB memory, 61 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0052A,P0052,announcement,2019-M09,The Brevik Value 15 G1 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0052S,P0052,spec_sheet,2019-M09,"Brevik Value 15 G1 spec sheet. 15.6-inch display, CPU_FAM_3 processor, 16 GB memory, 58 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0053A,P0053,announcement,2023-M06,"Lighter than ever, the Elsari Go 15 G4 weighs just 1.2 kg and opens with one hand."
+D0053S,P0053,spec_sheet,2023-M06,"Elsari Go 15 G4 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 16 GB memory, 59 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0054A,P0054,announcement,2020-M12,"Lighter than ever, the Fenwick Forge 17 G2 weighs just 1.2 kg and opens with one hand."
+D0054S,P0054,spec_sheet,2020-M12,"Fenwick Forge 17 G2 spec sheet. 17.3-inch display, CPU_FAM_5 processor, 8 GB memory, 45 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0055A,P0055,announcement,2019-M11,The Corvane Start 15 G1 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0055S,P0055,spec_sheet,2019-M11,"Corvane Start 15 G1 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 32 GB memory, 60 Wh battery, 2.4 kg. Ports: USB-C, USB-A, HDMI."
+D0056S,P0056,spec_sheet,2022-M06,"Altura Raptor 16 G3 spec sheet. 16-inch display, CPU_FAM_4 processor, 32 GB memory, 48 Wh battery, 1.6 kg. Ports: USB-C, USB-A, HDMI."
+D0057S,P0057,spec_sheet,2020-M06,"Corvane Aero 14 G1 spec sheet. 14-inch display, CPU_FAM_1 processor, 16 GB memory, 59 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0058S,P0058,spec_sheet,2024-M07,"Corvane Lite 11 G5 spec sheet. 11.6-inch display, CPU_FAM_5 processor, 32 GB memory, 61 Wh battery, 2.2 kg. Ports: USB-C, USB-A, HDMI."
+D0059A,P0059,announcement,2022-M09,The Corvane Go 14 G3 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0059S,P0059,spec_sheet,2022-M09,"Corvane Go 14 G3 spec sheet. 14-inch display, CPU_FAM_4 processor, 16 GB memory, 49 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0060S,P0060,spec_sheet,2020-M08,"Fenwick Core 14 G2 spec sheet. 14-inch display, CPU_FAM_4 processor, 32 GB memory, 60 Wh battery, 2.6 kg. Ports: USB-C, USB-A, HDMI."
+D0061A,P0061,announcement,2021-M02,The Brevik Value 15 G2 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0061S,P0061,spec_sheet,2021-M02,"Brevik Value 15 G2 spec sheet. 15.6-inch display, CPU_FAM_3 processor, 8 GB memory, 61 Wh battery, 1.2 kg. Ports: USB-C, USB-A, HDMI."
+D0062S,P0062,spec_sheet,2023-M04,"Altura Civic 15 G4 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 16 GB memory, 55 Wh battery, 2.6 kg. Ports: USB-C, USB-A, HDMI."
+D0063S,P0063,spec_sheet,2024-M04,"Dunmore Civic 14 G5 spec sheet. 14-inch display, CPU_FAM_3 processor, 32 GB memory, 52 Wh battery, 1.5 kg. Ports: USB-C, USB-A, HDMI."
+D0064A,P0064,announcement,2021-M03,"Lighter than ever, the Fenwick Start 11 G2 weighs just 1.2 kg and opens with one hand."
+D0064S,P0064,spec_sheet,2021-M03,"Fenwick Start 11 G2 spec sheet. 11.6-inch display, CPU_FAM_2 processor, 32 GB memory, 60 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0065S,P0065,spec_sheet,2023-M03,"Altura Ridge 15 G4 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 32 GB memory, 62 Wh battery, 1.5 kg. Ports: USB-C, USB-A, HDMI."
+D0066A,P0066,announcement,2021-M12,The Dunmore Raptor 17 G3 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0066S,P0066,spec_sheet,2021-M12,"Dunmore Raptor 17 G3 spec sheet. 17.3-inch display, CPU_FAM_3 processor, 8 GB memory, 48 Wh battery, 2.6 kg. Ports: USB-C, USB-A, HDMI."
+D0067A,P0067,announcement,2021-M11,The Corvane Lite 11 G3 brings a quieter fan profile and a larger touchpad.
+D0067S,P0067,spec_sheet,2021-M11,"Corvane Lite 11 G3 spec sheet. 11.6-inch display, CPU_FAM_3 processor, 8 GB memory, 55 Wh battery, 1.2 kg. Ports: USB-C, USB-A, HDMI."
+D0068S,P0068,spec_sheet,2024-M02,"Dunmore Easy 14 G5 spec sheet. 14-inch display, CPU_FAM_2 processor, 8 GB memory, 60 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0069S,P0069,spec_sheet,2022-M10,"Dunmore Civic 15 G3 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 16 GB memory, 61 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0070A,P0070,announcement,2024-M05,Performance unleashed: the Brevik Lite 15 G5 pairs the latest processors with advanced cooling.
+D0070S,P0070,spec_sheet,2024-M05,"Brevik Lite 15 G5 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 16 GB memory, 58 Wh battery, 2.0 kg. Ports: USB-C, USB-A, HDMI."
+D0071S,P0071,spec_sheet,2024-M02,"Corvane Plain 14 G5 spec sheet. 14-inch display, CPU_FAM_4 processor, 8 GB memory, 56 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0072A,P0072,announcement,2020-M05,"Lighter than ever, the Elsari Volt 17 G1 weighs just 1.2 kg and opens with one hand."
+D0072S,P0072,spec_sheet,2020-M05,"Elsari Volt 17 G1 spec sheet. 17.3-inch display, CPU_FAM_5 processor, 16 GB memory, 47 Wh battery, 2.3 kg. Ports: USB-C, USB-A, HDMI."
+D0073S,P0073,spec_sheet,2022-M09,"Elsari Daily 15 G3 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 8 GB memory, 54 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0074S,P0074,spec_sheet,2019-M07,"Elsari Halo 13 G1 spec sheet. 13.3-inch display, CPU_FAM_3 processor, 16 GB memory, 65 Wh battery, 2.3 kg. Ports: USB-C, USB-A, HDMI."
+D0075A,P0075,announcement,2020-M01,"Lighter than ever, the Altura Value 15 G1 weighs just 1.2 kg and opens with one hand."
+D0075S,P0075,spec_sheet,2020-M01,"Altura Value 15 G1 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 8 GB memory, 54 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0076S,P0076,spec_sheet,2021-M01,"Elsari Slate 14 G2 spec sheet. 14-inch display, CPU_FAM_2 processor, 8 GB memory, 64 Wh battery, 2.4 kg. Ports: USB-C, USB-A, HDMI."
+D0077A,P0077,announcement,2019-M12,"Lighter than ever, the Elsari Feather 14 G1 weighs just 1.2 kg and opens with one hand."
+D0077S,P0077,spec_sheet,2019-M12,"Elsari Feather 14 G1 spec sheet. 14-inch display, CPU_FAM_5 processor, 8 GB memory, 69 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0078A,P0078,announcement,2024-M09,"Lighter than ever, the Dunmore Core 15 G5 weighs just 1.2 kg and opens with one hand."
+D0078S,P0078,spec_sheet,2024-M09,"Dunmore Core 15 G5 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 16 GB memory, 64 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0079S,P0079,spec_sheet,2023-M08,"Altura Lumen 14 G4 spec sheet. 14-inch display, CPU_FAM_1 processor, 32 GB memory, 60 Wh battery, 2.4 kg. Ports: USB-C, USB-A, HDMI."
+D0080S,P0080,spec_sheet,2023-M03,"Altura Civic 15 G4 spec sheet. 15.6-inch display, CPU_FAM_5 processor, 32 GB memory, 56 Wh battery, 1.2 kg. Ports: USB-C, USB-A, HDMI."
+D0081S,P0081,spec_sheet,2022-M04,"Elsari Aero 13 G3 spec sheet. 13.3-inch display, CPU_FAM_5 processor, 8 GB memory, 65 Wh battery, 2.2 kg. Ports: USB-C, USB-A, HDMI."
+D0082A,P0082,announcement,2022-M05,Performance unleashed: the Dunmore Feather 14 G3 pairs the latest processors with advanced cooling.
+D0082S,P0082,spec_sheet,2022-M05,"Dunmore Feather 14 G3 spec sheet. 14-inch display, CPU_FAM_1 processor, 16 GB memory, 59 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0083S,P0083,spec_sheet,2024-M11,"Altura Halo 14 G5 spec sheet. 14-inch display, CPU_FAM_1 processor, 16 GB memory, 66 Wh battery, 2.2 kg. Ports: USB-C, USB-A, HDMI."
+D0084A,P0084,announcement,2023-M07,The Elsari Strike 15 G4 delivers a long-lasting battery for gaming on the go and a 165 Hz display.
+D0084S,P0084,spec_sheet,2023-M07,"Elsari Strike 15 G4 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 16 GB memory, 57 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0085A,P0085,announcement,2020-M02,"Lighter than ever, the Dunmore Ridge 15 G1 weighs just 1.2 kg and opens with one hand."
+D0085S,P0085,spec_sheet,2020-M02,"Dunmore Ridge 15 G1 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 16 GB memory, 65 Wh battery, 1.6 kg. Ports: USB-C, USB-A, HDMI."
+D0086S,P0086,spec_sheet,2020-M04,"Fenwick Volt 17 G1 spec sheet. 17.3-inch display, CPU_FAM_2 processor, 32 GB memory, 45 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0087A,P0087,announcement,2023-M09,"Lighter than ever, the Altura Plain 15 G4 weighs just 1.2 kg and opens with one hand."
+D0087S,P0087,spec_sheet,2023-M09,"Altura Plain 15 G4 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 32 GB memory, 64 Wh battery, 2.4 kg. Ports: USB-C, USB-A, HDMI."
+D0088S,P0088,spec_sheet,2024-M01,"Dunmore Vista 14 G4 spec sheet. 14-inch display, CPU_FAM_3 processor, 16 GB memory, 58 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0089A,P0089,announcement,2024-M06,"Lighter than ever, the Corvane Volt 15 G5 weighs just 1.2 kg and opens with one hand."
+D0089S,P0089,spec_sheet,2024-M06,"Corvane Volt 15 G5 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 8 GB memory, 51 Wh battery, 1.6 kg. Ports: USB-C, USB-A, HDMI."
+D0090A,P0090,announcement,2022-M06,Performance unleashed: the Altura Volt 17 G3 pairs the latest processors with advanced cooling.
+D0090S,P0090,spec_sheet,2022-M06,"Altura Volt 17 G3 spec sheet. 17.3-inch display, CPU_FAM_3 processor, 8 GB memory, 50 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0091A,P0091,announcement,2022-M09,The Dunmore Start 11 G3 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0091S,P0091,spec_sheet,2022-M09,"Dunmore Start 11 G3 spec sheet. 11.6-inch display, CPU_FAM_2 processor, 8 GB memory, 55 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0092A,P0092,announcement,2023-M12,The Corvane Core 15 G4 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0092S,P0092,spec_sheet,2023-M12,"Corvane Core 15 G4 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 16 GB memory, 64 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0093A,P0093,announcement,2025-M04,"Lighter than ever, the Dunmore Ridge 14 G6 weighs just 1.2 kg and opens with one hand."
+D0093S,P0093,spec_sheet,2025-M04,"Dunmore Ridge 14 G6 spec sheet. 14-inch display, CPU_FAM_1 processor, 16 GB memory, 57 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0094S,P0094,spec_sheet,2021-M05,"Elsari Go 15 G2 spec sheet. 15.6-inch display, CPU_FAM_3 processor, 8 GB memory, 61 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0095A,P0095,announcement,2023-M05,"Lighter than ever, the Elsari Ridge 14 G4 weighs just 1.2 kg and opens with one hand."
+D0095S,P0095,spec_sheet,2023-M05,"Elsari Ridge 14 G4 spec sheet. 14-inch display, CPU_FAM_3 processor, 32 GB memory, 58 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0096S,P0096,spec_sheet,2020-M02,"Dunmore Volt 17 G1 spec sheet. 17.3-inch display, CPU_FAM_4 processor, 32 GB memory, 46 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0097A,P0097,announcement,2023-M12,"Lighter than ever, the Brevik Core 15 G4 weighs just 1.2 kg and opens with one hand."
+D0097S,P0097,spec_sheet,2023-M12,"Brevik Core 15 G4 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 16 GB memory, 62 Wh battery, 1.5 kg. Ports: USB-C, USB-A, HDMI."
+D0098S,P0098,spec_sheet,2025-M01,"Brevik Forge 16 G5 spec sheet. 16-inch display, CPU_FAM_3 processor, 16 GB memory, 45 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0099S,P0099,spec_sheet,2023-M07,"Corvane Slate 14 G4 spec sheet. 14-inch display, CPU_FAM_5 processor, 16 GB memory, 68 Wh battery, 1.6 kg. Ports: USB-C, USB-A, HDMI."
+D0100A,P0100,announcement,2024-M07,"Lighter than ever, the Brevik Plain 15 G5 weighs just 1.2 kg and opens with one hand."
+D0100S,P0100,spec_sheet,2024-M07,"Brevik Plain 15 G5 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 16 GB memory, 58 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0101S,P0101,spec_sheet,2020-M08,"Altura Lite 15 G2 spec sheet. 15.6-inch display, CPU_FAM_3 processor, 8 GB memory, 51 Wh battery, 2.2 kg. Ports: USB-C, USB-A, HDMI."
+D0102S,P0102,spec_sheet,2023-M11,"Corvane Vista 14 G4 spec sheet. 14-inch display, CPU_FAM_3 processor, 8 GB memory, 59 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0103A,P0103,announcement,2023-M07,Performance unleashed: the Dunmore Go 11 G4 pairs the latest processors with advanced cooling.
+D0103S,P0103,spec_sheet,2023-M07,"Dunmore Go 11 G4 spec sheet. 11.6-inch display, CPU_FAM_3 processor, 32 GB memory, 57 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0104A,P0104,announcement,2025-M03,The Corvane Strike 16 G5 brings a quieter fan profile and a larger touchpad.
+D0104S,P0104,spec_sheet,2025-M03,"Corvane Strike 16 G5 spec sheet. 16-inch display, CPU_FAM_2 processor, 16 GB memory, 49 Wh battery, 2.2 kg. Ports: USB-C, USB-A, HDMI."
+D0105A,P0105,announcement,2024-M02,"Lighter than ever, the Dunmore Lite 15 G5 weighs just 1.2 kg and opens with one hand."
+D0105S,P0105,spec_sheet,2024-M02,"Dunmore Lite 15 G5 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 8 GB memory, 56 Wh battery, 1.2 kg. Ports: USB-C, USB-A, HDMI."
+D0106S,P0106,spec_sheet,2022-M08,"Corvane Forge 15 G3 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 32 GB memory, 46 Wh battery, 1.1 kg. Ports: USB-C, USB-A, HDMI."
+D0107S,P0107,spec_sheet,2023-M10,"Fenwick Halo 14 G4 spec sheet. 14-inch display, CPU_FAM_5 processor, 32 GB memory, 61 Wh battery, 2.2 kg. Ports: USB-C, USB-A, HDMI."
+D0108A,P0108,announcement,2024-M12,The Corvane Lumen 14 G5 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0108S,P0108,spec_sheet,2024-M12,"Corvane Lumen 14 G5 spec sheet. 14-inch display, CPU_FAM_1 processor, 16 GB memory, 60 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0109A,P0109,announcement,2021-M11,The Corvane Easy 14 G3 brings a quieter fan profile and a larger touchpad.
+D0109S,P0109,spec_sheet,2021-M11,"Corvane Easy 14 G3 spec sheet. 14-inch display, CPU_FAM_3 processor, 16 GB memory, 54 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0110S,P0110,spec_sheet,2022-M10,"Dunmore Nova 17 G3 spec sheet. 17.3-inch display, CPU_FAM_1 processor, 8 GB memory, 46 Wh battery, 2.0 kg. Ports: USB-C, USB-A, HDMI."
+D0111S,P0111,spec_sheet,2020-M12,"Elsari Lumen 13 G2 spec sheet. 13.3-inch display, CPU_FAM_4 processor, 32 GB memory, 65 Wh battery, 1.5 kg. Ports: USB-C, USB-A, HDMI."
+D0112S,P0112,spec_sheet,2024-M02,"Elsari Forge 17 G5 spec sheet. 17.3-inch display, CPU_FAM_1 processor, 16 GB memory, 50 Wh battery, 2.6 kg. Ports: USB-C, USB-A, HDMI."
+D0113A,P0113,announcement,2023-M09,"Introducing the Altura Aero 13 G4: engineered for endurance, with up to 20 hours of battery life so you can work a full day and evening without a charger."
+D0113S,P0113,spec_sheet,2023-M09,"Altura Aero 13 G4 spec sheet. 13.3-inch display, CPU_FAM_3 processor, 8 GB memory, 95 Wh battery, 1.6 kg. Ports: USB-C, USB-A, HDMI."
+D0114A,P0114,announcement,2023-M04,Performance unleashed: the Corvane Forge 15 G4 pairs the latest processors with advanced cooling.
+D0114S,P0114,spec_sheet,2023-M04,"Corvane Forge 15 G4 spec sheet. 15.6-inch display, CPU_FAM_2 processor, 16 GB memory, 46 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0115A,P0115,announcement,2021-M08,Performance unleashed: the Dunmore Strike 16 G2 pairs the latest processors with advanced cooling.
+D0115S,P0115,spec_sheet,2021-M08,"Dunmore Strike 16 G2 spec sheet. 16-inch display, CPU_FAM_2 processor, 32 GB memory, 46 Wh battery, 1.6 kg. Ports: USB-C, USB-A, HDMI."
+D0116A,P0116,announcement,2022-M08,Performance unleashed: the Fenwick Raptor 16 G3 pairs the latest processors with advanced cooling.
+D0116S,P0116,spec_sheet,2022-M08,"Fenwick Raptor 16 G3 spec sheet. 16-inch display, CPU_FAM_5 processor, 16 GB memory, 44 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0117S,P0117,spec_sheet,2020-M04,"Altura Feather 13 G1 spec sheet. 13.3-inch display, CPU_FAM_2 processor, 16 GB memory, 69 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0118A,P0118,announcement,2025-M01,The Corvane Plain 14 G5 brings a quieter fan profile and a larger touchpad.
+D0118S,P0118,spec_sheet,2025-M01,"Corvane Plain 14 G5 spec sheet. 14-inch display, CPU_FAM_1 processor, 32 GB memory, 63 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0119S,P0119,spec_sheet,2023-M07,"Elsari Civic 15 G4 spec sheet. 15.6-inch display, CPU_FAM_3 processor, 16 GB memory, 56 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0120A,P0120,announcement,2021-M09,Meet the Corvane Lumen 14 G2: up to 18 hours of battery life and a brilliant OLED display.
+D0120S,P0120,spec_sheet,2021-M09,"Corvane Lumen 14 G2 spec sheet. 14-inch display, CPU_FAM_1 processor, 8 GB memory, 87 Wh battery, 2.2 kg. Ports: USB-C, USB-A, HDMI."
+D0121S,P0121,spec_sheet,2022-M08,"Altura Basic 11 G3 spec sheet. 11.6-inch display, CPU_FAM_5 processor, 16 GB memory, 50 Wh battery, 2.2 kg. Ports: USB-C, USB-A, HDMI."
+D0122A,P0122,announcement,2022-M08,The Brevik Halo 14 G3 brings a quieter fan profile and a larger touchpad.
+D0122S,P0122,spec_sheet,2022-M08,"Brevik Halo 14 G3 spec sheet. 14-inch display, CPU_FAM_3 processor, 8 GB memory, 59 Wh battery, 2.0 kg. Ports: USB-C, USB-A, HDMI."
+D0123S,P0123,spec_sheet,2025-M02,"Dunmore Metro 14 G5 spec sheet. 14-inch display, CPU_FAM_5 processor, 8 GB memory, 59 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0124A,P0124,announcement,2022-M05,Performance unleashed: the Fenwick Daily 14 G3 pairs the latest processors with advanced cooling.
+D0124S,P0124,spec_sheet,2022-M05,"Fenwick Daily 14 G3 spec sheet. 14-inch display, CPU_FAM_1 processor, 16 GB memory, 60 Wh battery, 1.5 kg. Ports: USB-C, USB-A, HDMI."
+D0125S,P0125,spec_sheet,2023-M09,"Corvane Vista 13 G4 spec sheet. 13.3-inch display, CPU_FAM_3 processor, 16 GB memory, 65 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0126S,P0126,spec_sheet,2023-M12,"Brevik Vista 13 G4 spec sheet. 13.3-inch display, CPU_FAM_1 processor, 16 GB memory, 65 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0127A,P0127,announcement,2019-M08,The Elsari Value 11 G1 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0127S,P0127,spec_sheet,2019-M08,"Elsari Value 11 G1 spec sheet. 11.6-inch display, CPU_FAM_1 processor, 32 GB memory, 61 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0128A,P0128,announcement,2024-M05,"Lighter than ever, the Brevik Basic 15 G5 weighs just 1.2 kg and opens with one hand."
+D0128S,P0128,spec_sheet,2024-M05,"Brevik Basic 15 G5 spec sheet. 15.6-inch display, CPU_FAM_5 processor, 8 GB memory, 50 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0129S,P0129,spec_sheet,2021-M10,"Dunmore Lumen 14 G3 spec sheet. 14-inch display, CPU_FAM_2 processor, 16 GB memory, 60 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0130A,P0130,announcement,2024-M08,The Altura Civic 14 G5 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0130S,P0130,spec_sheet,2024-M08,"Altura Civic 14 G5 spec sheet. 14-inch display, CPU_FAM_5 processor, 8 GB memory, 60 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0131S,P0131,spec_sheet,2020-M08,"Altura Raptor 16 G2 spec sheet. 16-inch display, CPU_FAM_5 processor, 16 GB memory, 45 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0132S,P0132,spec_sheet,2025-M01,"Brevik Halo 14 G5 spec sheet. 14-inch display, CPU_FAM_5 processor, 16 GB memory, 60 Wh battery, 2.1 kg. Ports: USB-C, USB-A, HDMI."
+D0133A,P0133,announcement,2020-M04,Performance unleashed: the Elsari Slate 13 G1 pairs the latest processors with advanced cooling.
+D0133S,P0133,spec_sheet,2020-M04,"Elsari Slate 13 G1 spec sheet. 13.3-inch display, CPU_FAM_2 processor, 16 GB memory, 66 Wh battery, 2.0 kg. Ports: USB-C, USB-A, HDMI."
+D0134A,P0134,announcement,2019-M10,The Corvane Go 11 G1 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0134S,P0134,spec_sheet,2019-M10,"Corvane Go 11 G1 spec sheet. 11.6-inch display, CPU_FAM_4 processor, 8 GB memory, 53 Wh battery, 1.7 kg. Ports: USB-C, USB-A, HDMI."
+D0135A,P0135,announcement,2024-M12,The Dunmore Raptor 15 G5 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0135S,P0135,spec_sheet,2024-M12,"Dunmore Raptor 15 G5 spec sheet. 15.6-inch display, CPU_FAM_3 processor, 16 GB memory, 52 Wh battery, 2.3 kg. Ports: USB-C, USB-A, HDMI."
+D0136S,P0136,spec_sheet,2021-M09,"Fenwick Plain 15 G2 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 32 GB memory, 60 Wh battery, 1.5 kg. Ports: USB-C, USB-A, HDMI."
+D0137S,P0137,spec_sheet,2020-M01,"Dunmore Feather 13 G1 spec sheet. 13.3-inch display, CPU_FAM_1 processor, 16 GB memory, 64 Wh battery, 1.1 kg. Ports: USB-C, USB-A, HDMI."
+D0138S,P0138,spec_sheet,2022-M05,"Corvane Plain 14 G3 spec sheet. 14-inch display, CPU_FAM_4 processor, 8 GB memory, 64 Wh battery, 1.2 kg. Ports: USB-C, USB-A, HDMI."
+D0139A,P0139,announcement,2024-M08,The Dunmore Basic 11 G5 brings a quieter fan profile and a larger touchpad.
+D0139S,P0139,spec_sheet,2024-M08,"Dunmore Basic 11 G5 spec sheet. 11.6-inch display, CPU_FAM_5 processor, 16 GB memory, 54 Wh battery, 2.4 kg. Ports: USB-C, USB-A, HDMI."
+D0140A,P0140,announcement,2020-M05,The Dunmore Basic 15 G1 features a vivid display with 100% sRGB coverage and a refined aluminium chassis.
+D0140S,P0140,spec_sheet,2020-M05,"Dunmore Basic 15 G1 spec sheet. 15.6-inch display, CPU_FAM_5 processor, 16 GB memory, 59 Wh battery, 2.5 kg. Ports: USB-C, USB-A, HDMI."
+D0141S,P0141,spec_sheet,2022-M03,"Elsari Start 14 G3 spec sheet. 14-inch display, CPU_FAM_4 processor, 8 GB memory, 55 Wh battery, 1.8 kg. Ports: USB-C, USB-A, HDMI."
+D0142S,P0142,spec_sheet,2020-M06,"Brevik Nova 17 G1 spec sheet. 17.3-inch display, CPU_FAM_2 processor, 16 GB memory, 44 Wh battery, 1.6 kg. Ports: USB-C, USB-A, HDMI."
+D0143A,P0143,announcement,2020-M08,"Lighter than ever, the Altura Plain 15 G2 weighs just 1.2 kg and opens with one hand."
+D0143S,P0143,spec_sheet,2020-M08,"Altura Plain 15 G2 spec sheet. 15.6-inch display, CPU_FAM_1 processor, 16 GB memory, 54 Wh battery, 1.4 kg. Ports: USB-C, USB-A, HDMI."
+D0144A,P0144,announcement,2022-M07,The Elsari Plain 15 G3 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0144S,P0144,spec_sheet,2022-M07,"Elsari Plain 15 G3 spec sheet. 15.6-inch display, CPU_FAM_4 processor, 8 GB memory, 58 Wh battery, 1.9 kg. Ports: USB-C, USB-A, HDMI."
+D0145S,P0145,spec_sheet,2025-M01,"Altura Feather 14 G5 spec sheet. 14-inch display, CPU_FAM_2 processor, 16 GB memory, 69 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0146S,P0146,spec_sheet,2022-M02,"Corvane Vista 14 G3 spec sheet. 14-inch display, CPU_FAM_3 processor, 32 GB memory, 62 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."
+D0147A,P0147,announcement,2024-M03,The Dunmore Lumen 14 G5 brings a quieter fan profile and a larger touchpad.
+D0147S,P0147,spec_sheet,2024-M03,"Dunmore Lumen 14 G5 spec sheet. 14-inch display, CPU_FAM_4 processor, 16 GB memory, 68 Wh battery, 2.3 kg. Ports: USB-C, USB-A, HDMI."
+D0148A,P0148,announcement,2021-M10,The Brevik Aero 14 G3 adds intelligent battery saver mode and battery health monitoring in the companion app.
+D0148S,P0148,spec_sheet,2021-M10,"Brevik Aero 14 G3 spec sheet. 14-inch display, CPU_FAM_2 processor, 16 GB memory, 61 Wh battery, 1.3 kg. Ports: USB-C, USB-A, HDMI."

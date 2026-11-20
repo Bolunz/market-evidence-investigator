@@ -1,0 +1,730 @@
+{
+  "question": "Consumers appear to be complaining more about battery life. Have we seen this before, what did manufacturers do about it, what happened to those products afterwards, and what can we reasonably learn from the evidence?",
+  "theme": "battery",
+  "path": "direct_response",
+  "profile": {
+    "by_segment_id": "E001",
+    "trend_ids": {
+      "Budget": "E002",
+      "Gaming": "E003",
+      "Mainstream": "E004",
+      "Premium Thin & Light": "E005"
+    },
+    "statuses": {
+      "Budget": "no_material_change",
+      "Gaming": "no_material_change",
+      "Mainstream": "no_material_change",
+      "Premium Thin & Light": "intensified_long_standing"
+    },
+    "candidate_segments": [
+      "Premium Thin & Light"
+    ]
+  },
+  "plan": {
+    "focus_segment": "Premium Thin & Light",
+    "rationale": "Largest material increase in battery complaints (E005).",
+    "search_terms": [
+      "battery life",
+      "hours of battery",
+      "all-day battery",
+      "long-lasting battery",
+      "battery that lasts"
+    ],
+    "hypotheses": [
+      {
+        "hypothesis_id": "H1",
+        "statement": "Products positioned on the need gained more segment share than their launch cohort",
+        "test_tool": "launch_trajectory",
+        "alternative": "greater"
+      },
+      {
+        "hypothesis_id": "H2",
+        "statement": "Products positioned on the need show lower post-first-sale complaint rates than their cohort",
+        "test_tool": "complaint_comparison",
+        "alternative": "less"
+      }
+    ],
+    "evidence_ids": [
+      "E005"
+    ]
+  },
+  "findings": {
+    "findings": [
+      {
+        "product_id": "P0050",
+        "positioning": "positioned_on_need",
+        "doc_id": "D0050A",
+        "quote": "The new Brevik Aero 14 G4 brings all-day battery that lasts up to 17 hours, in a design under 1.3 kg.",
+        "first_sale_evidence_id": "E008",
+        "cohort_evidence_id": "E009",
+        "sales_evidence_ids": [
+          "E010"
+        ],
+        "price_volume_evidence_id": "E011",
+        "complaint_evidence_ids": [
+          "E012"
+        ],
+        "observations": "P0050: mean segment share 5.66% over first 12 months since first observed sale vs cohort median 4.04% (rank 6 of 16; prediction-interval p=0.354, greater). P0050: 2 month(s) with observed price-and-volume pattern (promotion not confirmed): 2024-M02,2024-M03. P0050: battery complaint rate 8.8% [95% CI 7.5%-10.4%] vs cohort median 8.7% across 15 products in the same months (product-level p=0.593, less); no_detectable_difference.",
+        "open_questions": []
+      },
+      {
+        "product_id": "P0113",
+        "positioning": "positioned_on_need",
+        "doc_id": "D0113A",
+        "quote": "Introducing the Altura Aero 13 G4: engineered for endurance, with up to 20 hours of battery life so you can work a full day and evening without a charger.",
+        "first_sale_evidence_id": "E014",
+        "cohort_evidence_id": "E015",
+        "sales_evidence_ids": [
+          "E016"
+        ],
+        "price_volume_evidence_id": "E017",
+        "complaint_evidence_ids": [
+          "E018"
+        ],
+        "observations": "P0113: mean segment share 18.09% over first 12 months since first observed sale vs cohort median 4.04% (rank 1 of 16; prediction-interval p=0.002, greater). P0113: no price-and-volume pattern at thresholds (ASP -12%, units +30%). P0113: battery complaint rate 3.2% [95% CI 2.7%-3.7%] vs cohort median 8.9% across 15 products in the same months (product-level p=0.005, less); lower_than_cohort.",
+        "open_questions": []
+      },
+      {
+        "product_id": "P0120",
+        "positioning": "positioned_on_need",
+        "doc_id": "D0120A",
+        "quote": "Meet the Corvane Lumen 14 G2: up to 18 hours of battery life and a brilliant OLED display.",
+        "first_sale_evidence_id": "E020",
+        "cohort_evidence_id": null,
+        "sales_evidence_ids": [],
+        "price_volume_evidence_id": null,
+        "complaint_evidence_ids": [],
+        "observations": "First observed sale 2022-M04 is unreliable (coverage_expansion_month,no_visible_ramp,positioning_doc_precedes_first_sale); launch-aligned comparison not run (E020).",
+        "open_questions": [
+          "When did this model actually enter the market?"
+        ]
+      },
+      {
+        "product_id": "P0084",
+        "positioning": "segment_mismatch",
+        "doc_id": "D0084A",
+        "quote": "The Elsari Strike 15 G4 delivers a long-lasting battery for gaming on the go and a 165 Hz display.",
+        "first_sale_evidence_id": null,
+        "cohort_evidence_id": null,
+        "sales_evidence_ids": [],
+        "price_volume_evidence_id": null,
+        "complaint_evidence_ids": [],
+        "observations": "Positioned on the need but in Gaming (E021).",
+        "open_questions": []
+      }
+    ],
+    "products_considered_and_excluded": [],
+    "summary": "4 products examined from E006."
+  },
+  "critique": {
+    "alternative_explanations": [
+      {
+        "product_id": "P0050",
+        "explanation": "Share gains may reflect the observed price-and-volume pattern rather than the positioning.",
+        "would_distinguish": "Re-run the launch comparison excluding the pattern months.",
+        "addressed_by": [
+          "E011"
+        ]
+      },
+      {
+        "product_id": "P0050",
+        "explanation": "Complaint differences may reflect a different buyer mix, firmware updates or shifting attention rather than better battery performance.",
+        "would_distinguish": "Owner-verified reviews, firmware timelines, complaint trends within the product.",
+        "addressed_by": [
+          "E012"
+        ]
+      },
+      {
+        "product_id": "P0113",
+        "explanation": "Complaint differences may reflect a different buyer mix, firmware updates or shifting attention rather than better battery performance.",
+        "would_distinguish": "Owner-verified reviews, firmware timelines, complaint trends within the product.",
+        "addressed_by": [
+          "E018"
+        ]
+      }
+    ],
+    "requested_test": {
+      "tool": "launch_trajectory",
+      "args": {
+        "product_id": "P0050",
+        "cohort_ids": [
+          "P0003",
+          "P0005",
+          "P0015",
+          "P0016",
+          "P0032",
+          "P0042",
+          "P0079",
+          "P0088",
+          "P0099",
+          "P0102",
+          "P0107",
+          "P0113",
+          "P0125",
+          "P0126",
+          "P0147"
+        ],
+        "exclude_price_volume_months": true,
+        "alternative": "greater"
+      },
+      "reason": "Check robustness to price-and-volume months"
+    },
+    "downgrade_recommendations": []
+  },
+  "draft": {
+    "title": "Battery complaints in Premium Thin & Light: evidence investigation",
+    "claims": [
+      {
+        "claim_id": "C01",
+        "section": "A_consumer_signal",
+        "level": "observation",
+        "text": "In Premium Thin & Light, the battery complaint rate was 6.9% of comments in 2024-M07..2025-M12 versus 4.4% in 2021-M01..2022-M06 (difference 95% CI 2.2% to 2.8%).",
+        "assertions": [
+          {
+            "type": "signal_change",
+            "subject": "Premium Thin & Light",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C02",
+        "section": "A_consumer_signal",
+        "level": "observation",
+        "text": "Across segments in the recent window: Premium Thin & Light: 6.9% [6.7%, 7.1%]; Budget: 3.8% [3.6%, 3.9%]; Gaming: 3.4% [3.2%, 3.6%]; Mainstream: 3.4% [3.3%, 3.5%]",
+        "assertions": [
+          {
+            "type": "signal_level",
+            "subject": null,
+            "evidence_ids": [
+              "E001"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C03",
+        "section": "B_historical_context",
+        "level": "observation",
+        "text": "The baseline rate of 4.4% shows the complaint was present before the increase (status: intensified_long_standing).",
+        "assertions": [
+          {
+            "type": "signal_change",
+            "subject": "Premium Thin & Light",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C04",
+        "section": "B_historical_context",
+        "level": "evidence_gap",
+        "text": "The history covers one panel window only, so earlier episodes cannot be checked.",
+        "assertions": [
+          {
+            "type": "evidence_gap",
+            "subject": null,
+            "evidence_ids": []
+          }
+        ]
+      },
+      {
+        "claim_id": "C05",
+        "section": "C_market_response",
+        "level": "observation",
+        "text": "Brevik Aero 14 G4 (P0050) was positioned on the need: \"The new Brevik Aero 14 G4 brings all-day battery that lasts up to 17 hours, in a design under 1.3 kg.\" This is documented positioning, not evidence that the product resolved the problem.",
+        "assertions": [
+          {
+            "type": "positioning_claim",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E007"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C06",
+        "section": "D_sales_evidence",
+        "level": "method_note",
+        "text": "P0050 first observed sale: 2023-M11 (an estimate of market entry, not a verified launch date); reliability usable.",
+        "assertions": [
+          {
+            "type": "first_observed_sale",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "type": "fos_reliability",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E008"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C07",
+        "section": "D_sales_evidence",
+        "level": "observation",
+        "text": "P0050 averaged 5.7% of segment sell-out over its first 12 months, versus a cohort median of 4.0% (rank 6 of 16; p=0.354, BH q=0.428).",
+        "assertions": [
+          {
+            "type": "sales_comparison",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E010"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C08",
+        "section": "D_sales_evidence",
+        "level": "observation",
+        "text": "P0050 averaged 5.1% of segment sell-out over its first 10 months excluding price-and-volume pattern months, versus a cohort median of 4.0% (rank 6 of 16; p=0.428, BH q=0.428).",
+        "assertions": [
+          {
+            "type": "sales_comparison",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E022"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C09",
+        "section": "D_sales_evidence",
+        "level": "observation",
+        "text": "P0050 shows an observed price-and-volume pattern (promotion not confirmed) in 2024-M02,2024-M03.",
+        "assertions": [
+          {
+            "type": "price_volume_pattern",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E011"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C10",
+        "section": "D_sales_evidence",
+        "level": "observation",
+        "text": "P0050 battery complaint rate was 8.8% versus a cohort median of 8.7% in the same months (p=0.593, BH q=0.593).",
+        "assertions": [
+          {
+            "type": "complaint_comparison",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E012"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C11",
+        "section": "C_market_response",
+        "level": "observation",
+        "text": "Altura Aero 13 G4 (P0113) was positioned on the need: \"Introducing the Altura Aero 13 G4: engineered for endurance, with up to 20 hours of battery life so you can work a full day and evening without a charger.\" This is documented positioning, not evidence that the product resolved the problem.",
+        "assertions": [
+          {
+            "type": "positioning_claim",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E013"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C12",
+        "section": "D_sales_evidence",
+        "level": "method_note",
+        "text": "P0113 first observed sale: 2023-M10 (an estimate of market entry, not a verified launch date); reliability usable.",
+        "assertions": [
+          {
+            "type": "first_observed_sale",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E014"
+            ]
+          },
+          {
+            "type": "fos_reliability",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E014"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C13",
+        "section": "D_sales_evidence",
+        "level": "association",
+        "text": "P0113 averaged 18.1% of segment sell-out over its first 12 months, versus a cohort median of 4.0% (rank 1 of 16; p=0.002, BH q=0.005).",
+        "assertions": [
+          {
+            "type": "sales_association",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E016"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C14",
+        "section": "D_sales_evidence",
+        "level": "association",
+        "text": "P0113 battery complaint rate was 3.2% versus a cohort median of 8.9% in the same months (p=0.005, BH q=0.010).",
+        "assertions": [
+          {
+            "type": "complaint_association",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E018"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C15",
+        "section": "C_market_response",
+        "level": "observation",
+        "text": "Corvane Lumen 14 G2 (P0120) was positioned on the need: \"Meet the Corvane Lumen 14 G2: up to 18 hours of battery life and a brilliant OLED display.\" This is documented positioning, not evidence that the product resolved the problem.",
+        "assertions": [
+          {
+            "type": "positioning_claim",
+            "subject": "P0120",
+            "evidence_ids": [
+              "E019"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C16",
+        "section": "D_sales_evidence",
+        "level": "method_note",
+        "text": "P0120 first observed sale: 2022-M04 (an estimate of market entry, not a verified launch date); reliability unreliable.",
+        "assertions": [
+          {
+            "type": "first_observed_sale",
+            "subject": "P0120",
+            "evidence_ids": [
+              "E020"
+            ]
+          },
+          {
+            "type": "fos_reliability",
+            "subject": "P0120",
+            "evidence_ids": [
+              "E020"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C17",
+        "section": "C_market_response",
+        "level": "observation",
+        "text": "Elsari Strike 15 G4 (P0084) is positioned on the need but sits outside Premium Thin & Light, so it is not compared with this segment's cohort.",
+        "assertions": [
+          {
+            "type": "positioning_claim",
+            "subject": "P0084",
+            "evidence_ids": [
+              "E021"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C18",
+        "section": "E_evidence_assessment",
+        "level": "observation",
+        "text": "Consumer signal in Premium Thin & Light: rubric grade Moderate.",
+        "assertions": [
+          {
+            "type": "confidence_grade",
+            "subject": "Premium Thin & Light",
+            "evidence_ids": [
+              "E023"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C19",
+        "section": "E_evidence_assessment",
+        "level": "observation",
+        "text": "P0050: rubric grade Not supported (sales: not_supported; complaints: no_detectable_difference; contradiction: none).",
+        "assertions": [
+          {
+            "type": "confidence_grade",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E024"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C20",
+        "section": "E_evidence_assessment",
+        "level": "observation",
+        "text": "P0113: rubric grade Moderate (sales: supported; complaints: lower_than_cohort; contradiction: none).",
+        "assertions": [
+          {
+            "type": "confidence_grade",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E025"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C21",
+        "section": "E_evidence_assessment",
+        "level": "observation",
+        "text": "P0120: rubric grade Insufficient (sales: not_tested; complaints: not_tested; contradiction: none).",
+        "assertions": [
+          {
+            "type": "confidence_grade",
+            "subject": "P0120",
+            "evidence_ids": [
+              "E026"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C22",
+        "section": "E_evidence_assessment",
+        "level": "explanation",
+        "text": "P0050: possible alternative explanation: Share gains may reflect the observed price-and-volume pattern rather than the positioning.",
+        "assertions": [
+          {
+            "type": "alternative_explanation",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E011"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C23",
+        "section": "E_evidence_assessment",
+        "level": "explanation",
+        "text": "P0050: possible alternative explanation: Complaint differences may reflect a different buyer mix, firmware updates or shifting attention rather than better battery performance.",
+        "assertions": [
+          {
+            "type": "alternative_explanation",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E012"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C24",
+        "section": "E_evidence_assessment",
+        "level": "explanation",
+        "text": "P0113: possible alternative explanation: Complaint differences may reflect a different buyer mix, firmware updates or shifting attention rather than better battery performance.",
+        "assertions": [
+          {
+            "type": "alternative_explanation",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E018"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C25",
+        "section": "F_opportunity_hypotheses",
+        "level": "hypothesis",
+        "text": "Hypothesis for analyst evaluation: endurance positioning in Premium Thin & Light may merit further study, given P0113's rubric grade of Moderate; this does not establish that battery life drove its sales.",
+        "assertions": [
+          {
+            "type": "opportunity_hypothesis",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E025"
+            ]
+          }
+        ]
+      }
+    ],
+    "follow_ups": [
+      "Verify actual market-entry dates for flagged products.",
+      "Check owner-verified reviews for post-launch battery experience."
+    ]
+  },
+  "checks": [
+    {
+      "claim_id": "C01",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C02",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C03",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C04",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C05",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C06",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C07",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C08",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C09",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C10",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C11",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C12",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C13",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C14",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C15",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C16",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C17",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C18",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C19",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C20",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C21",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C22",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C23",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C24",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C25",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    }
+  ],
+  "revisions": 0
+}

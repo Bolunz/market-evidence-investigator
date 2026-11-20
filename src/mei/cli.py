@@ -62,7 +62,7 @@ def main(argv=None) -> int:
     r.add_argument("--mode", choices=["scripted", "live", "replay"], default="scripted")
     r.add_argument("--theme", default="battery")
     r.add_argument("--cache", default=None, help="LLM cache file (live writes, replay reads)")
-    r.add_argument("--max-tool-calls", type=int, default=16)
+    r.add_argument("--max-tool-calls", type=int, default=24)
     r.add_argument("--quiet", action="store_true")
     r.set_defaults(fn=cmd_run)
     c = sub.add_parser("check", help="re-execute every ledger entry of a run and compare")

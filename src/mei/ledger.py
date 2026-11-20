@@ -71,11 +71,16 @@ class EvidenceLedger:
         return [e for e in self.entries if e.p_value is not None]
 
     def adjust(self) -> None:
-        """Recompute BH q-values over every test run so far (agent-chosen tests included,
-        so searching across many segments/products is penalised)."""
-        tests = self.tests()
-        for e, q in zip(tests, benjamini_hochberg([e.p_value for e in tests])):
-            e.q_value = _clean(q)
+        """Benjamini-Hochberg within each question family (one family per test tool: signal
+        screening, sales-vs-cohort, complaints-vs-cohort). Every test run in a family counts,
+        including agent-chosen and exploratory ones, so testing more products or segments raises
+        the bar for all of them."""
+        families: dict[str, list[Evidence]] = {}
+        for e in self.tests():
+            families.setdefault(e.tool, []).append(e)
+        for tests in families.values():
+            for e, q in zip(tests, benjamini_hochberg([e.p_value for e in tests])):
+                e.q_value = _clean(q)
 
     def to_dict(self) -> dict:
         return {"data_hashes": self.data_hashes, "n_tests": len(self.tests()),

@@ -18,7 +18,8 @@ DEFAULT_QUESTION = ("Consumers appear to be complaining more about battery life.
 
 def run_investigation(data_dir: str | Path, out_dir: str | Path, mode: str = "scripted", theme: str = "battery",
                       question: str = DEFAULT_QUESTION, cache_path: str | Path | None = None,
-                      on_event: Optional[Callable[[dict], None]] = None, max_tool_calls: int = 16) -> dict:
+                      on_event: Optional[Callable[[dict], None]] = None, max_tool_calls: int = 24,
+                      chat_factory=None) -> dict:
     load_dotenv()                                       # reads a local, git-ignored .env if present
     out_dir = Path(out_dir)
     md = CsvMarketSource(data_dir).load()
@@ -27,7 +28,7 @@ def run_investigation(data_dir: str | Path, out_dir: str | Path, mode: str = "sc
     if mode in ("live", "replay"):
         from .llm.client import LLMClient
         cache_path = Path(cache_path or out_dir / "llm_cache.jsonl")
-        llm = LLMClient(mode, cache_path)
+        llm = LLMClient(mode, cache_path, chat_factory=chat_factory)
     ctx = RunContext(md=md, ledger=ledger, mode=mode, theme=theme, question=question, llm=llm,
                      on_event=on_event, max_tool_calls=max_tool_calls)
     app = build_graph(ctx)

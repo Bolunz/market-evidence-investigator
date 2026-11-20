@@ -1,0 +1,11 @@
+{
+  "mode": "scripted",
+  "mode_label": "scripted run (no LLM; deterministic test policy, not the agent)",
+  "data_label": "battery_s42 (synthetic)",
+  "synthetic": true,
+  "theme": "battery",
+  "question": "Consumers appear to be complaining more about battery life. Have we seen this before, what did manufacturers do about it, what happened to those products afterwards, and what can we reasonably learn from the evidence?",
+  "models": null,
+  "usage": null,
+  "data_dir": "examples/data/battery_s42"
+}

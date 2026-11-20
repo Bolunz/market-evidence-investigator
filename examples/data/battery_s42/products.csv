@@ -1,0 +1,149 @@
+product_id,oem,model,form_factor,segment,screen_size
+P0001,Fenwick,Fenwick Lite 14 G1,Notebook,Budget,14
+P0002,Corvane,Corvane Civic 15 G1,Notebook,Mainstream,15.6
+P0003,Fenwick,Fenwick Lumen 14 G5,Notebook,Premium Thin & Light,14
+P0004,Elsari,Elsari Plain 15 G4,Notebook,Mainstream,15.6
+P0005,Corvane,Corvane Lumen 14 G4,Notebook,Premium Thin & Light,14
+P0006,Dunmore,Dunmore Civic 15 G6,Notebook,Mainstream,15.6
+P0007,Elsari,Elsari Raptor 17 G2,Notebook,Gaming,17.3
+P0008,Dunmore,Dunmore Metro 15 G1,Notebook,Mainstream,15.6
+P0009,Altura,Altura Go 15 G1,Notebook,Budget,15.6
+P0010,Brevik,Brevik Halo 13 G5,Notebook,Premium Thin & Light,13.3
+P0011,Corvane,Corvane Core 15 G3,Notebook,Mainstream,15.6
+P0012,Dunmore,Dunmore Vista 14 G2,Notebook,Premium Thin & Light,14
+P0013,Brevik,Brevik Slate 14 G6,Notebook,Premium Thin & Light,14
+P0014,Corvane,Corvane Raptor 17 G2,Notebook,Gaming,17.3
+P0015,Elsari,Elsari Vista 14 G4,Notebook,Premium Thin & Light,14
+P0016,Brevik,Brevik Feather 13 G4,Notebook,Premium Thin & Light,13.3
+P0017,Fenwick,Fenwick Ridge 15 G6,Notebook,Mainstream,15.6
+P0018,Elsari,Elsari Forge 17 G2,Notebook,Gaming,17.3
+P0019,Altura,Altura Volt 15 G1,Notebook,Gaming,15.6
+P0020,Corvane,Corvane Forge 15 G1,Notebook,Gaming,15.6
+P0021,Dunmore,Dunmore Ridge 15 G4,Notebook,Mainstream,15.6
+P0022,Elsari,Elsari Ridge 15 G6,Notebook,Mainstream,15.6
+P0023,Brevik,Brevik Basic 11 G3,Notebook,Budget,11.6
+P0024,Elsari,Elsari Metro 14 G2,Notebook,Mainstream,14
+P0025,Elsari,Elsari Aero 14 G5,Notebook,Premium Thin & Light,14
+P0026,Elsari,Elsari Forge 16 G6,Notebook,Gaming,16
+P0027,Brevik,Brevik Halo 14 G5,Notebook,Premium Thin & Light,14
+P0028,Dunmore,Dunmore Metro 15 G1,Notebook,Mainstream,15.6
+P0029,Fenwick,Fenwick Lumen 13 G2,Notebook,Premium Thin & Light,13.3
+P0030,Brevik,Brevik Slate 14 G1,Notebook,Premium Thin & Light,14
+P0031,Fenwick,Fenwick Halo 13 G3,Notebook,Premium Thin & Light,13.3
+P0032,Elsari,Elsari Aero 13 G4,Notebook,Premium Thin & Light,13.3
+P0033,Dunmore,Dunmore Lumen 13 G3,Notebook,Premium Thin & Light,13.3
+P0034,Fenwick,Fenwick Forge 16 G3,Notebook,Gaming,16
+P0035,Corvane,Corvane Metro 14 G5,Notebook,Mainstream,14
+P0036,Altura,Altura Core 15 G3,Notebook,Mainstream,15.6
+P0037,Corvane,Corvane Blaze 16 G2,Notebook,Gaming,16
+P0038,Corvane,Corvane Lite 11 G4,Notebook,Budget,11.6
+P0039,Corvane,Corvane Vista 13 G1,Notebook,Premium Thin & Light,13.3
+P0040,Fenwick,Fenwick Strike 15 G2,Notebook,Gaming,15.6
+P0041,Brevik,Brevik Start 14 G1,Notebook,Budget,14
+P0042,Altura,Altura Lumen 14 G5,Notebook,Premium Thin & Light,14
+P0043,Dunmore,Dunmore Raptor 17 G5,Notebook,Gaming,17.3
+P0044,Fenwick,Fenwick Feather 13 G1,Notebook,Premium Thin & Light,13.3
+P0045,Elsari,Elsari Plain 15 G3,Notebook,Mainstream,15.6
+P0046,Elsari,Elsari Plain 15 G3,Notebook,Mainstream,15.6
+P0047,Fenwick,Fenwick Nova 15 G5,Notebook,Gaming,15.6
+P0048,Dunmore,Dunmore Basic 11 G2,Notebook,Budget,11.6
+P0049,Elsari,Elsari Feather 14 G3,Notebook,Premium Thin & Light,14
+P0050,Brevik,Brevik Aero 14 G4,Notebook,Premium Thin & Light,14
+P0051,Altura,Altura Ridge 15 G5,Notebook,Mainstream,15.6
+P0052,Brevik,Brevik Value 15 G1,Notebook,Budget,15.6
+P0053,Elsari,Elsari Go 15 G4,Notebook,Budget,15.6
+P0054,Fenwick,Fenwick Forge 17 G2,Notebook,Gaming,17.3
+P0055,Corvane,Corvane Start 15 G1,Notebook,Budget,15.6
+P0056,Altura,Altura Raptor 16 G3,Notebook,Gaming,16
+P0057,Corvane,Corvane Aero 14 G1,Notebook,Premium Thin & Light,14
+P0058,Corvane,Corvane Lite 11 G5,Notebook,Budget,11.6
+P0059,Corvane,Corvane Go 14 G3,Notebook,Budget,14
+P0060,Fenwick,Fenwick Core 14 G2,Notebook,Mainstream,14
+P0061,Brevik,Brevik Value 15 G2,Notebook,Budget,15.6
+P0062,Altura,Altura Civic 15 G4,Notebook,Mainstream,15.6
+P0063,Dunmore,Dunmore Civic 14 G5,Notebook,Mainstream,14
+P0064,Fenwick,Fenwick Start 11 G2,Notebook,Budget,11.6
+P0065,Altura,Altura Ridge 15 G4,Notebook,Mainstream,15.6
+P0066,Dunmore,Dunmore Raptor 17 G3,Notebook,Gaming,17.3
+P0067,Corvane,Corvane Lite 11 G3,Notebook,Budget,11.6
+P0068,Dunmore,Dunmore Easy 14 G5,Notebook,Budget,14
+P0069,Dunmore,Dunmore Civic 15 G3,Notebook,Mainstream,15.6
+P0070,Brevik,Brevik Lite 15 G5,Notebook,Budget,15.6
+P0071,Corvane,Corvane Plain 14 G5,Notebook,Mainstream,14
+P0072,Elsari,Elsari Volt 17 G1,Notebook,Gaming,17.3
+P0073,Elsari,Elsari Daily 15 G3,Notebook,Mainstream,15.6
+P0074,Elsari,Elsari Halo 13 G1,Notebook,Premium Thin & Light,13.3
+P0075,Altura,Altura Value 15 G1,Notebook,Budget,15.6
+P0076,Elsari,Elsari Slate 14 G2,Notebook,Premium Thin & Light,14
+P0077,Elsari,Elsari Feather 14 G1,Notebook,Premium Thin & Light,14
+P0078,Dunmore,Dunmore Core 15 G5,Notebook,Mainstream,15.6
+P0079,Altura,Altura Lumen 14 G4,Notebook,Premium Thin & Light,14
+P0080,Altura,Altura Civic 15 G4,Notebook,Mainstream,15.6
+P0081,Elsari,Elsari Aero 13 G3,Notebook,Premium Thin & Light,13.3
+P0082,Dunmore,Dunmore Feather 14 G3,Notebook,Premium Thin & Light,14
+P0083,Altura,Altura Halo 14 G5,Notebook,Premium Thin & Light,14
+P0084,Elsari,Elsari Strike 15 G4,Notebook,Gaming,15.6
+P0085,Dunmore,Dunmore Ridge 15 G1,Notebook,Mainstream,15.6
+P0086,Fenwick,Fenwick Volt 17 G1,Notebook,Gaming,17.3
+P0087,Altura,Altura Plain 15 G4,Notebook,Mainstream,15.6
+P0088,Dunmore,Dunmore Vista 14 G4,Notebook,Premium Thin & Light,14
+P0089,Corvane,Corvane Volt 15 G5,Notebook,Gaming,15.6
+P0090,Altura,Altura Volt 17 G3,Notebook,Gaming,17.3
+P0091,Dunmore,Dunmore Start 11 G3,Notebook,Budget,11.6
+P0092,Corvane,Corvane Core 15 G4,Notebook,Mainstream,15.6
+P0093,Dunmore,Dunmore Ridge 14 G6,Notebook,Mainstream,14
+P0094,Elsari,Elsari Go 15 G2,Notebook,Budget,15.6
+P0095,Elsari,Elsari Ridge 14 G4,Notebook,Mainstream,14
+P0096,Dunmore,Dunmore Volt 17 G1,Notebook,Gaming,17.3
+P0097,Brevik,Brevik Core 15 G4,Notebook,Mainstream,15.6
+P0098,Brevik,Brevik Forge 16 G5,Notebook,Gaming,16
+P0099,Corvane,Corvane Slate 14 G4,Notebook,Premium Thin & Light,14
+P0100,Brevik,Brevik Plain 15 G5,Notebook,Mainstream,15.6
+P0101,Altura,Altura Lite 15 G2,Notebook,Budget,15.6
+P0102,Corvane,Corvane Vista 14 G4,Notebook,Premium Thin & Light,14
+P0103,Dunmore,Dunmore Go 11 G4,Notebook,Budget,11.6
+P0104,Corvane,Corvane Strike 16 G5,Notebook,Gaming,16
+P0105,Dunmore,Dunmore Lite 15 G5,Notebook,Budget,15.6
+P0106,Corvane,Corvane Forge 15 G3,Notebook,Gaming,15.6
+P0107,Fenwick,Fenwick Halo 14 G4,Notebook,Premium Thin & Light,14
+P0108,Corvane,Corvane Lumen 14 G5,Notebook,Premium Thin & Light,14
+P0109,Corvane,Corvane Easy 14 G3,Notebook,Budget,14
+P0110,Dunmore,Dunmore Nova 17 G3,Notebook,Gaming,17.3
+P0111,Elsari,Elsari Lumen 13 G2,Notebook,Premium Thin & Light,13.3
+P0112,Elsari,Elsari Forge 17 G5,Notebook,Gaming,17.3
+P0113,Altura,Altura Aero 13 G4,Notebook,Premium Thin & Light,13.3
+P0114,Corvane,Corvane Forge 15 G4,Notebook,Gaming,15.6
+P0115,Dunmore,Dunmore Strike 16 G2,Notebook,Gaming,16
+P0116,Fenwick,Fenwick Raptor 16 G3,Notebook,Gaming,16
+P0117,Altura,Altura Feather 13 G1,Notebook,Premium Thin & Light,13.3
+P0118,Corvane,Corvane Plain 14 G5,Notebook,Mainstream,14
+P0119,Elsari,Elsari Civic 15 G4,Notebook,Mainstream,15.6
+P0120,Corvane,Corvane Lumen 14 G2,Notebook,Premium Thin & Light,14
+P0121,Altura,Altura Basic 11 G3,Notebook,Budget,11.6
+P0122,Brevik,Brevik Halo 14 G3,Notebook,Premium Thin & Light,14
+P0123,Dunmore,Dunmore Metro 14 G5,Notebook,Mainstream,14
+P0124,Fenwick,Fenwick Daily 14 G3,Notebook,Mainstream,14
+P0125,Corvane,Corvane Vista 13 G4,Notebook,Premium Thin & Light,13.3
+P0126,Brevik,Brevik Vista 13 G4,Notebook,Premium Thin & Light,13.3
+P0127,Elsari,Elsari Value 11 G1,Notebook,Budget,11.6
+P0128,Brevik,Brevik Basic 15 G5,Notebook,Budget,15.6
+P0129,Dunmore,Dunmore Lumen 14 G3,Notebook,Premium Thin & Light,14
+P0130,Altura,Altura Civic 14 G5,Notebook,Mainstream,14
+P0131,Altura,Altura Raptor 16 G2,Notebook,Gaming,16
+P0132,Brevik,Brevik Halo 14 G5,Notebook,Premium Thin & Light,14
+P0133,Elsari,Elsari Slate 13 G1,Notebook,Premium Thin & Light,13.3
+P0134,Corvane,Corvane Go 11 G1,Notebook,Budget,11.6
+P0135,Dunmore,Dunmore Raptor 15 G5,Notebook,Gaming,15.6
+P0136,Fenwick,Fenwick Plain 15 G2,Notebook,Mainstream,15.6
+P0137,Dunmore,Dunmore Feather 13 G1,Notebook,Premium Thin & Light,13.3
+P0138,Corvane,Corvane Plain 14 G3,Notebook,Mainstream,14
+P0139,Dunmore,Dunmore Basic 11 G5,Notebook,Budget,11.6
+P0140,Dunmore,Dunmore Basic 15 G1,Notebook,Budget,15.6
+P0141,Elsari,Elsari Start 14 G3,Notebook,Budget,14
+P0142,Brevik,Brevik Nova 17 G1,Notebook,Gaming,17.3
+P0143,Altura,Altura Plain 15 G2,Notebook,Mainstream,15.6
+P0144,Elsari,Elsari Plain 15 G3,Notebook,Mainstream,15.6
+P0145,Altura,Altura Feather 14 G5,Notebook,Premium Thin & Light,14
+P0146,Corvane,Corvane Vista 14 G3,Notebook,Premium Thin & Light,14
+P0147,Dunmore,Dunmore Lumen 14 G5,Notebook,Premium Thin & Light,14
+P0148,Brevik,Brevik Aero 14 G3,Notebook,Premium Thin & Light,14

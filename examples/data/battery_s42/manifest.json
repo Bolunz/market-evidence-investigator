@@ -1,0 +1,16 @@
+{
+  "scenario_id": "battery_s42",
+  "generator_version": "0.1.0",
+  "synthetic": true,
+  "history": [
+    "2021-M01",
+    "2025-M12"
+  ],
+  "source": "PANEL_SO_US (fictional)",
+  "files": {
+    "products.csv": "0b4ecc336b0d425486c24598f7ff787f095ceac95b16ae823306e4f289aa806a",
+    "sellout_monthly.csv": "71fc64ea4921f4bbe786f5a13396cff9b1841624dcdfa8b226fbd6745a624b7f",
+    "product_docs.csv": "b19357a8eac27b81b7b93e7a60f05b186bb936ff3facd6db90ee372f4d461f8b",
+    "signal_counts.csv": "52964dbb96d016c1b7f4dd298c4ab01534805fa7ae1d86b2cb1aac5ce6cda7f7"
+  }
+}

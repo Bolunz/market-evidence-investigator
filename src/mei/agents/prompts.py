@@ -37,7 +37,7 @@ Suggested approach (adapt as the evidence requires):
    If a price-and-volume pattern exists, consider re-running launch_trajectory with
    exclude_price_volume_months=true.
 4. Use the declared hypothesis directions for test tools.
-Budget: about 16 tool calls. When done, submit by calling the InvestigationFindings tool. Quotes must be copied exactly from
+Budget: about 24 tool calls. When done, submit by calling the InvestigationFindings tool. Quotes must be copied exactly from
 document text returned by the tools. Cite evidence IDs for everything."""
 
 CRITIC = RULES + """

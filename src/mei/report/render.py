@@ -145,7 +145,8 @@ def build_markdown(state, checks, ledger, meta) -> str:
     lines += ["", "## Run metadata", "", f"- Models: {meta.get('models')}",
               f"- LLM calls: {u.get('calls', 0)}; input tokens: {u.get('input_tokens', 0)}; "
               f"output tokens: {u.get('output_tokens', 0)}",
-              f"- Tests run: {len(ledger.tests())} (BH-adjusted across all of them)",
+              f"- Tests run: {len(ledger.tests())} (Benjamini-Hochberg within each test family: signal screening, "
+              f"sales vs cohort, complaints vs cohort)",
               f"- Data file hashes: {json.dumps(ledger.data_hashes)}", ""]
     return "\n".join(lines)
 

@@ -63,13 +63,13 @@ def _strip_volatile(d: list[dict]) -> list[dict]:
 
 class LLMClient:
     def __init__(self, mode: str, cache_path: Path, model_main: str | None = None,
-                 model_small: str | None = None, max_calls: int | None = None):
+                 model_small: str | None = None, max_calls: int | None = None, chat_factory=None):
         assert mode in ("live", "replay")
         self.mode = mode
         self.cache_path = Path(cache_path)
         self.model_main = model_main or os.getenv("MEI_MODEL_MAIN", "claude-sonnet-5-5")
         self.model_small = model_small or os.getenv("MEI_MODEL_SMALL", "claude-haiku-5-5")
-        self.max_calls = max_calls or int(os.getenv("MEI_MAX_LLM_CALLS", "40"))
+        self.max_calls = max_calls or int(os.getenv("MEI_MAX_LLM_CALLS", "60"))
         self.usage = Usage()
         self._cache: dict[str, dict] = {}
         if self.cache_path.exists():
@@ -78,12 +78,15 @@ class LLMClient:
                     rec = json.loads(line)
                     self._cache[rec["key"]] = rec
         self._models: dict[str, object] = {}
-        if mode == "live" and not os.getenv("ANTHROPIC_API_KEY"):
+        self.chat_factory = chat_factory          # tests inject a fake chat model; never used in production
+        if mode == "live" and chat_factory is None and not os.getenv("ANTHROPIC_API_KEY"):
             raise RuntimeError("ANTHROPIC_API_KEY is not set. Copy .env.example to .env and add your key "
                                "(the file is git-ignored), or run with --mode replay.")
 
     def _model(self, which: str):
         name = self.model_main if which == "main" else self.model_small
+        if name not in self._models and self.chat_factory is not None:
+            self._models[name] = self.chat_factory(name)
         if name not in self._models:
             from langchain_anthropic import ChatAnthropic
             self._models[name] = ChatAnthropic(model=name, temperature=0, max_tokens=4096, max_retries=3,

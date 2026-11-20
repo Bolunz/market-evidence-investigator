@@ -114,7 +114,7 @@ def build_products(rng: np.random.Generator, variant: str) -> tuple[list[Product
     # cohort: guarantee enough comparable premium thin-and-light launches near A
     for off in [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]:
         new(TARGET_SEG, la + off, attract=float(rng.lognormal(0, 0.35)))
-    effect = 3.0 if variant == "positive" else 1.0
+    effect = 4.0 if variant == "positive" else 1.0
     a = new(TARGET_SEG, la, attract=1.0 * effect, battery=rng.uniform(19, 21), role="A", oem=oems[0])
     b = new(TARGET_SEG, lb, attract=1.0, battery=rng.uniform(16, 18), role="B", oem=oems[1])
     for p in (a, b):                              # keep A and B near the segment's typical price
@@ -220,7 +220,7 @@ def build_signals(rng, products: list[Product], sell: pd.DataFrame, variant: str
             if theme == "battery":
                 rate = battery_segment_rate(p.segment, j) * factor
                 if p.role == "A" and variant == "positive":
-                    rate *= 0.45
+                    rate *= 0.35
             else:
                 rate = {"thermals": 0.03, "display": 0.025}[theme] * factor
             true_c = rng.binomial(comments, min(rate, 0.9))

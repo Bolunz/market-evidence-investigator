@@ -27,3 +27,4 @@ __pycache__/
 # generated (reproducible via `make data`)
 data/synthetic/
 evaluation/answer_keys/
+evaluation/work/

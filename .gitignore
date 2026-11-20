@@ -1,0 +1,29 @@
+# credentials
+.env
+.env.*
+!.env.example
+
+# private / real data — never committed
+data/private/
+data/real/
+runs/real/
+cache/real/
+
+# local run outputs (examples/ is curated and committed separately)
+runs/
+
+# python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# os / editors
+.DS_Store
+.vscode/
+.idea/
+
+# generated (reproducible via `make data`)
+data/synthetic/
+evaluation/answer_keys/

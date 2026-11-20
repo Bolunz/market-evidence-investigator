@@ -218,7 +218,9 @@ def build_graph(ctx: RunContext, interrupt_after: list[str] | None = None):
             d = scripted.write(ctx, state)
         else:
             products = ctx.md.products.set_index("product_id")
-            involved = {e.params.get("product_id") for e in ctx.ledger.entries if e.params.get("product_id")}
+            # sorted: iterating a set of strings depends on PYTHONHASHSEED, which made the writer prompt
+            # (and so its replay cache key) differ between processes
+            involved = sorted({e.params.get("product_id") for e in ctx.ledger.entries if e.params.get("product_id")})
             msg = {"question": ctx.question, "path": state.get("path"), "plan": state.get("plan"),
                    "findings": state.get("findings"), "critique": state.get("critique"),
                    "product_models": {p: products.loc[p, "model"] for p in involved if p in products.index},

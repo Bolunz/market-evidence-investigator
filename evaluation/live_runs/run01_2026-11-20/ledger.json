@@ -1,0 +1,2163 @@
+{
+  "data_hashes": {
+    "products.csv": "0b4ecc336b0d425486c24598f7ff787f095ceac95b16ae823306e4f289aa806a",
+    "sellout_monthly.csv": "71fc64ea4921f4bbe786f5a13396cff9b1841624dcdfa8b226fbd6745a624b7f",
+    "product_docs.csv": "b19357a8eac27b81b7b93e7a60f05b186bb936ff3facd6db90ee372f4d461f8b",
+    "signal_counts.csv": "52964dbb96d016c1b7f4dd298c4ab01534805fa7ae1d86b2cb1aac5ce6cda7f7"
+  },
+  "n_tests": 9,
+  "entries": [
+    {
+      "evidence_id": "E001",
+      "tool": "signal_by_segment",
+      "params": {
+        "theme": "battery"
+      },
+      "evidence_type": "signal_by_segment",
+      "values": {
+        "theme": "battery",
+        "window": "2024-M07..2025-M12",
+        "rate_premium_thin_light": 0.06900616612259702,
+        "ci_low_premium_thin_light": 0.06667819631132252,
+        "ci_high_premium_thin_light": 0.07140919491541031,
+        "rate_budget": 0.03760296468026064,
+        "ci_low_budget": 0.03607133298592769,
+        "ci_high_budget": 0.03919698671251217,
+        "rate_gaming": 0.034321524823846476,
+        "ci_low_gaming": 0.03234563884152617,
+        "ci_high_gaming": 0.03641356897596643,
+        "rate_mainstream": 0.03413139039374101,
+        "ci_low_mainstream": 0.032850501273738335,
+        "ci_high_mainstream": 0.03546039207523651
+      },
+      "summary": "Premium Thin & Light: 6.9% [6.7%, 7.1%]; Budget: 3.8% [3.6%, 3.9%]; Gaming: 3.4% [3.2%, 3.6%]; Mainstream: 3.4% [3.3%, 3.5%]",
+      "detail": {
+        "segments": [
+          {
+            "segment": "Premium Thin & Light",
+            "complaints": 3044,
+            "comments": 44112,
+            "rate": 0.06900616612259702,
+            "ci_low": 0.06667819631132252,
+            "ci_high": 0.07140919491541031
+          },
+          {
+            "segment": "Budget",
+            "complaints": 2141,
+            "comments": 56937,
+            "rate": 0.03760296468026064,
+            "ci_low": 0.03607133298592769,
+            "ci_high": 0.03919698671251217
+          },
+          {
+            "segment": "Gaming",
+            "complaints": 1057,
+            "comments": 30797,
+            "rate": 0.034321524823846476,
+            "ci_low": 0.03234563884152617,
+            "ci_high": 0.03641356897596643
+          },
+          {
+            "segment": "Mainstream",
+            "complaints": 2539,
+            "comments": 74389,
+            "rate": 0.03413139039374101,
+            "ci_low": 0.032850501273738335,
+            "ci_high": 0.03546039207523651
+          }
+        ]
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "code"
+    },
+    {
+      "evidence_id": "E002",
+      "tool": "signal_trend",
+      "params": {
+        "theme": "battery",
+        "segment": "Budget"
+      },
+      "evidence_type": "signal_trend",
+      "values": {
+        "theme": "battery",
+        "segment": "Budget",
+        "baseline_window": "2021-M01..2022-M06",
+        "recent_window": "2024-M07..2025-M12",
+        "baseline_rate": 0.034574716073326746,
+        "recent_rate": 0.03760296468026064,
+        "baseline_complaints": 1854,
+        "baseline_comments": 53623,
+        "recent_complaints": 2141,
+        "recent_comments": 56937,
+        "diff": 0.0030282486069338962,
+        "diff_ci_low": 0.0008277226845373165,
+        "diff_ci_high": 0.00522621638018517,
+        "p_value": 0.007007595873285998,
+        "status": "no_material_change",
+        "top_product_share_of_recent_complaints": 0.26015880429705746,
+        "n_products_recent": 14
+      },
+      "summary": "battery complaint rate in Budget: 3.5% baseline -> 3.8% recent (diff +0.3%, 95% CI +0.1% to +0.5%); status=no_material_change.",
+      "detail": {
+        "series": [
+          {
+            "period": "2021-H1",
+            "comments": 17711,
+            "complaints": 608,
+            "rate": 0.03432894811134323,
+            "ci_low": 0.03174685807307125,
+            "ci_high": 0.03711299944562544,
+            "mention_rate": 0.09485630399186946
+          },
+          {
+            "period": "2021-H2",
+            "comments": 20638,
+            "complaints": 719,
+            "rate": 0.03483864715573214,
+            "ci_low": 0.03242219370177654,
+            "ci_high": 0.0374282342116965,
+            "mention_rate": 0.09782924702006009
+          },
+          {
+            "period": "2022-H1",
+            "comments": 15274,
+            "complaints": 527,
+            "rate": 0.034503077124525335,
+            "ci_low": 0.031723603070848816,
+            "ci_high": 0.03751664017110126,
+            "mention_rate": 0.09473615293963598
+          },
+          {
+            "period": "2022-H2",
+            "comments": 23124,
+            "complaints": 837,
+            "rate": 0.036196159833938764,
+            "ci_low": 0.03386479734507402,
+            "ci_high": 0.038681594924524686,
+            "mention_rate": 0.09920428991523958
+          },
+          {
+            "period": "2023-H1",
+            "comments": 16805,
+            "complaints": 587,
+            "rate": 0.03493008033323416,
+            "ci_low": 0.03225872261081165,
+            "ci_high": 0.03781401034382064,
+            "mention_rate": 0.09520975900029753
+          },
+          {
+            "period": "2023-H2",
+            "comments": 22076,
+            "complaints": 860,
+            "rate": 0.03895633266896177,
+            "ci_low": 0.03648310849896043,
+            "ci_high": 0.04158998192769367,
+            "mention_rate": 0.100425801775684
+          },
+          {
+            "period": "2024-H1",
+            "comments": 16053,
+            "complaints": 673,
+            "rate": 0.0419236279823086,
+            "ci_low": 0.03893138330109426,
+            "ci_high": 0.04513505419114178,
+            "mention_rate": 0.1027222326044976
+          },
+          {
+            "period": "2024-H2",
+            "comments": 21092,
+            "complaints": 835,
+            "rate": 0.039588469561919214,
+            "ci_low": 0.037039719545836264,
+            "ci_high": 0.04230489735830813,
+            "mention_rate": 0.09780959605537645
+          },
+          {
+            "period": "2025-H1",
+            "comments": 15502,
+            "complaints": 543,
+            "rate": 0.03502773835634112,
+            "ci_low": 0.03224687079792367,
+            "ci_high": 0.038038992869328256,
+            "mention_rate": 0.09501999741968778
+          },
+          {
+            "period": "2025-H2",
+            "comments": 20343,
+            "complaints": 763,
+            "rate": 0.03750675908174802,
+            "ci_low": 0.03498194003648172,
+            "ci_high": 0.04020621444522936,
+            "mention_rate": 0.0979698176276852
+          }
+        ],
+        "grain": "half"
+      },
+      "p_value": 0.007007595873285998,
+      "test_label": "battery complaint rate recent vs baseline (Budget)",
+      "q_value": 0.014015191746571997,
+      "hypothesis_status": "confirmatory",
+      "test_family": "signal_screening",
+      "q_pooled": 0.015767090714893496,
+      "requested_by": "code"
+    },
+    {
+      "evidence_id": "E003",
+      "tool": "signal_trend",
+      "params": {
+        "theme": "battery",
+        "segment": "Gaming"
+      },
+      "evidence_type": "signal_trend",
+      "values": {
+        "theme": "battery",
+        "segment": "Gaming",
+        "baseline_window": "2021-M01..2022-M06",
+        "recent_window": "2024-M07..2025-M12",
+        "baseline_rate": 0.03169572107765452,
+        "recent_rate": 0.034321524823846476,
+        "baseline_complaints": 760,
+        "baseline_comments": 23978,
+        "recent_complaints": 1057,
+        "recent_comments": 30797,
+        "diff": 0.0026258037461919584,
+        "diff_ci_low": -0.0004014688482680195,
+        "diff_ci_high": 0.005621004264344065,
+        "p_value": 0.08867359620359204,
+        "status": "no_material_change",
+        "top_product_share_of_recent_complaints": 0.20151371807000945,
+        "n_products_recent": 13
+      },
+      "summary": "battery complaint rate in Gaming: 3.2% baseline -> 3.4% recent (diff +0.3%, 95% CI -0.0% to +0.6%); status=no_material_change.",
+      "detail": {
+        "series": [
+          {
+            "period": "2021-H1",
+            "comments": 7685,
+            "complaints": 221,
+            "rate": 0.02875731945348081,
+            "ci_low": 0.025249787106718213,
+            "ci_high": 0.03273573141495993,
+            "mention_rate": 0.09173715029277814
+          },
+          {
+            "period": "2021-H2",
+            "comments": 9392,
+            "complaints": 322,
+            "rate": 0.03428449744463373,
+            "ci_low": 0.030790777068042386,
+            "ci_high": 0.0381590303185551,
+            "mention_rate": 0.09209965928449744
+          },
+          {
+            "period": "2022-H1",
+            "comments": 6901,
+            "complaints": 217,
+            "rate": 0.03144471815678887,
+            "ci_low": 0.027580847059818534,
+            "ci_high": 0.03582994396730446,
+            "mention_rate": 0.0953485002173598
+          },
+          {
+            "period": "2022-H2",
+            "comments": 10727,
+            "complaints": 354,
+            "rate": 0.033000839004381465,
+            "ci_low": 0.029783962325452374,
+            "ci_high": 0.03655207120485053,
+            "mention_rate": 0.09387526801528852
+          },
+          {
+            "period": "2023-H1",
+            "comments": 7952,
+            "complaints": 262,
+            "rate": 0.0329476861167002,
+            "ci_low": 0.02924440844909993,
+            "ci_high": 0.03710199394627118,
+            "mention_rate": 0.09532193158953722
+          },
+          {
+            "period": "2023-H2",
+            "comments": 10736,
+            "complaints": 377,
+            "rate": 0.035115499254843516,
+            "ci_low": 0.03179655334279169,
+            "ci_high": 0.038767007742020645,
+            "mention_rate": 0.09724292101341282
+          },
+          {
+            "period": "2024-H1",
+            "comments": 8229,
+            "complaints": 351,
+            "rate": 0.04265402843601896,
+            "ci_low": 0.03849717899906012,
+            "ci_high": 0.04723767479974021,
+            "mention_rate": 0.11337951148377688
+          },
+          {
+            "period": "2024-H2",
+            "comments": 11193,
+            "complaints": 407,
+            "rate": 0.03636201197176807,
+            "ci_low": 0.03305021325765515,
+            "ci_high": 0.039991944374791415,
+            "mention_rate": 0.10345751809166444
+          },
+          {
+            "period": "2025-H1",
+            "comments": 8418,
+            "complaints": 270,
+            "rate": 0.03207412687099073,
+            "ci_low": 0.02851843779531857,
+            "ci_high": 0.036056686478850325,
+            "mention_rate": 0.09182703730102162
+          },
+          {
+            "period": "2025-H2",
+            "comments": 11186,
+            "complaints": 380,
+            "rate": 0.03397103522259968,
+            "ci_low": 0.03077071987247617,
+            "ci_high": 0.037491324914456496,
+            "mention_rate": 0.09270516717325228
+          }
+        ],
+        "grain": "half"
+      },
+      "p_value": 0.08867359620359204,
+      "test_label": "battery complaint rate recent vs baseline (Gaming)",
+      "q_value": 0.11823146160478938,
+      "hypothesis_status": "confirmatory",
+      "test_family": "signal_screening",
+      "q_pooled": 0.15961247316646568,
+      "requested_by": "code"
+    },
+    {
+      "evidence_id": "E004",
+      "tool": "signal_trend",
+      "params": {
+        "theme": "battery",
+        "segment": "Mainstream"
+      },
+      "evidence_type": "signal_trend",
+      "values": {
+        "theme": "battery",
+        "segment": "Mainstream",
+        "baseline_window": "2021-M01..2022-M06",
+        "recent_window": "2024-M07..2025-M12",
+        "baseline_rate": 0.034070149799050056,
+        "recent_rate": 0.03413139039374101,
+        "baseline_complaints": 2238,
+        "baseline_comments": 65688,
+        "recent_complaints": 2539,
+        "recent_comments": 74389,
+        "diff": 6.124059469095333e-05,
+        "diff_ci_low": -0.0018472169635844454,
+        "diff_ci_high": 0.001962966541740555,
+        "p_value": 0.949748812932534,
+        "status": "no_material_change",
+        "top_product_share_of_recent_complaints": 0.08310358408822371,
+        "n_products_recent": 26
+      },
+      "summary": "battery complaint rate in Mainstream: 3.4% baseline -> 3.4% recent (diff +0.0%, 95% CI -0.2% to +0.2%); status=no_material_change.",
+      "detail": {
+        "series": [
+          {
+            "period": "2021-H1",
+            "comments": 21820,
+            "complaints": 714,
+            "rate": 0.032722273143904676,
+            "ci_low": 0.03044272274108147,
+            "ci_high": 0.035166325121662095,
+            "mention_rate": 0.09679193400549954
+          },
+          {
+            "period": "2021-H2",
+            "comments": 24531,
+            "complaints": 857,
+            "rate": 0.03493538787656435,
+            "ci_low": 0.032709487124569774,
+            "ci_high": 0.037306920428090425,
+            "mention_rate": 0.09612327259386083
+          },
+          {
+            "period": "2022-H1",
+            "comments": 19337,
+            "complaints": 667,
+            "rate": 0.034493458137249834,
+            "ci_low": 0.032012341542966845,
+            "ci_high": 0.037159491630328244,
+            "mention_rate": 0.09742979779696954
+          },
+          {
+            "period": "2022-H2",
+            "comments": 29541,
+            "complaints": 1005,
+            "rate": 0.03402051386208998,
+            "ci_low": 0.03201311264456073,
+            "ci_high": 0.03614908960071334,
+            "mention_rate": 0.09546054635929725
+          },
+          {
+            "period": "2023-H1",
+            "comments": 21418,
+            "complaints": 726,
+            "rate": 0.0338967223830423,
+            "ci_low": 0.03155554752369256,
+            "ci_high": 0.036405064621592216,
+            "mention_rate": 0.09435988420954337
+          },
+          {
+            "period": "2023-H2",
+            "comments": 28493,
+            "complaints": 1059,
+            "rate": 0.03716702347945109,
+            "ci_low": 0.035032165865624125,
+            "ci_high": 0.03942666361156045,
+            "mention_rate": 0.09742743831818342
+          },
+          {
+            "period": "2024-H1",
+            "comments": 20891,
+            "complaints": 788,
+            "rate": 0.03771959216887655,
+            "ci_low": 0.035219954682412735,
+            "ci_high": 0.04038920760456738,
+            "mention_rate": 0.09927720070843904
+          },
+          {
+            "period": "2024-H2",
+            "comments": 27587,
+            "complaints": 993,
+            "rate": 0.0359952151375648,
+            "ci_low": 0.03386086953849773,
+            "ci_high": 0.03825876703694093,
+            "mention_rate": 0.09910465074129118
+          },
+          {
+            "period": "2025-H1",
+            "comments": 20174,
+            "complaints": 716,
+            "rate": 0.035491226330920986,
+            "ci_low": 0.03302528396351035,
+            "ci_high": 0.038134035121783545,
+            "mention_rate": 0.09626251610984435
+          },
+          {
+            "period": "2025-H2",
+            "comments": 26628,
+            "complaints": 830,
+            "rate": 0.031170196785338743,
+            "ci_low": 0.029149637738703656,
+            "ci_high": 0.033326006740984244,
+            "mention_rate": 0.0957638575935106
+          }
+        ],
+        "grain": "half"
+      },
+      "p_value": 0.949748812932534,
+      "test_label": "battery complaint rate recent vs baseline (Mainstream)",
+      "q_value": 0.949748812932534,
+      "hypothesis_status": "confirmatory",
+      "test_family": "signal_screening",
+      "q_pooled": 0.9497488129325339,
+      "requested_by": "code"
+    },
+    {
+      "evidence_id": "E005",
+      "tool": "signal_trend",
+      "params": {
+        "theme": "battery",
+        "segment": "Premium Thin & Light"
+      },
+      "evidence_type": "signal_trend",
+      "values": {
+        "theme": "battery",
+        "segment": "Premium Thin & Light",
+        "baseline_window": "2021-M01..2022-M06",
+        "recent_window": "2024-M07..2025-M12",
+        "baseline_rate": 0.04399182514115487,
+        "recent_rate": 0.06900616612259702,
+        "baseline_complaints": 1270,
+        "baseline_comments": 28869,
+        "recent_complaints": 3044,
+        "recent_comments": 44112,
+        "diff": 0.025014340981442153,
+        "diff_ci_low": 0.021651388647308874,
+        "diff_ci_high": 0.028344551299213122,
+        "p_value": 1.332102765379476e-44,
+        "status": "intensified_long_standing",
+        "top_product_share_of_recent_complaints": 0.12582128777923784,
+        "n_products_recent": 28
+      },
+      "summary": "battery complaint rate in Premium Thin & Light: 4.4% baseline -> 6.9% recent (diff +2.5%, 95% CI +2.2% to +2.8%); status=intensified_long_standing.",
+      "detail": {
+        "series": [
+          {
+            "period": "2021-H1",
+            "comments": 9078,
+            "complaints": 370,
+            "rate": 0.040757876184181537,
+            "ci_low": 0.03688089471706811,
+            "ci_high": 0.04502336029480965,
+            "mention_rate": 0.09858999779687155
+          },
+          {
+            "period": "2021-H2",
+            "comments": 11151,
+            "complaints": 521,
+            "rate": 0.046722267061250114,
+            "ci_low": 0.04295884614969173,
+            "ci_high": 0.050797883847908974,
+            "mention_rate": 0.10761366693570083
+          },
+          {
+            "period": "2022-H1",
+            "comments": 8640,
+            "complaints": 379,
+            "rate": 0.04386574074074074,
+            "ci_low": 0.03974635143782393,
+            "ci_high": 0.048390556492534445,
+            "mention_rate": 0.10405092592592592
+          },
+          {
+            "period": "2022-H2",
+            "comments": 13813,
+            "complaints": 775,
+            "rate": 0.056106566278143775,
+            "ci_low": 0.05239081783710134,
+            "ci_high": 0.06006914368534337,
+            "mention_rate": 0.1198870629117498
+          },
+          {
+            "period": "2023-H1",
+            "comments": 10441,
+            "complaints": 748,
+            "rate": 0.07164064744756249,
+            "ci_low": 0.06684990106019024,
+            "ci_high": 0.07674648235394711,
+            "mention_rate": 0.13696006129681065
+          },
+          {
+            "period": "2023-H2",
+            "comments": 14639,
+            "complaints": 1216,
+            "rate": 0.08306578318191134,
+            "ci_low": 0.07870374230777125,
+            "ci_high": 0.08764658427815031,
+            "mention_rate": 0.15233280961814333
+          },
+          {
+            "period": "2024-H1",
+            "comments": 11146,
+            "complaints": 860,
+            "rate": 0.0771577247443029,
+            "ci_low": 0.0723482776941278,
+            "ci_high": 0.08225853579172271,
+            "mention_rate": 0.14283150906154674
+          },
+          {
+            "period": "2024-H2",
+            "comments": 15774,
+            "complaints": 1057,
+            "rate": 0.06700900215544567,
+            "ci_low": 0.06321151729068498,
+            "ci_high": 0.0710173291803703,
+            "mention_rate": 0.1302142766577913
+          },
+          {
+            "period": "2025-H1",
+            "comments": 11892,
+            "complaints": 809,
+            "rate": 0.06802892700975445,
+            "ci_low": 0.06364148024323663,
+            "ci_high": 0.07269536187381331,
+            "mention_rate": 0.1336192398250925
+          },
+          {
+            "period": "2025-H2",
+            "comments": 16446,
+            "complaints": 1178,
+            "rate": 0.0716283594795087,
+            "ci_low": 0.06778645025201055,
+            "ci_high": 0.0756703401813894,
+            "mention_rate": 0.13626413717621305
+          }
+        ],
+        "grain": "half"
+      },
+      "p_value": 1.332102765379476e-44,
+      "test_label": "battery complaint rate recent vs baseline (Premium Thin & Light)",
+      "q_value": 5.328411061517904e-44,
+      "hypothesis_status": "confirmatory",
+      "test_family": "signal_screening",
+      "q_pooled": 1.1988924888415282e-43,
+      "requested_by": "code"
+    },
+    {
+      "evidence_id": "E006",
+      "tool": "search_product_docs",
+      "params": {
+        "terms": [
+          "all-day battery life",
+          "up to hours battery",
+          "battery life optimized",
+          "long-lasting battery",
+          "fast charging",
+          "power efficiency",
+          "extended battery runtime",
+          "large capacity battery"
+        ],
+        "segment": "Premium Thin & Light"
+      },
+      "evidence_type": "product_doc_search",
+      "values": {
+        "terms": "all-day battery life,up to hours battery,battery life optimized,long-lasting battery,fast charging,power efficiency,extended battery runtime,large capacity battery",
+        "segment": "Premium Thin & Light",
+        "n_hits": 0,
+        "n_returned": 0
+      },
+      "summary": "0 documents match ['all-day battery life', 'up to hours battery', 'battery life optimized', 'long-lasting battery', 'fast charging', 'power efficiency', 'extended battery runtime', 'large capacity battery'] (segment=Premium Thin & Light); returned 0.",
+      "detail": {
+        "hits": []
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E007",
+      "tool": "search_product_docs",
+      "params": {
+        "terms": [
+          "all-day battery life",
+          "long-lasting battery",
+          "battery life"
+        ],
+        "segment": null
+      },
+      "evidence_type": "product_doc_search",
+      "values": {
+        "terms": "all-day battery life,long-lasting battery,battery life",
+        "segment": "ALL",
+        "n_hits": 3,
+        "n_returned": 3
+      },
+      "summary": "3 documents match ['all-day battery life', 'long-lasting battery', 'battery life'] (segment=ALL); returned 3.",
+      "detail": {
+        "hits": [
+          {
+            "doc_id": "D0084A",
+            "product_id": "P0084",
+            "model": "Elsari Strike 15 G4",
+            "segment": "Gaming",
+            "doc_type": "announcement",
+            "published_month": "2023-M07",
+            "matched_terms": [
+              "long-lasting battery"
+            ],
+            "snippet": "The Elsari Strike 15 G4 delivers a long-lasting battery for gaming on the go and a 165 Hz display."
+          },
+          {
+            "doc_id": "D0113A",
+            "product_id": "P0113",
+            "model": "Altura Aero 13 G4",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2023-M09",
+            "matched_terms": [
+              "battery life"
+            ],
+            "snippet": "Introducing the Altura Aero 13 G4: engineered for endurance, with up to 20 hours of battery life so you can work a full day and evening without a charger."
+          },
+          {
+            "doc_id": "D0120A",
+            "product_id": "P0120",
+            "model": "Corvane Lumen 14 G2",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2021-M09",
+            "matched_terms": [
+              "battery life"
+            ],
+            "snippet": "Meet the Corvane Lumen 14 G2: up to 18 hours of battery life and a brilliant OLED display."
+          }
+        ]
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E008",
+      "tool": "get_product_doc",
+      "params": {
+        "doc_id": "D0113A"
+      },
+      "evidence_type": "product_doc",
+      "values": {
+        "doc_id": "D0113A",
+        "product_id": "P0113",
+        "model": "Altura Aero 13 G4",
+        "segment": "Premium Thin & Light",
+        "doc_type": "announcement",
+        "published_month": "2023-M09"
+      },
+      "summary": "D0113A (announcement, 2023-M09) for Altura Aero 13 G4: Introducing the Altura Aero 13 G4: engineered for endurance, with up to 20 hours of battery life so you can work a full day and evening without a charger.",
+      "detail": {
+        "text": "Introducing the Altura Aero 13 G4: engineered for endurance, with up to 20 hours of battery life so you can work a full day and evening without a charger."
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E009",
+      "tool": "get_product_doc",
+      "params": {
+        "doc_id": "D0120A"
+      },
+      "evidence_type": "product_doc",
+      "values": {
+        "doc_id": "D0120A",
+        "product_id": "P0120",
+        "model": "Corvane Lumen 14 G2",
+        "segment": "Premium Thin & Light",
+        "doc_type": "announcement",
+        "published_month": "2021-M09"
+      },
+      "summary": "D0120A (announcement, 2021-M09) for Corvane Lumen 14 G2: Meet the Corvane Lumen 14 G2: up to 18 hours of battery life and a brilliant OLED display.",
+      "detail": {
+        "text": "Meet the Corvane Lumen 14 G2: up to 18 hours of battery life and a brilliant OLED display."
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E010",
+      "tool": "first_observed_sale",
+      "params": {
+        "product_id": "P0113"
+      },
+      "evidence_type": "first_observed_sale",
+      "values": {
+        "product_id": "P0113",
+        "first_observed_sale_month": "2023-M10",
+        "months_observed": 27,
+        "first_month_units": 5860,
+        "early_peak_units": 21541,
+        "doc_to_first_sale_gap_months": 1,
+        "flags": "none",
+        "reliability": "usable"
+      },
+      "summary": "P0113: first observed sale 2023-M10 (an estimate of market entry, not a verified launch date); reliability=usable; flags=none.",
+      "detail": {},
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E011",
+      "tool": "first_observed_sale",
+      "params": {
+        "product_id": "P0120"
+      },
+      "evidence_type": "first_observed_sale",
+      "values": {
+        "product_id": "P0120",
+        "first_observed_sale_month": "2022-M04",
+        "months_observed": 19,
+        "first_month_units": 4104,
+        "early_peak_units": 6171,
+        "doc_to_first_sale_gap_months": 7,
+        "flags": "coverage_expansion_month,no_visible_ramp,positioning_doc_precedes_first_sale",
+        "reliability": "unreliable"
+      },
+      "summary": "P0120: first observed sale 2022-M04 (an estimate of market entry, not a verified launch date); reliability=unreliable; flags=coverage_expansion_month,no_visible_ramp,positioning_doc_precedes_first_sale.",
+      "detail": {},
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E012",
+      "tool": "search_product_docs",
+      "params": {
+        "terms": [
+          "battery",
+          "hours",
+          "endurance",
+          "charger"
+        ],
+        "segment": "Premium Thin & Light"
+      },
+      "evidence_type": "product_doc_search",
+      "values": {
+        "terms": "battery,hours,endurance,charger",
+        "segment": "Premium Thin & Light",
+        "n_hits": 55,
+        "n_returned": 25
+      },
+      "summary": "55 documents match ['battery', 'hours', 'endurance', 'charger'] (segment=Premium Thin & Light); returned 25.",
+      "detail": {
+        "hits": [
+          {
+            "doc_id": "D0113A",
+            "product_id": "P0113",
+            "model": "Altura Aero 13 G4",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2023-M09",
+            "matched_terms": [
+              "battery",
+              "hours",
+              "endurance",
+              "charger"
+            ],
+            "snippet": "Introducing the Altura Aero 13 G4: engineered for endurance, with up to 20 hours of battery life so you can work a full day and evening without a charger."
+          },
+          {
+            "doc_id": "D0050A",
+            "product_id": "P0050",
+            "model": "Brevik Aero 14 G4",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2023-M10",
+            "matched_terms": [
+              "battery",
+              "hours"
+            ],
+            "snippet": "The new Brevik Aero 14 G4 brings all-day battery that lasts up to 17 hours, in a design under 1.3 kg."
+          },
+          {
+            "doc_id": "D0120A",
+            "product_id": "P0120",
+            "model": "Corvane Lumen 14 G2",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2021-M09",
+            "matched_terms": [
+              "battery",
+              "hours"
+            ],
+            "snippet": "Meet the Corvane Lumen 14 G2: up to 18 hours of battery life and a brilliant OLED display."
+          },
+          {
+            "doc_id": "D0013A",
+            "product_id": "P0013",
+            "model": "Brevik Slate 14 G6",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2025-M06",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "The Brevik Slate 14 G6 adds intelligent battery saver mode and battery health monitoring in the companion app."
+          },
+          {
+            "doc_id": "D0025A",
+            "product_id": "P0025",
+            "model": "Elsari Aero 14 G5",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2024-M05",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "The Elsari Aero 14 G5 adds intelligent battery saver mode and battery health monitoring in the companion app."
+          },
+          {
+            "doc_id": "D0029A",
+            "product_id": "P0029",
+            "model": "Fenwick Lumen 13 G2",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2020-M11",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "The Fenwick Lumen 13 G2 adds intelligent battery saver mode and battery health monitoring in the companion app."
+          },
+          {
+            "doc_id": "D0108A",
+            "product_id": "P0108",
+            "model": "Corvane Lumen 14 G5",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2024-M12",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "The Corvane Lumen 14 G5 adds intelligent battery saver mode and battery health monitoring in the companion app."
+          },
+          {
+            "doc_id": "D0148A",
+            "product_id": "P0148",
+            "model": "Brevik Aero 14 G3",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2021-M10",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "The Brevik Aero 14 G3 adds intelligent battery saver mode and battery health monitoring in the companion app."
+          },
+          {
+            "doc_id": "D0003S",
+            "product_id": "P0003",
+            "model": "Fenwick Lumen 14 G5",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2024-M02",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "14-inch display, CPU_FAM_2 processor, 16 GB memory, 70 Wh battery, 2.3 kg."
+          },
+          {
+            "doc_id": "D0005S",
+            "product_id": "P0005",
+            "model": "Corvane Lumen 14 G4",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2023-M06",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "14-inch display, CPU_FAM_5 processor, 8 GB memory, 62 Wh battery, 1.2 kg."
+          },
+          {
+            "doc_id": "D0010S",
+            "product_id": "P0010",
+            "model": "Brevik Halo 13 G5",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2024-M11",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "13.3-inch display, CPU_FAM_4 processor, 16 GB memory, 62 Wh battery, 2.2 kg."
+          },
+          {
+            "doc_id": "D0012S",
+            "product_id": "P0012",
+            "model": "Dunmore Vista 14 G2",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2021-M03",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "14-inch display, CPU_FAM_1 processor, 16 GB memory, 64 Wh battery, 1.8 kg."
+          },
+          {
+            "doc_id": "D0013S",
+            "product_id": "P0013",
+            "model": "Brevik Slate 14 G6",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2025-M06",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "14-inch display, CPU_FAM_2 processor, 16 GB memory, 69 Wh battery, 1.9 kg."
+          },
+          {
+            "doc_id": "D0015S",
+            "product_id": "P0015",
+            "model": "Elsari Vista 14 G4",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2023-M05",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "14-inch display, CPU_FAM_2 processor, 8 GB memory, 60 Wh battery, 1.7 kg."
+          },
+          {
+            "doc_id": "D0016S",
+            "product_id": "P0016",
+            "model": "Brevik Feather 13 G4",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2023-M04",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "13.3-inch display, CPU_FAM_2 processor, 16 GB memory, 59 Wh battery, 1.8 kg."
+          },
+          {
+            "doc_id": "D0025S",
+            "product_id": "P0025",
+            "model": "Elsari Aero 14 G5",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2024-M05",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "14-inch display, CPU_FAM_3 processor, 8 GB memory, 70 Wh battery, 2.5 kg."
+          },
+          {
+            "doc_id": "D0027S",
+            "product_id": "P0027",
+            "model": "Brevik Halo 14 G5",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2024-M07",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "14-inch display, CPU_FAM_3 processor, 32 GB memory, 70 Wh battery, 2.1 kg."
+          },
+          {
+            "doc_id": "D0029S",
+            "product_id": "P0029",
+            "model": "Fenwick Lumen 13 G2",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2020-M11",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "13.3-inch display, CPU_FAM_1 processor, 32 GB memory, 63 Wh battery, 2.5 kg."
+          },
+          {
+            "doc_id": "D0030S",
+            "product_id": "P0030",
+            "model": "Brevik Slate 14 G1",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2020-M07",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "14-inch display, CPU_FAM_2 processor, 8 GB memory, 71 Wh battery, 2.6 kg."
+          },
+          {
+            "doc_id": "D0031S",
+            "product_id": "P0031",
+            "model": "Fenwick Halo 13 G3",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2021-M12",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "13.3-inch display, CPU_FAM_1 processor, 8 GB memory, 61 Wh battery, 1.1 kg."
+          },
+          {
+            "doc_id": "D0032S",
+            "product_id": "P0032",
+            "model": "Elsari Aero 13 G4",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2023-M07",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "13.3-inch display, CPU_FAM_3 processor, 32 GB memory, 67 Wh battery, 1.2 kg."
+          },
+          {
+            "doc_id": "D0033S",
+            "product_id": "P0033",
+            "model": "Dunmore Lumen 13 G3",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2022-M05",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "13.3-inch display, CPU_FAM_1 processor, 16 GB memory, 69 Wh battery, 2.1 kg."
+          },
+          {
+            "doc_id": "D0039S",
+            "product_id": "P0039",
+            "model": "Corvane Vista 13 G1",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2019-M11",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "13.3-inch display, CPU_FAM_2 processor, 16 GB memory, 60 Wh battery, 2.6 kg."
+          },
+          {
+            "doc_id": "D0042S",
+            "product_id": "P0042",
+            "model": "Altura Lumen 14 G5",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2024-M02",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "14-inch display, CPU_FAM_2 processor, 16 GB memory, 70 Wh battery, 1.6 kg."
+          },
+          {
+            "doc_id": "D0044S",
+            "product_id": "P0044",
+            "model": "Fenwick Feather 13 G1",
+            "segment": "Premium Thin & Light",
+            "doc_type": "spec_sheet",
+            "published_month": "2020-M02",
+            "matched_terms": [
+              "battery"
+            ],
+            "snippet": "13.3-inch display, CPU_FAM_5 processor, 16 GB memory, 66 Wh battery, 1.4 kg."
+          }
+        ]
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E013",
+      "tool": "first_observed_sale",
+      "params": {
+        "product_id": "P0050"
+      },
+      "evidence_type": "first_observed_sale",
+      "values": {
+        "product_id": "P0050",
+        "first_observed_sale_month": "2023-M11",
+        "months_observed": 22,
+        "first_month_units": 1883,
+        "early_peak_units": 5518,
+        "doc_to_first_sale_gap_months": 1,
+        "flags": "none",
+        "reliability": "usable"
+      },
+      "summary": "P0050: first observed sale 2023-M11 (an estimate of market entry, not a verified launch date); reliability=usable; flags=none.",
+      "detail": {},
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E014",
+      "tool": "define_cohort",
+      "params": {
+        "product_id": "P0113",
+        "window_months": 6,
+        "asp_tolerance": 0.3
+      },
+      "evidence_type": "cohort_definition",
+      "values": {
+        "target": "P0113",
+        "segment": "Premium Thin & Light",
+        "target_first_observed_sale": "2023-M10",
+        "target_early_asp": 1150.13,
+        "window_months": 6,
+        "asp_tolerance": 0.3,
+        "n_cohort": 15,
+        "cohort_ids": "P0003,P0005,P0015,P0016,P0032,P0042,P0050,P0079,P0088,P0099,P0102,P0107,P0125,P0126,P0147",
+        "excluded_unreliable_fos": "none"
+      },
+      "summary": "Cohort for P0113: 15 Premium Thin & Light models with first observed sale within +/-6 months and early ASP within +/-30%.",
+      "detail": {
+        "members": [
+          {
+            "product_id": "P0003",
+            "first_observed_sale_month": "2024-M03",
+            "early_asp": 1221.57
+          },
+          {
+            "product_id": "P0005",
+            "first_observed_sale_month": "2023-M07",
+            "early_asp": 1400.25
+          },
+          {
+            "product_id": "P0015",
+            "first_observed_sale_month": "2023-M06",
+            "early_asp": 1063.15
+          },
+          {
+            "product_id": "P0016",
+            "first_observed_sale_month": "2023-M05",
+            "early_asp": 1106.53
+          },
+          {
+            "product_id": "P0032",
+            "first_observed_sale_month": "2023-M08",
+            "early_asp": 1006.91
+          },
+          {
+            "product_id": "P0042",
+            "first_observed_sale_month": "2024-M03",
+            "early_asp": 991.8
+          },
+          {
+            "product_id": "P0050",
+            "first_observed_sale_month": "2023-M11",
+            "early_asp": 1149.61
+          },
+          {
+            "product_id": "P0079",
+            "first_observed_sale_month": "2023-M09",
+            "early_asp": 1136.08
+          },
+          {
+            "product_id": "P0088",
+            "first_observed_sale_month": "2024-M02",
+            "early_asp": 1205.67
+          },
+          {
+            "product_id": "P0099",
+            "first_observed_sale_month": "2023-M08",
+            "early_asp": 1292.15
+          },
+          {
+            "product_id": "P0102",
+            "first_observed_sale_month": "2023-M12",
+            "early_asp": 1125.23
+          },
+          {
+            "product_id": "P0107",
+            "first_observed_sale_month": "2023-M11",
+            "early_asp": 1029.09
+          },
+          {
+            "product_id": "P0125",
+            "first_observed_sale_month": "2023-M10",
+            "early_asp": 1145.33
+          },
+          {
+            "product_id": "P0126",
+            "first_observed_sale_month": "2024-M01",
+            "early_asp": 982.35
+          },
+          {
+            "product_id": "P0147",
+            "first_observed_sale_month": "2024-M04",
+            "early_asp": 1305.61
+          }
+        ]
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E015",
+      "tool": "price_volume_pattern",
+      "params": {
+        "product_id": "P0113"
+      },
+      "evidence_type": "price_volume_pattern",
+      "values": {
+        "product_id": "P0113",
+        "pattern_detected": false,
+        "n_pattern_months": 0,
+        "pattern_months": "none",
+        "max_asp_drop": 0.0,
+        "max_unit_jump": 0.0,
+        "label": "observed price-and-volume pattern (promotion not confirmed)",
+        "asp_drop_threshold": 0.12,
+        "unit_jump_threshold": 1.3
+      },
+      "summary": "P0113: no price-and-volume pattern at thresholds (ASP -12%, units +30%).",
+      "detail": {
+        "months": []
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E016",
+      "tool": "search_product_docs",
+      "params": {
+        "terms": [
+          "all-day battery",
+          "days of battery",
+          "battery that lasts"
+        ],
+        "segment": null
+      },
+      "evidence_type": "product_doc_search",
+      "values": {
+        "terms": "all-day battery,days of battery,battery that lasts",
+        "segment": "ALL",
+        "n_hits": 1,
+        "n_returned": 1
+      },
+      "summary": "1 documents match ['all-day battery', 'days of battery', 'battery that lasts'] (segment=ALL); returned 1.",
+      "detail": {
+        "hits": [
+          {
+            "doc_id": "D0050A",
+            "product_id": "P0050",
+            "model": "Brevik Aero 14 G4",
+            "segment": "Premium Thin & Light",
+            "doc_type": "announcement",
+            "published_month": "2023-M10",
+            "matched_terms": [
+              "all-day battery",
+              "battery that lasts"
+            ],
+            "snippet": "The new Brevik Aero 14 G4 brings all-day battery that lasts up to 17 hours, in a design under 1.3 kg."
+          }
+        ]
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E017",
+      "tool": "launch_trajectory",
+      "params": {
+        "product_id": "P0113",
+        "cohort_ids": [
+          "P0003",
+          "P0005",
+          "P0015",
+          "P0016",
+          "P0032",
+          "P0042",
+          "P0079",
+          "P0088",
+          "P0099",
+          "P0102",
+          "P0107",
+          "P0125",
+          "P0126",
+          "P0147"
+        ],
+        "months": 12,
+        "exclude_price_volume_months": false,
+        "alternative": "two-sided"
+      },
+      "evidence_type": "launch_trajectory",
+      "values": {
+        "product_id": "P0113",
+        "segment": "Premium Thin & Light",
+        "months_window": 12,
+        "months_used": 12,
+        "excluded_price_volume_months": false,
+        "target_mean_segment_share": 0.18087759840769266,
+        "cohort_median_segment_share": 0.03882862856351105,
+        "ratio_to_cohort_median": 4.6583566069513775,
+        "percentile_in_cohort": 1.0,
+        "p_value_exceedance": 0.06666666666666667,
+        "n_cohort": 14,
+        "n_products_compared": 15,
+        "t_stat": 3.5313689366474774,
+        "p_value": 0.0036856349233613003,
+        "alternative": "two-sided",
+        "rank_in_cohort": 1
+      },
+      "summary": "P0113: mean segment share 18.09% over first 12 months since first observed sale vs cohort median 3.88% (rank 1 of 15; prediction-interval p=0.004, two-sided).",
+      "detail": {
+        "aligned_month": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "target": [
+          0.09074719318621757,
+          0.16060354404167432,
+          0.20720270101287983,
+          0.1991791649777057,
+          0.19019688489118577,
+          0.19027942689780733,
+          0.18866254800467525,
+          0.1880284018451753,
+          0.19211502371699202,
+          0.1930618805250469,
+          0.18765752861885568,
+          0.1827968831740962
+        ],
+        "cohort_median": [
+          0.01774639967792628,
+          0.03209113853149213,
+          0.04361731394385347,
+          0.04332699641913025,
+          0.042572051495304075,
+          0.042624253368034076,
+          0.04126949109795172,
+          0.04148096791359332,
+          0.041539800825915504,
+          0.04118383098639884,
+          0.04012343179377026,
+          0.03805781584126687
+        ],
+        "cohort_p25": [
+          0.01221079545583702,
+          0.025049244034838547,
+          0.034456151165960874,
+          0.034164636329616554,
+          0.03284529433073599,
+          0.03282801623139166,
+          0.031218383936895987,
+          0.03185888864440724,
+          0.030932691737048743,
+          0.031127743329171387,
+          0.030965878634127666,
+          0.029303663608832752
+        ],
+        "cohort_p75": [
+          0.024883213411719566,
+          0.047200204724754835,
+          0.06735457829544297,
+          0.06575010966322817,
+          0.06291613498075771,
+          0.06214238578419614,
+          0.05945807008315418,
+          0.0575499337562559,
+          0.056688302887640415,
+          0.05667540089412851,
+          0.05647411194185449,
+          0.05668015351304332
+        ],
+        "cohort_ids": [
+          "P0003",
+          "P0005",
+          "P0015",
+          "P0016",
+          "P0032",
+          "P0042",
+          "P0079",
+          "P0088",
+          "P0099",
+          "P0102",
+          "P0107",
+          "P0125",
+          "P0126",
+          "P0147"
+        ]
+      },
+      "p_value": 0.0036856349233613003,
+      "test_label": "P0113 launch-aligned share vs cohort",
+      "q_value": 0.007371269846722601,
+      "hypothesis_status": "confirmatory",
+      "test_family": "sales_confirmatory",
+      "q_pooled": 0.015767090714893496,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E018",
+      "tool": "complaint_comparison",
+      "params": {
+        "product_id": "P0113",
+        "cohort_ids": [
+          "P0003",
+          "P0005",
+          "P0015",
+          "P0016",
+          "P0032",
+          "P0042",
+          "P0079",
+          "P0088",
+          "P0099",
+          "P0102",
+          "P0107",
+          "P0125",
+          "P0126",
+          "P0147"
+        ],
+        "theme": "battery",
+        "months": 12,
+        "alternative": "less"
+      },
+      "evidence_type": "complaint_comparison",
+      "values": {
+        "product_id": "P0113",
+        "theme": "battery",
+        "window": "2023-M10..2024-M09",
+        "target_rate": 0.031910484873601326,
+        "target_ci_low": 0.027311968670864818,
+        "target_ci_high": 0.037253599677384175,
+        "target_complaints": 154,
+        "target_comments": 4826,
+        "cohort_median_rate": 0.08958077395577396,
+        "cohort_min_rate": 0.04573170731707317,
+        "cohort_max_rate": 0.13808664259927797,
+        "n_cohort_products": 14,
+        "diff_vs_cohort_median": -0.057670289082172636,
+        "t_stat": -2.8662633732529366,
+        "p_value": 0.006618825785092608,
+        "alternative": "less",
+        "rank_lowest_first": 1,
+        "direction_at_0.05": "lower_than_cohort"
+      },
+      "summary": "P0113: battery complaint rate 3.2% [95% CI 2.7%-3.7%] vs cohort median 9.0% across 14 products in the same months (product-level p=0.007, less); lower_than_cohort.",
+      "detail": {},
+      "p_value": 0.006618825785092608,
+      "test_label": "P0113 battery complaint rate vs cohort products (same months)",
+      "q_value": 0.013237651570185216,
+      "hypothesis_status": "confirmatory",
+      "test_family": "complaints_confirmatory",
+      "q_pooled": 0.015767090714893496,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E019",
+      "tool": "price_volume_pattern",
+      "params": {
+        "product_id": "P0050"
+      },
+      "evidence_type": "price_volume_pattern",
+      "values": {
+        "product_id": "P0050",
+        "pattern_detected": true,
+        "n_pattern_months": 2,
+        "pattern_months": "2024-M02,2024-M03",
+        "max_asp_drop": -0.22894202074796777,
+        "max_unit_jump": 0.6117411607738492,
+        "label": "observed price-and-volume pattern (promotion not confirmed)",
+        "asp_drop_threshold": 0.12,
+        "unit_jump_threshold": 1.3
+      },
+      "summary": "P0050: 2 month(s) with observed price-and-volume pattern (promotion not confirmed): 2024-M02,2024-M03.",
+      "detail": {
+        "months": [
+          {
+            "month": "2024-M02",
+            "asp_vs_trailing": -0.22894202074796777,
+            "units_vs_trailing": 0.6117411607738492
+          },
+          {
+            "month": "2024-M03",
+            "asp_vs_trailing": -0.2219284052097188,
+            "units_vs_trailing": 0.519273127753304
+          }
+        ]
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E020",
+      "tool": "define_cohort",
+      "params": {
+        "product_id": "P0050",
+        "window_months": 6,
+        "asp_tolerance": 0.3
+      },
+      "evidence_type": "cohort_definition",
+      "values": {
+        "target": "P0050",
+        "segment": "Premium Thin & Light",
+        "target_first_observed_sale": "2023-M11",
+        "target_early_asp": 1149.61,
+        "window_months": 6,
+        "asp_tolerance": 0.3,
+        "n_cohort": 15,
+        "cohort_ids": "P0003,P0005,P0015,P0016,P0032,P0042,P0079,P0088,P0099,P0102,P0107,P0113,P0125,P0126,P0147",
+        "excluded_unreliable_fos": "none"
+      },
+      "summary": "Cohort for P0050: 15 Premium Thin & Light models with first observed sale within +/-6 months and early ASP within +/-30%.",
+      "detail": {
+        "members": [
+          {
+            "product_id": "P0003",
+            "first_observed_sale_month": "2024-M03",
+            "early_asp": 1221.57
+          },
+          {
+            "product_id": "P0005",
+            "first_observed_sale_month": "2023-M07",
+            "early_asp": 1400.25
+          },
+          {
+            "product_id": "P0015",
+            "first_observed_sale_month": "2023-M06",
+            "early_asp": 1063.15
+          },
+          {
+            "product_id": "P0016",
+            "first_observed_sale_month": "2023-M05",
+            "early_asp": 1106.53
+          },
+          {
+            "product_id": "P0032",
+            "first_observed_sale_month": "2023-M08",
+            "early_asp": 1006.91
+          },
+          {
+            "product_id": "P0042",
+            "first_observed_sale_month": "2024-M03",
+            "early_asp": 991.8
+          },
+          {
+            "product_id": "P0079",
+            "first_observed_sale_month": "2023-M09",
+            "early_asp": 1136.08
+          },
+          {
+            "product_id": "P0088",
+            "first_observed_sale_month": "2024-M02",
+            "early_asp": 1205.67
+          },
+          {
+            "product_id": "P0099",
+            "first_observed_sale_month": "2023-M08",
+            "early_asp": 1292.15
+          },
+          {
+            "product_id": "P0102",
+            "first_observed_sale_month": "2023-M12",
+            "early_asp": 1125.23
+          },
+          {
+            "product_id": "P0107",
+            "first_observed_sale_month": "2023-M11",
+            "early_asp": 1029.09
+          },
+          {
+            "product_id": "P0113",
+            "first_observed_sale_month": "2023-M10",
+            "early_asp": 1150.13
+          },
+          {
+            "product_id": "P0125",
+            "first_observed_sale_month": "2023-M10",
+            "early_asp": 1145.33
+          },
+          {
+            "product_id": "P0126",
+            "first_observed_sale_month": "2024-M01",
+            "early_asp": 982.35
+          },
+          {
+            "product_id": "P0147",
+            "first_observed_sale_month": "2024-M04",
+            "early_asp": 1305.61
+          }
+        ]
+      },
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E021",
+      "tool": "launch_trajectory",
+      "params": {
+        "product_id": "P0050",
+        "cohort_ids": [
+          "P0003",
+          "P0005",
+          "P0015",
+          "P0016",
+          "P0032",
+          "P0042",
+          "P0079",
+          "P0088",
+          "P0099",
+          "P0102",
+          "P0107",
+          "P0125",
+          "P0126",
+          "P0147"
+        ],
+        "months": 12,
+        "exclude_price_volume_months": false,
+        "alternative": "two-sided"
+      },
+      "evidence_type": "launch_trajectory",
+      "values": {
+        "product_id": "P0050",
+        "segment": "Premium Thin & Light",
+        "months_window": 12,
+        "months_used": 12,
+        "excluded_price_volume_months": false,
+        "target_mean_segment_share": 0.05659083414414848,
+        "cohort_median_segment_share": 0.03882862856351105,
+        "ratio_to_cohort_median": 1.4574512733970044,
+        "percentile_in_cohort": 0.7142857142857143,
+        "p_value_exceedance": 0.3333333333333333,
+        "n_cohort": 14,
+        "n_products_compared": 15,
+        "t_stat": 0.7485092181981073,
+        "p_value": 0.4674800259376163,
+        "alternative": "two-sided",
+        "rank_in_cohort": 5
+      },
+      "summary": "P0050: mean segment share 5.66% over first 12 months since first observed sale vs cohort median 3.88% (rank 5 of 15; prediction-interval p=0.467, two-sided).",
+      "detail": {
+        "aligned_month": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "target": [
+          0.020308674597439576,
+          0.034936177989823104,
+          0.050635049317659775,
+          0.08640761073657481,
+          0.08735850550146441,
+          0.0843546501920187,
+          0.08334776516523136,
+          0.046813352444845066,
+          0.0487141709081168,
+          0.046023339218102886,
+          0.04609157741127234,
+          0.04409913624723295
+        ],
+        "cohort_median": [
+          0.01774639967792628,
+          0.03209113853149213,
+          0.04361731394385347,
+          0.04332699641913025,
+          0.042572051495304075,
+          0.042624253368034076,
+          0.04126949109795172,
+          0.04148096791359332,
+          0.041539800825915504,
+          0.04118383098639884,
+          0.04012343179377026,
+          0.03805781584126687
+        ],
+        "cohort_p25": [
+          0.01221079545583702,
+          0.025049244034838547,
+          0.034456151165960874,
+          0.034164636329616554,
+          0.03284529433073599,
+          0.03282801623139166,
+          0.031218383936895987,
+          0.03185888864440724,
+          0.030932691737048743,
+          0.031127743329171387,
+          0.030965878634127666,
+          0.029303663608832752
+        ],
+        "cohort_p75": [
+          0.024883213411719566,
+          0.047200204724754835,
+          0.06735457829544297,
+          0.06575010966322817,
+          0.06291613498075771,
+          0.06214238578419614,
+          0.05945807008315418,
+          0.0575499337562559,
+          0.056688302887640415,
+          0.05667540089412851,
+          0.05647411194185449,
+          0.05668015351304332
+        ],
+        "cohort_ids": [
+          "P0003",
+          "P0005",
+          "P0015",
+          "P0016",
+          "P0032",
+          "P0042",
+          "P0079",
+          "P0088",
+          "P0099",
+          "P0102",
+          "P0107",
+          "P0125",
+          "P0126",
+          "P0147"
+        ]
+      },
+      "p_value": 0.4674800259376163,
+      "test_label": "P0050 launch-aligned share vs cohort",
+      "q_value": 0.4674800259376163,
+      "hypothesis_status": "confirmatory",
+      "test_family": "sales_confirmatory",
+      "q_pooled": 0.6967951284085357,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E022",
+      "tool": "launch_trajectory",
+      "params": {
+        "product_id": "P0050",
+        "cohort_ids": [
+          "P0003",
+          "P0005",
+          "P0015",
+          "P0016",
+          "P0032",
+          "P0042",
+          "P0079",
+          "P0088",
+          "P0099",
+          "P0102",
+          "P0107",
+          "P0125",
+          "P0126",
+          "P0147"
+        ],
+        "months": 12,
+        "exclude_price_volume_months": true,
+        "alternative": "two-sided"
+      },
+      "evidence_type": "launch_trajectory",
+      "values": {
+        "product_id": "P0050",
+        "segment": "Premium Thin & Light",
+        "months_window": 12,
+        "months_used": 10,
+        "excluded_price_volume_months": true,
+        "target_mean_segment_share": 0.050532389349174256,
+        "cohort_median_segment_share": 0.03882862856351105,
+        "ratio_to_cohort_median": 1.3014209159234056,
+        "percentile_in_cohort": 0.7142857142857143,
+        "p_value_exceedance": 0.3333333333333333,
+        "n_cohort": 14,
+        "n_products_compared": 15,
+        "t_stat": 0.4792484977217498,
+        "p_value": 0.6397232171669426,
+        "alternative": "two-sided",
+        "rank_in_cohort": 5
+      },
+      "summary": "P0050: mean segment share 5.05% over first 10 months since first observed sale vs cohort median 3.88% (rank 5 of 15; prediction-interval p=0.640, two-sided).",
+      "detail": {
+        "aligned_month": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "target": [
+          0.020308674597439576,
+          0.034936177989823104,
+          0.050635049317659775,
+          null,
+          null,
+          0.0843546501920187,
+          0.08334776516523136,
+          0.046813352444845066,
+          0.0487141709081168,
+          0.046023339218102886,
+          0.04609157741127234,
+          0.04409913624723295
+        ],
+        "cohort_median": [
+          0.01774639967792628,
+          0.03209113853149213,
+          0.04361731394385347,
+          0.04332699641913025,
+          0.042572051495304075,
+          0.042624253368034076,
+          0.04126949109795172,
+          0.04148096791359332,
+          0.041539800825915504,
+          0.042935569821712774,
+          0.04197365483366823,
+          0.03805781584126687
+        ],
+        "cohort_p25": [
+          0.01221079545583702,
+          0.025049244034838547,
+          0.034456151165960874,
+          0.034164636329616554,
+          0.03284529433073599,
+          0.03282801623139166,
+          0.031218383936895987,
+          0.03185888864440724,
+          0.030932691737048743,
+          0.03274158311269297,
+          0.031788388563079605,
+          0.029303663608832752
+        ],
+        "cohort_p75": [
+          0.024883213411719566,
+          0.047200204724754835,
+          0.06735457829544297,
+          0.06575010966322817,
+          0.06291613498075771,
+          0.06214238578419614,
+          0.05945807008315418,
+          0.0575499337562559,
+          0.056688302887640415,
+          0.06041112847257452,
+          0.060961419584742375,
+          0.05668015351304332
+        ],
+        "cohort_ids": [
+          "P0003",
+          "P0005",
+          "P0015",
+          "P0016",
+          "P0032",
+          "P0042",
+          "P0079",
+          "P0088",
+          "P0099",
+          "P0102",
+          "P0107",
+          "P0125",
+          "P0126",
+          "P0147"
+        ]
+      },
+      "p_value": 0.6397232171669426,
+      "test_label": "P0050 launch-aligned share vs cohort (pattern months excluded)",
+      "q_value": 0.6397232171669426,
+      "hypothesis_status": "sensitivity",
+      "test_family": "sensitivity_exploratory",
+      "q_pooled": 0.7196886193128104,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E023",
+      "tool": "complaint_comparison",
+      "params": {
+        "product_id": "P0050",
+        "cohort_ids": [
+          "P0003",
+          "P0005",
+          "P0015",
+          "P0016",
+          "P0032",
+          "P0042",
+          "P0079",
+          "P0088",
+          "P0099",
+          "P0102",
+          "P0107",
+          "P0125",
+          "P0126",
+          "P0147"
+        ],
+        "theme": "battery",
+        "months": 12,
+        "alternative": "less"
+      },
+      "evidence_type": "complaint_comparison",
+      "values": {
+        "product_id": "P0050",
+        "theme": "battery",
+        "window": "2023-M11..2024-M10",
+        "target_rate": 0.08805460750853242,
+        "target_ci_low": 0.07460021723000139,
+        "target_ci_high": 0.1036637180969071,
+        "target_complaints": 129,
+        "target_comments": 1465,
+        "cohort_median_rate": 0.08749607305563985,
+        "cohort_min_rate": 0.04339440694310511,
+        "cohort_max_rate": 0.14064015518913675,
+        "n_cohort_products": 14,
+        "diff_vs_cohort_median": 0.0005585344528925701,
+        "t_stat": 0.10741929620461739,
+        "p_value": 0.5419517665399722,
+        "alternative": "less",
+        "rank_lowest_first": 9,
+        "direction_at_0.05": "no_detectable_difference"
+      },
+      "summary": "P0050: battery complaint rate 8.8% [95% CI 7.5%-10.4%] vs cohort median 8.7% across 14 products in the same months (product-level p=0.542, less); no_detectable_difference.",
+      "detail": {},
+      "p_value": 0.5419517665399722,
+      "test_label": "P0050 battery complaint rate vs cohort products (same months)",
+      "q_value": 0.5419517665399722,
+      "hypothesis_status": "confirmatory",
+      "test_family": "complaints_confirmatory",
+      "q_pooled": 0.6967951284085357,
+      "requested_by": "agent"
+    },
+    {
+      "evidence_id": "E024",
+      "tool": "rubric",
+      "params": {
+        "kind": "signal",
+        "segment": "Premium Thin & Light",
+        "theme": "battery"
+      },
+      "evidence_type": "confidence_assessment",
+      "values": {
+        "segment": "Premium Thin & Light",
+        "theme": "battery",
+        "grade": "Moderate",
+        "status": "intensified_long_standing",
+        "reasons": "complaint labels come from a classifier whose accuracy is not validated in this dataset; pooled segment rates can move with product mix",
+        "based_on": "E005"
+      },
+      "summary": "Signal grade for battery in Premium Thin & Light: Moderate.",
+      "detail": {},
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "code"
+    },
+    {
+      "evidence_id": "E025",
+      "tool": "rubric",
+      "params": {
+        "kind": "product",
+        "product_id": "P0113"
+      },
+      "evidence_type": "confidence_assessment",
+      "values": {
+        "product_id": "P0113",
+        "grade": "Moderate",
+        "grade_pooled": "Moderate",
+        "sales_status": "supported",
+        "complaint_status": "lower_than_cohort",
+        "first_sale_reliability": "usable",
+        "price_volume_pattern": false,
+        "contradiction": "none",
+        "reasons": "none",
+        "ceiling_note": "Moderate is the ceiling: observational data without a causal design.",
+        "based_on": "E010,E017,E015,E018"
+      },
+      "summary": "P0113: grade Moderate (sales: supported; complaints: lower_than_cohort; first sale: usable; grade under pooled FDR: Moderate).",
+      "detail": {},
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "code"
+    },
+    {
+      "evidence_id": "E026",
+      "tool": "rubric",
+      "params": {
+        "kind": "product",
+        "product_id": "P0050"
+      },
+      "evidence_type": "confidence_assessment",
+      "values": {
+        "product_id": "P0050",
+        "grade": "Not supported",
+        "grade_pooled": "Not supported",
+        "sales_status": "not_supported",
+        "complaint_status": "no_detectable_difference",
+        "first_sale_reliability": "usable",
+        "price_volume_pattern": true,
+        "contradiction": "none",
+        "reasons": "observed price-and-volume pattern (promotion not confirmed)",
+        "ceiling_note": "Moderate is the ceiling: observational data without a causal design.",
+        "based_on": "E013,E021,E022,E019,E023"
+      },
+      "summary": "P0050: grade Not supported (sales: not_supported; complaints: no_detectable_difference; first sale: usable; grade under pooled FDR: Not supported).",
+      "detail": {},
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "code"
+    },
+    {
+      "evidence_id": "E027",
+      "tool": "rubric",
+      "params": {
+        "kind": "product",
+        "product_id": "P0120"
+      },
+      "evidence_type": "confidence_assessment",
+      "values": {
+        "product_id": "P0120",
+        "grade": "Insufficient",
+        "grade_pooled": "Insufficient",
+        "sales_status": "not_tested",
+        "complaint_status": "not_tested",
+        "first_sale_reliability": "unreliable",
+        "price_volume_pattern": false,
+        "contradiction": "none",
+        "reasons": "first observed sale is unreliable (cannot anchor launch-aligned comparisons)",
+        "ceiling_note": "Moderate is the ceiling: observational data without a causal design.",
+        "based_on": "E011"
+      },
+      "summary": "P0120: grade Insufficient (sales: not_tested; complaints: not_tested; first sale: unreliable; grade under pooled FDR: Insufficient).",
+      "detail": {},
+      "p_value": null,
+      "test_label": null,
+      "q_value": null,
+      "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
+      "requested_by": "code"
+    }
+  ]
+}

@@ -126,7 +126,14 @@ class FakeChat:
             return self._reply("search_product_docs", {"terms": plan["search_terms"]}, n, text="Searching documents.")
         hit = self._target_hit(obs, plan)
         if turn == 1:
+            # like the real model, also look at the first sale of a few other matching products, so that
+            # several products reach the writer (exercises ordering in prompts; see the hash-seed test).
+            # The target's own call comes last, so _findings picks up its evidence ID.
+            hits = next(o for o in obs if "hits" in o)["hits"]
+            others = sorted({h["product_id"] for h in hits} - {hit["product_id"]})[:3]
             return AIMessage(content="Checking first sale and cohort.", tool_calls=[
+                *[{"name": "first_observed_sale", "args": {"product_id": o}, "id": _id(f"fos{i}", n)}
+                  for i, o in enumerate(others)],
                 {"name": "first_observed_sale", "args": {"product_id": hit["product_id"]}, "id": _id("fos", n)},
                 {"name": "define_cohort", "args": {"product_id": hit["product_id"]}, "id": _id("coh", n)}],
                 usage_metadata={"input_tokens": 100, "output_tokens": 20, "total_tokens": 120})

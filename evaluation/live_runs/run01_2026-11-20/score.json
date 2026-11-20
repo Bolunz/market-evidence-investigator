@@ -1,0 +1,22 @@
+{
+  "scenario": "battery_s42",
+  "variant": "strong",
+  "path_ok": true,
+  "focus_segment_ok": true,
+  "A_found": true,
+  "B_found": true,
+  "G_not_in_segment_cohort": true,
+  "A_grade": "Moderate",
+  "A_grade_pooled": "Moderate",
+  "A_ceiling": "Moderate",
+  "A_overclaim": false,
+  "A_sales_detected": true,
+  "A_complaints_detected": true,
+  "A_contradiction_flagged": false,
+  "B_not_supported_as_effect": true,
+  "B_pattern_reported": true,
+  "C_flagged_unreliable": true,
+  "claims_verified": 15,
+  "claims_flagged": 0,
+  "ledger_reproducible": true
+}

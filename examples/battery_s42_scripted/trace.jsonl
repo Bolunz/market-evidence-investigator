@@ -32,9 +32,9 @@
 {"step": 32, "node": "critic", "kind": "decision", "text": "Alternative for P0113: Complaint differences may reflect a different buyer mix, firmware updates or shifting attention rather than better battery performance."}
 {"step": 33, "node": "critic", "kind": "tool", "text": "[critic] launch_trajectory -> E022: P0050: mean segment share 5.05% over first 10 months since first observed sale vs cohort median 4.04% (rank 6 of 16; prediction-interval p=0.428, greater).", "evidence_id": "E022"}
 {"step": 34, "node": "assess", "kind": "assess", "text": "Signal grade for battery in Premium Thin & Light: Moderate.", "evidence_id": "E023"}
-{"step": 35, "node": "assess", "kind": "assess", "text": "P0050: grade Not supported (sales: not_supported; complaints: no_detectable_difference; first sale: usable).", "evidence_id": "E024"}
-{"step": 36, "node": "assess", "kind": "assess", "text": "P0113: grade Moderate (sales: supported; complaints: lower_than_cohort; first sale: usable).", "evidence_id": "E025"}
-{"step": 37, "node": "assess", "kind": "assess", "text": "P0120: grade Insufficient (sales: not_tested; complaints: not_tested; first sale: unreliable).", "evidence_id": "E026"}
+{"step": 35, "node": "assess", "kind": "assess", "text": "P0050: grade Not supported (sales: not_supported; complaints: no_detectable_difference; first sale: usable; grade under pooled FDR: Not supported).", "evidence_id": "E024"}
+{"step": 36, "node": "assess", "kind": "assess", "text": "P0113: grade Moderate (sales: supported; complaints: lower_than_cohort; first sale: usable; grade under pooled FDR: Moderate).", "evidence_id": "E025"}
+{"step": 37, "node": "assess", "kind": "assess", "text": "P0120: grade Insufficient (sales: not_tested; complaints: not_tested; first sale: unreliable; grade under pooled FDR: Insufficient).", "evidence_id": "E026"}
 {"step": 38, "node": "assess", "kind": "route", "text": "Investigation path: direct_response"}
 {"step": 39, "node": "write", "kind": "decision", "text": "Draft with 25 claims."}
 {"step": 40, "node": "validate", "kind": "decision", "text": "Claim validation: 25 verified, 0 flagged."}

@@ -83,12 +83,19 @@ def _ledger_digest(ledger, types: set[str] | None = None) -> list[dict]:
 
 
 def _text_of(ai) -> str:
+    """Visible text plus summarized thinking (if returned), for the trace only."""
     if isinstance(ai.content, str):
         return ai.content
-    return " ".join(b.get("text", "") for b in ai.content if isinstance(b, dict) and b.get("type") == "text")
+    parts = []
+    for b in ai.content:
+        if isinstance(b, dict) and b.get("type") == "thinking" and b.get("thinking"):
+            parts.append("(thinking) " + b["thinking"])
+        elif isinstance(b, dict) and b.get("type") == "text":
+            parts.append(b.get("text", ""))
+    return " ".join(parts)
 
 
-def build_graph(ctx: RunContext):
+def build_graph(ctx: RunContext, interrupt_after: list[str] | None = None):
     use_llm = ctx.mode in ("live", "replay")
 
     # ------------------------------------------------------------------ nodes
@@ -277,7 +284,7 @@ def build_graph(ctx: RunContext):
     g.add_edge("assess", "write")
     g.add_edge("write", "validate")
     g.add_conditional_edges("validate", after_validate, ["write", END])
-    return g.compile(checkpointer=InMemorySaver())
+    return g.compile(checkpointer=InMemorySaver(), interrupt_after=interrupt_after or [])
 
 
 def _react_investigation(ctx: RunContext, p: InvestigationPlan) -> InvestigationFindings:
@@ -287,14 +294,18 @@ def _react_investigation(ctx: RunContext, p: InvestigationPlan) -> Investigation
              "signal_evidence": _ledger_digest(ctx.ledger),
              "instruction": "Investigate, then submit by calling the InvestigationFindings tool."}
     msgs = [SystemMessage(prompts.INVESTIGATOR), HumanMessage(json.dumps(brief, default=str))]
-    n_tools, nudges, repairs = 0, 0, 0
+    n_tools, nudges, repairs, final_asks = 0, 0, 0, 0
     while True:
-        force = n_tools >= ctx.max_tool_calls or nudges >= 2
-        if force:
+        if n_tools >= ctx.max_tool_calls or nudges >= 2:
+            # Sonnet 5.5 rejects forced tool_choice, so the final submission is requested in words.
+            if final_asks >= 2:
+                raise RuntimeError("investigator did not submit findings after the tool budget was reached")
+            final_asks += 1
             ctx.emit("guard", "Tool budget reached: requesting final findings.")
-        ai = ctx.llm.invoke("investigator", msgs, tools=tools,
-                            tool_choice="InvestigationFindings" if force else None)
-        msgs.append(ai)
+            msgs.append(HumanMessage("Tool budget reached. Do not call analysis tools again. Submit now by calling "
+                                     "the InvestigationFindings tool."))
+        ai = ctx.llm.invoke("investigator", msgs, tools=tools)
+        msgs.append(ai)                      # kept unmodified: thinking blocks must be passed back
         txt = _text_of(ai).strip()
         if txt:
             ctx.emit("reasoning", txt[:400])
@@ -307,16 +318,19 @@ def _react_investigation(ctx: RunContext, p: InvestigationPlan) -> Investigation
             if tc["name"] == "InvestigationFindings":
                 submitted = tc
                 continue
-            try:
-                ev, obs = run_tool(tc["name"], tc["args"], ctx.md, ctx.ledger, requested_by="agent",
-                                   declared=ctx.declared)
-                content = json.dumps(obs, default=str)
-                shown = {k: v for k, v in tc["args"].items() if k != "cohort_ids"}
-                ctx.emit("tool", f"{tc['name']}({shown}) -> {ev.evidence_id}: {ev.summary}",
-                         evidence_id=ev.evidence_id, requested_by="agent")
-            except ToolError as e:
-                content = f"ERROR: {e}"
-                ctx.emit("guard", f"Rejected tool call {tc['name']}: {e}")
+            if final_asks:
+                content = "ERROR: tool budget reached; submit InvestigationFindings now."
+            else:
+                try:
+                    ev, obs = run_tool(tc["name"], tc["args"], ctx.md, ctx.ledger, requested_by="agent",
+                                       declared=ctx.declared)
+                    content = json.dumps(obs, default=str)
+                    shown = {k: v for k, v in tc["args"].items() if k != "cohort_ids"}
+                    ctx.emit("tool", f"{tc['name']}({shown}) -> {ev.evidence_id}: {ev.summary}",
+                             evidence_id=ev.evidence_id, requested_by="agent")
+                except ToolError as e:
+                    content = f"ERROR: {e}"
+                    ctx.emit("guard", f"Rejected tool call {tc['name']}: {e}")
             msgs.append(ToolMessage(content=content, tool_call_id=tc["id"]))
             n_tools += 1
         if submitted is not None:
@@ -328,5 +342,3 @@ def _react_investigation(ctx: RunContext, p: InvestigationPlan) -> Investigation
                     raise
                 msgs.append(ToolMessage(content=f"Invalid findings: {e}", tool_call_id=submitted["id"]))
                 msgs.append(HumanMessage("Fix the findings and call InvestigationFindings again."))
-        elif any(tc["name"] == "InvestigationFindings" for tc in ai.tool_calls):
-            pass

@@ -38,7 +38,9 @@ class Evidence:
     p_value: float | None = None
     test_label: str | None = None
     q_value: float | None = None          # Benjamini-Hochberg across all tests in the run
-    hypothesis_status: str | None = None  # "declared" | "exploratory" (tests only)
+    hypothesis_status: str | None = None  # confirmatory | sensitivity | exploratory (tests only)
+    test_family: str | None = None        # multiplicity family used for q_value
+    q_pooled: float | None = None         # BH across ALL tests in the run (transparency)
     requested_by: str = "code"            # "code" | "agent" | "critic"
 
 
@@ -70,17 +72,35 @@ class EvidenceLedger:
     def tests(self) -> list[Evidence]:
         return [e for e in self.entries if e.p_value is not None]
 
+    @staticmethod
+    def family_of(e: Evidence) -> str:
+        """Multiplicity families, defined by the analytical question each test answers:
+          signal_screening        is the complaint rate materially higher in segment S? (one per segment)
+          sales_confirmatory      did declared-positioned products gain more segment share than their cohort?
+          complaints_confirmatory did they draw fewer complaints than their cohort in the same months?
+          sensitivity_exploratory robustness re-runs and undeclared tests, pooled together.
+        Confirmatory families contain only pre-specified tests, so their size is not inflated by
+        follow-ups; every product the agent tests under a declared hypothesis still adds to its family."""
+        if e.tool == "signal_trend":
+            return "signal_screening"
+        if e.hypothesis_status == "confirmatory":
+            return {"launch_trajectory": "sales_confirmatory",
+                    "complaint_comparison": "complaints_confirmatory"}.get(e.tool, "other_confirmatory")
+        return "sensitivity_exploratory"
+
     def adjust(self) -> None:
-        """Benjamini-Hochberg within each question family (one family per test tool: signal
-        screening, sales-vs-cohort, complaints-vs-cohort). Every test run in a family counts,
-        including agent-chosen and exploratory ones, so testing more products or segments raises
-        the bar for all of them."""
+        """BH within each family (q_value, used for conclusions) and across all tests (q_pooled,
+        reported for transparency so the effect of the family choice is visible)."""
+        tests = self.tests()
         families: dict[str, list[Evidence]] = {}
-        for e in self.tests():
-            families.setdefault(e.tool, []).append(e)
-        for tests in families.values():
-            for e, q in zip(tests, benjamini_hochberg([e.p_value for e in tests])):
+        for e in tests:
+            e.test_family = self.family_of(e)
+            families.setdefault(e.test_family, []).append(e)
+        for fam in families.values():
+            for e, q in zip(fam, benjamini_hochberg([e.p_value for e in fam])):
                 e.q_value = _clean(q)
+        for e, q in zip(tests, benjamini_hochberg([e.p_value for e in tests])):
+            e.q_pooled = _clean(q)
 
     def to_dict(self) -> dict:
         return {"data_hashes": self.data_hashes, "n_tests": len(self.tests()),

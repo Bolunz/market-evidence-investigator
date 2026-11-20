@@ -126,6 +126,21 @@ class ToolError(ValueError):
     pass
 
 
+def classify_test(name: str, params: dict, requested_by: str, declared: set | None) -> str:
+    """confirmatory  pre-specified: code screening tests, or a test matching a hypothesis (tool + direction)
+                  declared in the plan BEFORE any test was run
+    sensitivity   robustness re-runs (price-and-volume months excluded, or requested by the critic after
+                  seeing results); may only RESTRICT conclusions
+    exploratory   anything else the agent chose to test; reported, never used to raise a grade"""
+    if requested_by == "code":
+        return "confirmatory"
+    if params.get("exclude_price_volume_months") or requested_by == "critic":
+        return "sensitivity"
+    if declared and (name, params.get("alternative", "two-sided")) in declared:
+        return "confirmatory"
+    return "exploratory"
+
+
 def run_tool(name: str, args: dict, md, ledger: EvidenceLedger, requested_by: str = "agent",
              declared: set[tuple[str, str]] | None = None) -> tuple[object, dict]:
     """Validate args, execute, record. `declared` = {(tool, alternative)} from the plan; a test
@@ -139,12 +154,7 @@ def run_tool(name: str, args: dict, md, ledger: EvidenceLedger, requested_by: st
         raise ToolError(f"invalid arguments for {name}: {e.errors()[0]['msg']}") from e
     params = parsed.model_dump()
     result = spec.fn(md, **params)
-    status = None
-    if spec.is_test:
-        alt = params.get("alternative", "two-sided")
-        status = "declared" if declared and (name, alt) in declared else "exploratory"
-        if requested_by == "code":
-            status = "declared"           # fixed, pre-specified screening tests
+    status = classify_test(name, params, requested_by, declared) if spec.is_test else None
     ev = ledger.record(name, params, result, requested_by=requested_by, hypothesis_status=status)
     return ev, observation(ev)
 

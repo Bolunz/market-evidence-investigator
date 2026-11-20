@@ -175,7 +175,8 @@ def write(ctx, state: dict) -> ReportDraft:
         trs = [e for e in L.entries if e.tool == "launch_trajectory" and e.params["product_id"] == f.product_id]
         for t in trs:
             tv = t.values
-            label = " excluding price-and-volume pattern months" if tv["excluded_price_volume_months"] else ""
+            label = (" (sensitivity analysis excluding price-and-volume pattern months)"
+                     if tv["excluded_price_volume_months"] else "")
             lvl, typ = ("association", "sales_association") if (t.q_value or 1) < 0.05 else ("observation", "sales_comparison")
             add("D_sales_evidence", lvl,
                 f"{f.product_id} averaged {_pct(tv['target_mean_segment_share'])} of segment sell-out over its first "
@@ -203,7 +204,8 @@ def write(ctx, state: dict) -> ReportDraft:
         if "product_id" in av:
             add("E_evidence_assessment", "observation",
                 f"{av['product_id']}: rubric grade {av['grade']} (sales: {av['sales_status']}; complaints: "
-                f"{av['complaint_status']}; contradiction: {av['contradiction']}).",
+                f"{av['complaint_status']}; contradiction: {av['contradiction']}; grade under pooled FDR: "
+                f"{av['grade_pooled']}).",
                 [("confidence_grade", av["product_id"], [a.evidence_id])])
         else:
             add("E_evidence_assessment", "observation",

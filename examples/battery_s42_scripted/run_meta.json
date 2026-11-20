@@ -7,5 +7,7 @@
   "question": "Consumers appear to be complaining more about battery life. Have we seen this before, what did manufacturers do about it, what happened to those products afterwards, and what can we reasonably learn from the evidence?",
   "models": null,
   "usage": null,
-  "data_dir": "examples/data/battery_s42"
+  "data_dir": "examples/data/battery_s42",
+  "limits": null,
+  "key_source": null
 }

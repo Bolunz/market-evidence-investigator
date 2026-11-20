@@ -23,7 +23,7 @@ make setup          # Python 3.11+; creates .venv and installs pinned dependenci
 make test           # offline test suite
 make demo-replay    # replays the recorded Claude-powered investigation: no key, no cost
 make demo           # scripted (no-LLM) run of the same workflow, for comparison
-make eval           # 20 positive + 20 zero-effect scenarios scored against answer keys
+make eval           # 20 seeds x 5 effect tiers (strong, moderate, small, null, contradictory) vs answer keys
 ```
 
 Open `runs/demo_replay/report.html` to read the report.
@@ -33,14 +33,18 @@ responses, then re-checks each ledger entry against its recorded inputs (`mei ch
 
 ## Live run with the Anthropic API
 
+See [`docs/SETUP_MAC.md`](docs/SETUP_MAC.md). In short:
+
 ```bash
-cp .env.example .env          # .env is git-ignored
-# edit .env and set ANTHROPIC_API_KEY=...
-make demo-live                # writes runs/demo_live/report.html and an LLM cache for replay
+cp .env.example .env          # .env is git-ignored; set ANTHROPIC_API_KEY=...
+.venv/bin/mei smoke           # 7 checks, a few cents, capped at $0.50
+.venv/bin/mei estimate        # cost estimate for a full run (no API calls)
+make demo-live                # full investigation; writes runs/demo_live/ incl. an LLM cache for replay
 ```
 
 The key is read only from the environment (or the local, git-ignored `.env`). It is never written to code,
-config, caches or logs. `MEI_MAX_LLM_CALLS` (default 60) caps API calls per run. The terminal shows each step
+config, caches or logs. Each run has a USD spending cap (`MEI_MAX_COST_USD`, default $3.00): a call is
+refused if its worst case could exceed the cap. There is also a call cap (`MEI_MAX_LLM_CALLS`, default 60). The terminal shows each step
 as it happens: tool calls, agent decisions, guardrail events and routing.
 
 ## How it works
@@ -104,7 +108,10 @@ scenario plants:
 - **G**: positioned on battery life in a different segment.
 - Distractor documents that mention batteries incidentally.
 
-Results are in [`evaluation/results/`](evaluation/results/). The scripted-policy sweep scores structured
+Each scenario is generated at five effect strengths for A (strong, moderate, small, zero, contradictory).
+The primary measure is **appropriateness**: whether a grade ever exceeds what the planted truth justifies.
+Inconclusive results on small effects are correct behaviour. Results are in
+[`evaluation/results/`](evaluation/results/). The scripted-policy sweep scores structured
 outputs only. The recorded agent run is scored with
 `python evaluation/run_eval.py --run <run> --key <key> --data <data>`.
 

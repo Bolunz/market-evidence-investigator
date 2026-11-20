@@ -273,7 +273,7 @@
         "claim_id": "C07",
         "section": "D_sales_evidence",
         "level": "observation",
-        "text": "P0050 averaged 5.7% of segment sell-out over its first 12 months, versus a cohort median of 4.0% (rank 6 of 16; p=0.354, BH q=0.428).",
+        "text": "P0050 averaged 5.7% of segment sell-out over its first 12 months, versus a cohort median of 4.0% (rank 6 of 16; p=0.354, BH q=0.354).",
         "assertions": [
           {
             "type": "sales_comparison",
@@ -288,7 +288,7 @@
         "claim_id": "C08",
         "section": "D_sales_evidence",
         "level": "observation",
-        "text": "P0050 averaged 5.1% of segment sell-out over its first 10 months excluding price-and-volume pattern months, versus a cohort median of 4.0% (rank 6 of 16; p=0.428, BH q=0.428).",
+        "text": "P0050 averaged 5.1% of segment sell-out over its first 10 months (sensitivity analysis excluding price-and-volume pattern months), versus a cohort median of 4.0% (rank 6 of 16; p=0.428, BH q=0.428).",
         "assertions": [
           {
             "type": "sales_comparison",
@@ -370,7 +370,7 @@
         "claim_id": "C13",
         "section": "D_sales_evidence",
         "level": "association",
-        "text": "P0113 averaged 18.1% of segment sell-out over its first 12 months, versus a cohort median of 4.0% (rank 1 of 16; p=0.002, BH q=0.005).",
+        "text": "P0113 averaged 18.1% of segment sell-out over its first 12 months, versus a cohort median of 4.0% (rank 1 of 16; p=0.002, BH q=0.003).",
         "assertions": [
           {
             "type": "sales_association",
@@ -467,7 +467,7 @@
         "claim_id": "C19",
         "section": "E_evidence_assessment",
         "level": "observation",
-        "text": "P0050: rubric grade Not supported (sales: not_supported; complaints: no_detectable_difference; contradiction: none).",
+        "text": "P0050: rubric grade Not supported (sales: not_supported; complaints: no_detectable_difference; contradiction: none; grade under pooled FDR: Not supported).",
         "assertions": [
           {
             "type": "confidence_grade",
@@ -482,7 +482,7 @@
         "claim_id": "C20",
         "section": "E_evidence_assessment",
         "level": "observation",
-        "text": "P0113: rubric grade Moderate (sales: supported; complaints: lower_than_cohort; contradiction: none).",
+        "text": "P0113: rubric grade Moderate (sales: supported; complaints: lower_than_cohort; contradiction: none; grade under pooled FDR: Moderate).",
         "assertions": [
           {
             "type": "confidence_grade",
@@ -497,7 +497,7 @@
         "claim_id": "C21",
         "section": "E_evidence_assessment",
         "level": "observation",
-        "text": "P0120: rubric grade Insufficient (sales: not_tested; complaints: not_tested; contradiction: none).",
+        "text": "P0120: rubric grade Insufficient (sales: not_tested; complaints: not_tested; contradiction: none; grade under pooled FDR: Insufficient).",
         "assertions": [
           {
             "type": "confidence_grade",

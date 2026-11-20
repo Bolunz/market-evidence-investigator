@@ -37,12 +37,33 @@ def _tool_obs(messages):
     return out
 
 
+class NotFoundError(Exception):
+    """Mimics anthropic.NotFoundError by class name (the client maps errors by name)."""
+
+
+class _Models:
+    def retrieve(self, model_id):
+        class Info:
+            id = model_id
+        return Info()
+
+
+class FakeModels:
+    """Stands in for anthropic.Anthropic() in the smoke test (client.models.retrieve)."""
+    models = _Models()
+
+
 class FakeChat:
+    max_retries = 3
+
     def __init__(self, name, tools=None, choice=None):
         self.name, self.tools, self.choice = name, tools, choice
 
     def bind_tools(self, tools, tool_choice=None):
-        return FakeChat(self.name, tools, tool_choice)
+        # mirrors production: tool_choice is never forced; a single schema tool means "structured output"
+        assert tool_choice is None, "forced tool_choice is rejected by Sonnet 5.5 and must not be used"
+        single = tools[0].__name__ if len(tools) == 1 and isinstance(tools[0], type) else None
+        return FakeChat(self.name, tools, single)
 
     def _reply(self, name, args, n, text=""):
         return AIMessage(content=text, tool_calls=[{"name": name, "args": args, "id": _id(name, n)}],
@@ -50,7 +71,23 @@ class FakeChat:
 
     def invoke(self, messages):
         n = len(messages)
+        if "nonexistent" in self.name:
+            raise NotFoundError("model not found")
         ctx = _human_json(messages)
+        texts = " ".join(m.content for m in messages if isinstance(m, HumanMessage) and isinstance(m.content, str))
+        tool_names = [t["name"] if isinstance(t, dict) else t.__name__ for t in (self.tools or [])]
+        if not self.tools and "single word: OK" in texts:
+            return AIMessage(content="OK", usage_metadata={"input_tokens": 10, "output_tokens": 2, "total_tokens": 12})
+        if self.choice == "SmokeAnswer":
+            return self._reply("SmokeAnswer", {"count": 3, "note": "three"}, n)
+        if tool_names == ["first_observed_sale"]:
+            obs = _tool_obs(messages)
+            if not obs:
+                pid = texts.split("for product ")[1].split(",")[0]
+                return self._reply("first_observed_sale", {"product_id": pid}, n)
+            month = obs[-1]["values"]["first_observed_sale_month"]
+            return AIMessage(content=f"First observed sale: {month}.",
+                             usage_metadata={"input_tokens": 50, "output_tokens": 8, "total_tokens": 58})
         if self.choice == "InvestigationPlan":
             seg = ctx["candidate_segments"][0]
             return self._reply("InvestigationPlan", {
@@ -64,7 +101,7 @@ class FakeChat:
             return self._reply("Critique", {"alternative_explanations": [
                 {"product_id": pid, "explanation": "buyer mix may differ", "would_distinguish": "owner reviews"}]}, n)
         if self.choice == "ImpliedAssertions":
-            text = messages[-1].content
+            text = " ".join(m.content for m in messages if isinstance(m, HumanMessage) and isinstance(m.content, str))
             return self._reply("ImpliedAssertions", {"implied": ["causal_effect"] if "drove" in text else [],
                                                      "reason": "fake"}, n)
         if self.choice == "ReportDraft":

@@ -27,21 +27,21 @@ Every statement below passed evidence verification. Each is labelled as an obser
 ## D. Observable sales and complaint evidence
 
 - **Method note** - P0050 first observed sale: 2023-M11 (an estimate of market entry, not a verified launch date); reliability usable. `[E008]`
-- **Observation** - P0050 averaged 5.7% of segment sell-out over its first 12 months, versus a cohort median of 4.0% (rank 6 of 16; p=0.354, BH q=0.428). `[E010]`
-- **Observation** - P0050 averaged 5.1% of segment sell-out over its first 10 months excluding price-and-volume pattern months, versus a cohort median of 4.0% (rank 6 of 16; p=0.428, BH q=0.428). `[E022]`
+- **Observation** - P0050 averaged 5.7% of segment sell-out over its first 12 months, versus a cohort median of 4.0% (rank 6 of 16; p=0.354, BH q=0.354). `[E010]`
+- **Observation** - P0050 averaged 5.1% of segment sell-out over its first 10 months (sensitivity analysis excluding price-and-volume pattern months), versus a cohort median of 4.0% (rank 6 of 16; p=0.428, BH q=0.428). `[E022]`
 - **Observation** - P0050 shows an observed price-and-volume pattern (promotion not confirmed) in 2024-M02,2024-M03. `[E011]`
 - **Observation** - P0050 battery complaint rate was 8.8% versus a cohort median of 8.7% in the same months (p=0.593, BH q=0.593). `[E012]`
 - **Method note** - P0113 first observed sale: 2023-M10 (an estimate of market entry, not a verified launch date); reliability usable. `[E014]`
-- **Statistical association** - P0113 averaged 18.1% of segment sell-out over its first 12 months, versus a cohort median of 4.0% (rank 1 of 16; p=0.002, BH q=0.005). `[E016]`
+- **Statistical association** - P0113 averaged 18.1% of segment sell-out over its first 12 months, versus a cohort median of 4.0% (rank 1 of 16; p=0.002, BH q=0.003). `[E016]`
 - **Statistical association** - P0113 battery complaint rate was 3.2% versus a cohort median of 8.9% in the same months (p=0.005, BH q=0.010). `[E018]`
 - **Method note** - P0120 first observed sale: 2022-M04 (an estimate of market entry, not a verified launch date); reliability unreliable. `[E020]`
 
 ## E. Evidence assessment
 
 - **Observation** - Consumer signal in Premium Thin & Light: rubric grade Moderate. `[E023]`
-- **Observation** - P0050: rubric grade Not supported (sales: not_supported; complaints: no_detectable_difference; contradiction: none). `[E024]`
-- **Observation** - P0113: rubric grade Moderate (sales: supported; complaints: lower_than_cohort; contradiction: none). `[E025]`
-- **Observation** - P0120: rubric grade Insufficient (sales: not_tested; complaints: not_tested; contradiction: none). `[E026]`
+- **Observation** - P0050: rubric grade Not supported (sales: not_supported; complaints: no_detectable_difference; contradiction: none; grade under pooled FDR: Not supported). `[E024]`
+- **Observation** - P0113: rubric grade Moderate (sales: supported; complaints: lower_than_cohort; contradiction: none; grade under pooled FDR: Moderate). `[E025]`
+- **Observation** - P0120: rubric grade Insufficient (sales: not_tested; complaints: not_tested; contradiction: none; grade under pooled FDR: Insufficient). `[E026]`
 - **Possible explanation** - P0050: possible alternative explanation: Share gains may reflect the observed price-and-volume pattern rather than the positioning. `[E011]`
 - **Possible explanation** - P0050: possible alternative explanation: Complaint differences may reflect a different buyer mix, firmware updates or shifting attention rather than better battery performance. `[E012]`
 - **Possible explanation** - P0113: possible alternative explanation: Complaint differences may reflect a different buyer mix, firmware updates or shifting attention rather than better battery performance. `[E018]`
@@ -62,14 +62,21 @@ _None._
 
 ## Evidence assessment (code rubric)
 
-| Subject | Grade | Sales | Complaints | First observed sale | Contradiction | Notes |
-|---|---|---|---|---|---|---|
-| battery signal, Premium Thin & Light (E023) | Moderate | - | - | - | - | complaint labels come from a classifier whose accuracy is not validated in this dataset |
-| P0050 (E024) | Not supported | not_supported | no_detectable_difference | usable | none | observed price-and-volume pattern (promotion not confirmed) |
-| P0113 (E025) | Moderate | supported | lower_than_cohort | usable | none | none |
-| P0120 (E026) | Insufficient | not_tested | not_tested | unreliable | none | first observed sale is unreliable (cannot anchor launch-aligned comparisons) |
+| Subject | Grade | Grade (pooled FDR) | Sales | Complaints | First observed sale | Contradiction | Notes |
+|---|---|---|---|---|---|---|---|
+| battery signal, Premium Thin & Light (E023) | Moderate | - | - | - | - | - | complaint labels come from a classifier whose accuracy is not validated in this dataset; pooled segment rates can move with product mix |
+| P0050 (E024) | Not supported | Not supported | not_supported | no_detectable_difference | usable | none | observed price-and-volume pattern (promotion not confirmed) |
+| P0113 (E025) | Moderate | Moderate | supported | lower_than_cohort | usable | none | none |
+| P0120 (E026) | Insufficient | Insufficient | not_tested | not_tested | unreliable | none | first observed sale is unreliable (cannot anchor launch-aligned comparisons) |
 
-Grades: Moderate (sales advantage AND lower complaints) > Weak (one of the two) > Not supported > Insufficient. Moderate is the ceiling for observational data.
+Grades: Moderate (sales advantage AND lower complaints) > Weak (one of the two) > Not supported > Insufficient. Moderate is the ceiling for observational data. Only confirmatory (pre-declared) tests can support a grade; sensitivity re-runs can only restrict it; exploratory tests are reported, not graded.
+
+### Method notes: unit of analysis and test families
+
+- Unit of analysis is the PRODUCT, in both comparisons. Sales: each product's mean share of segment sell-out over its own first 12 months since first observed sale (cohort products enter within +/-6 months, so calendar windows differ by up to 6 months; share of segment removes common seasonality and market trend). Complaints: every product's rate over the SAME calendar months (the target's first 12 months), so market-wide complaint shifts are controlled but cohort products are at different lifecycle ages. The cohort is the same set for both tests; products with fewer than 30 comments are dropped from the complaint test (both n are reported).
+- Dependencies not modelled: products from the same manufacturer; cohort products sharing calendar shocks; segment shares summing to one (a strong product slightly lowers others' shares).
+- These are aggregate, product-level relationships. They do not describe individual consumers: a lower complaint rate among a product's commenters does not show that individual buyers chose it for battery life.
+- Test families (Benjamini-Hochberg within each): signal screening; confirmatory sales tests; confirmatory complaint tests; sensitivity + exploratory tests. Families are defined by the question a test answers; the pooled q across all tests and the grade under pooled correction are shown for comparison.
 
 ## Investigation trail
 
@@ -107,47 +114,48 @@ Grades: Moderate (sales advantage AND lower complaints) > Weak (one of the two) 
 32. `[critic:decision]` Alternative for P0113: Complaint differences may reflect a different buyer mix, firmware updates or shifting attention rather than better battery performance.
 33. `[critic:tool]` [critic] launch_trajectory -> E022: P0050: mean segment share 5.05% over first 10 months since first observed sale vs cohort median 4.04% (rank 6 of 16; prediction-interval p=0.428, greater).
 34. `[assess:assess]` Signal grade for battery in Premium Thin & Light: Moderate.
-35. `[assess:assess]` P0050: grade Not supported (sales: not_supported; complaints: no_detectable_difference; first sale: usable).
-36. `[assess:assess]` P0113: grade Moderate (sales: supported; complaints: lower_than_cohort; first sale: usable).
-37. `[assess:assess]` P0120: grade Insufficient (sales: not_tested; complaints: not_tested; first sale: unreliable).
+35. `[assess:assess]` P0050: grade Not supported (sales: not_supported; complaints: no_detectable_difference; first sale: usable; grade under pooled FDR: Not supported).
+36. `[assess:assess]` P0113: grade Moderate (sales: supported; complaints: lower_than_cohort; first sale: usable; grade under pooled FDR: Moderate).
+37. `[assess:assess]` P0120: grade Insufficient (sales: not_tested; complaints: not_tested; first sale: unreliable; grade under pooled FDR: Insufficient).
 38. `[assess:route]` Investigation path: direct_response
 39. `[write:decision]` Draft with 25 claims.
 40. `[validate:decision]` Claim validation: 25 verified, 0 flagged.
 
 ## Evidence ledger
 
-| ID | Tool | Requested by | Summary | p | BH q | Hypothesis |
-|---|---|---|---|---|---|---|
-| E001 | signal_by_segment | code | Premium Thin & Light: 6.9% [6.7%, 7.1%]; Budget: 3.8% [3.6%, 3.9%]; Gaming: 3.4% [3.2%, 3.6%]; Mainstream: 3.4% [3.3%, 3.5%] |  |  |  |
-| E002 | signal_trend | code | battery complaint rate in Budget: 3.5% baseline -> 3.8% recent (diff +0.3%, 95% CI +0.1% to +0.5%); status=no_material_change. | 0.007 | 0.014 | declared |
-| E003 | signal_trend | code | battery complaint rate in Gaming: 3.2% baseline -> 3.4% recent (diff +0.3%, 95% CI -0.0% to +0.6%); status=no_material_change. | 0.089 | 0.118 | declared |
-| E004 | signal_trend | code | battery complaint rate in Mainstream: 3.4% baseline -> 3.4% recent (diff +0.0%, 95% CI -0.2% to +0.2%); status=no_material_change. | 0.950 | 0.950 | declared |
-| E005 | signal_trend | code | battery complaint rate in Premium Thin & Light: 4.4% baseline -> 6.9% recent (diff +2.5%, 95% CI +2.2% to +2.8%); status=intensified_long_standing. | 0.000 | 0.000 | declared |
-| E006 | search_product_docs | scripted | 4 documents match ['battery life', 'hours of battery', 'all-day battery', 'long-lasting battery', 'battery that lasts'] (segment=ALL); returned 4. |  |  |  |
-| E007 | get_product_doc | scripted | D0050A (announcement, 2023-M10) for Brevik Aero 14 G4: The new Brevik Aero 14 G4 brings all-day battery that lasts up to 17 hours, in a design under 1.3 kg. |  |  |  |
-| E008 | first_observed_sale | scripted | P0050: first observed sale 2023-M11 (an estimate of market entry, not a verified launch date); reliability=usable; flags=none. |  |  |  |
-| E009 | define_cohort | scripted | Cohort for P0050: 15 Premium Thin & Light models with first observed sale within +/-6 months and early ASP within +/-30%. |  |  |  |
-| E010 | launch_trajectory | scripted | P0050: mean segment share 5.66% over first 12 months since first observed sale vs cohort median 4.04% (rank 6 of 16; prediction-interval p=0.354, greater). | 0.354 | 0.428 | declared |
-| E011 | price_volume_pattern | scripted | P0050: 2 month(s) with observed price-and-volume pattern (promotion not confirmed): 2024-M02,2024-M03. |  |  |  |
-| E012 | complaint_comparison | scripted | P0050: battery complaint rate 8.8% [95% CI 7.5%-10.4%] vs cohort median 8.7% across 15 products in the same months (product-level p=0.593, less); no_detectable_difference. | 0.593 | 0.593 | declared |
-| E013 | get_product_doc | scripted | D0113A (announcement, 2023-M09) for Altura Aero 13 G4: Introducing the Altura Aero 13 G4: engineered for endurance, with up to 20 hours of battery life so you can work a full day and evening without a charger. |  |  |  |
-| E014 | first_observed_sale | scripted | P0113: first observed sale 2023-M10 (an estimate of market entry, not a verified launch date); reliability=usable; flags=none. |  |  |  |
-| E015 | define_cohort | scripted | Cohort for P0113: 15 Premium Thin & Light models with first observed sale within +/-6 months and early ASP within +/-30%. |  |  |  |
-| E016 | launch_trajectory | scripted | P0113: mean segment share 18.09% over first 12 months since first observed sale vs cohort median 4.04% (rank 1 of 16; prediction-interval p=0.002, greater). | 0.002 | 0.005 | declared |
-| E017 | price_volume_pattern | scripted | P0113: no price-and-volume pattern at thresholds (ASP -12%, units +30%). |  |  |  |
-| E018 | complaint_comparison | scripted | P0113: battery complaint rate 3.2% [95% CI 2.7%-3.7%] vs cohort median 8.9% across 15 products in the same months (product-level p=0.005, less); lower_than_cohort. | 0.005 | 0.010 | declared |
-| E019 | get_product_doc | scripted | D0120A (announcement, 2021-M09) for Corvane Lumen 14 G2: Meet the Corvane Lumen 14 G2: up to 18 hours of battery life and a brilliant OLED display. |  |  |  |
-| E020 | first_observed_sale | scripted | P0120: first observed sale 2022-M04 (an estimate of market entry, not a verified launch date); reliability=unreliable; flags=coverage_expansion_month,no_visible_ramp,positioning_doc_precedes_first_sale. |  |  |  |
-| E021 | get_product_doc | scripted | D0084A (announcement, 2023-M07) for Elsari Strike 15 G4: The Elsari Strike 15 G4 delivers a long-lasting battery for gaming on the go and a 165 Hz display. |  |  |  |
-| E022 | launch_trajectory | critic | P0050: mean segment share 5.05% over first 10 months since first observed sale vs cohort median 4.04% (rank 6 of 16; prediction-interval p=0.428, greater). | 0.428 | 0.428 | declared |
-| E023 | rubric | code | Signal grade for battery in Premium Thin & Light: Moderate. |  |  |  |
-| E024 | rubric | code | P0050: grade Not supported (sales: not_supported; complaints: no_detectable_difference; first sale: usable). |  |  |  |
-| E025 | rubric | code | P0113: grade Moderate (sales: supported; complaints: lower_than_cohort; first sale: usable). |  |  |  |
-| E026 | rubric | code | P0120: grade Insufficient (sales: not_tested; complaints: not_tested; first sale: unreliable). |  |  |  |
+| ID | Tool | Requested by | Summary | p | q (family) | q (pooled) | Status | Family |
+|---|---|---|---|---|---|---|---|---|
+| E001 | signal_by_segment | code | Premium Thin & Light: 6.9% [6.7%, 7.1%]; Budget: 3.8% [3.6%, 3.9%]; Gaming: 3.4% [3.2%, 3.6%]; Mainstream: 3.4% [3.3%, 3.5%] |  |  |  |  |  |
+| E002 | signal_trend | code | battery complaint rate in Budget: 3.5% baseline -> 3.8% recent (diff +0.3%, 95% CI +0.1% to +0.5%); status=no_material_change. | 0.007 | 0.014 | 0.016 | confirmatory | signal_screening |
+| E003 | signal_trend | code | battery complaint rate in Gaming: 3.2% baseline -> 3.4% recent (diff +0.3%, 95% CI -0.0% to +0.6%); status=no_material_change. | 0.089 | 0.118 | 0.160 | confirmatory | signal_screening |
+| E004 | signal_trend | code | battery complaint rate in Mainstream: 3.4% baseline -> 3.4% recent (diff +0.0%, 95% CI -0.2% to +0.2%); status=no_material_change. | 0.950 | 0.950 | 0.950 | confirmatory | signal_screening |
+| E005 | signal_trend | code | battery complaint rate in Premium Thin & Light: 4.4% baseline -> 6.9% recent (diff +2.5%, 95% CI +2.2% to +2.8%); status=intensified_long_standing. | 0.000 | 0.000 | 0.000 | confirmatory | signal_screening |
+| E006 | search_product_docs | scripted | 4 documents match ['battery life', 'hours of battery', 'all-day battery', 'long-lasting battery', 'battery that lasts'] (segment=ALL); returned 4. |  |  |  |  |  |
+| E007 | get_product_doc | scripted | D0050A (announcement, 2023-M10) for Brevik Aero 14 G4: The new Brevik Aero 14 G4 brings all-day battery that lasts up to 17 hours, in a design under 1.3 kg. |  |  |  |  |  |
+| E008 | first_observed_sale | scripted | P0050: first observed sale 2023-M11 (an estimate of market entry, not a verified launch date); reliability=usable; flags=none. |  |  |  |  |  |
+| E009 | define_cohort | scripted | Cohort for P0050: 15 Premium Thin & Light models with first observed sale within +/-6 months and early ASP within +/-30%. |  |  |  |  |  |
+| E010 | launch_trajectory | scripted | P0050: mean segment share 5.66% over first 12 months since first observed sale vs cohort median 4.04% (rank 6 of 16; prediction-interval p=0.354, greater). | 0.354 | 0.354 | 0.532 | confirmatory | sales_confirmatory |
+| E011 | price_volume_pattern | scripted | P0050: 2 month(s) with observed price-and-volume pattern (promotion not confirmed): 2024-M02,2024-M03. |  |  |  |  |  |
+| E012 | complaint_comparison | scripted | P0050: battery complaint rate 8.8% [95% CI 7.5%-10.4%] vs cohort median 8.7% across 15 products in the same months (product-level p=0.593, less); no_detectable_difference. | 0.593 | 0.593 | 0.667 | confirmatory | complaints_confirmatory |
+| E013 | get_product_doc | scripted | D0113A (announcement, 2023-M09) for Altura Aero 13 G4: Introducing the Altura Aero 13 G4: engineered for endurance, with up to 20 hours of battery life so you can work a full day and evening without a charger. |  |  |  |  |  |
+| E014 | first_observed_sale | scripted | P0113: first observed sale 2023-M10 (an estimate of market entry, not a verified launch date); reliability=usable; flags=none. |  |  |  |  |  |
+| E015 | define_cohort | scripted | Cohort for P0113: 15 Premium Thin & Light models with first observed sale within +/-6 months and early ASP within +/-30%. |  |  |  |  |  |
+| E016 | launch_trajectory | scripted | P0113: mean segment share 18.09% over first 12 months since first observed sale vs cohort median 4.04% (rank 1 of 16; prediction-interval p=0.002, greater). | 0.002 | 0.003 | 0.007 | confirmatory | sales_confirmatory |
+| E017 | price_volume_pattern | scripted | P0113: no price-and-volume pattern at thresholds (ASP -12%, units +30%). |  |  |  |  |  |
+| E018 | complaint_comparison | scripted | P0113: battery complaint rate 3.2% [95% CI 2.7%-3.7%] vs cohort median 8.9% across 15 products in the same months (product-level p=0.005, less); lower_than_cohort. | 0.005 | 0.010 | 0.015 | confirmatory | complaints_confirmatory |
+| E019 | get_product_doc | scripted | D0120A (announcement, 2021-M09) for Corvane Lumen 14 G2: Meet the Corvane Lumen 14 G2: up to 18 hours of battery life and a brilliant OLED display. |  |  |  |  |  |
+| E020 | first_observed_sale | scripted | P0120: first observed sale 2022-M04 (an estimate of market entry, not a verified launch date); reliability=unreliable; flags=coverage_expansion_month,no_visible_ramp,positioning_doc_precedes_first_sale. |  |  |  |  |  |
+| E021 | get_product_doc | scripted | D0084A (announcement, 2023-M07) for Elsari Strike 15 G4: The Elsari Strike 15 G4 delivers a long-lasting battery for gaming on the go and a 165 Hz display. |  |  |  |  |  |
+| E022 | launch_trajectory | critic | P0050: mean segment share 5.05% over first 10 months since first observed sale vs cohort median 4.04% (rank 6 of 16; prediction-interval p=0.428, greater). | 0.428 | 0.428 | 0.550 | sensitivity | sensitivity_exploratory |
+| E023 | rubric | code | Signal grade for battery in Premium Thin & Light: Moderate. |  |  |  |  |  |
+| E024 | rubric | code | P0050: grade Not supported (sales: not_supported; complaints: no_detectable_difference; first sale: usable; grade under pooled FDR: Not supported). |  |  |  |  |  |
+| E025 | rubric | code | P0113: grade Moderate (sales: supported; complaints: lower_than_cohort; first sale: usable; grade under pooled FDR: Moderate). |  |  |  |  |  |
+| E026 | rubric | code | P0120: grade Insufficient (sales: not_tested; complaints: not_tested; first sale: unreliable; grade under pooled FDR: Insufficient). |  |  |  |  |  |
 
 ## Run metadata
 
 - Models: None
 - LLM calls: 0; input tokens: 0; output tokens: 0
-- Tests run: 9 (Benjamini-Hochberg within each test family: signal screening, sales vs cohort, complaints vs cohort)
+- Tests run: 9 (Benjamini-Hochberg within each family; pooled q shown alongside)
+- Cost: $0.0000 (list prices; limits: None)
 - Data file hashes: {"products.csv": "0b4ecc336b0d425486c24598f7ff787f095ceac95b16ae823306e4f289aa806a", "sellout_monthly.csv": "71fc64ea4921f4bbe786f5a13396cff9b1841624dcdfa8b226fbd6745a624b7f", "product_docs.csv": "b19357a8eac27b81b7b93e7a60f05b186bb936ff3facd6db90ee372f4d461f8b", "signal_counts.csv": "52964dbb96d016c1b7f4dd298c4ab01534805fa7ae1d86b2cb1aac5ce6cda7f7"}

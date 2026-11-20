@@ -59,11 +59,43 @@ An adapter declares its capabilities (`signals`, `product_docs`, `sellout`). The
 - **Interpretation:** a lower rate is *consistent with* the product addressing the need. Buyer mix, firmware
   updates, attention shifts and small samples remain alternatives.
 
-## Multiple testing
-- Benjamini–Hochberg within each test family: signal screening, sales vs cohort, complaints vs cohort.
-- Every test run in a family counts, including agent-chosen and exploratory tests.
-- Tests without a matching declared hypothesis (tool + direction) are labelled exploratory. Associations
-  relying on them must say so.
+## Unit of analysis and dependencies
+- **Both comparisons use the product as the unit.** Each cohort product is one observation; comments and
+  monthly sales rows are not treated as independent.
+- **Sales:** each product's mean share of segment sell-out over its own first 12 months since first observed
+  sale. Cohort products enter within ±6 months, so calendar windows differ by up to 6 months; share of
+  segment removes common seasonality and trend.
+- **Complaints:** all products are measured over the same calendar months (the target's first 12 months).
+  This controls market-wide complaint shifts, but cohort products are at different lifecycle ages.
+- **Cohort size:** the cohort is the same set for both tests. Products with fewer than 30 comments in the
+  window are dropped from the complaint test, and both n are reported.
+- **Not modelled:** same-manufacturer correlation; shared calendar shocks; segment shares summing to one (a
+  strong product slightly lowers others' shares, a mild bias toward finding a difference).
+- **Aggregate only.** Relationships are product-level aggregates. They say nothing about why individual
+  consumers bought or complained (ecological inference).
+
+## Test status and multiple testing
+**Status of each test**, assigned by code when the test runs:
+
+| Status | Definition | Role |
+|---|---|---|
+| confirmatory | Code screening tests, or a test whose tool and direction match a hypothesis the planner declared before any test ran | The only tests that can support a grade |
+| sensitivity | Robustness re-runs: price-and-volume months excluded, or a test requested by the critic after seeing results | Can only restrict a conclusion |
+| exploratory | Any other test the agent chooses | Reported, never used to raise a grade; associations that rely on it must say "exploratory" |
+
+**Families** (Benjamini–Hochberg within each), each defined by the question its tests answer:
+
+| Family | Question | Members |
+|---|---|---|
+| signal_screening | Is the complaint rate materially higher in segment S? | One fixed test per segment |
+| sales_confirmatory | Did products positioned on the need gain more segment share than their cohort? | One test per positioned product the agent tests |
+| complaints_confirmatory | Did they draw fewer complaints than their cohort in the same months? | One test per positioned product the agent tests |
+| sensitivity_exploratory | Robustness and undeclared follow-ups | Everything else |
+
+**Transparency.** The family split was introduced during development, after a pooled correction pushed a
+planted effect just past q = 0.05. To keep that decision visible rather than hidden, every test also
+reports `q_pooled` (BH across all tests in the run), and every product grade is reported again under pooled
+correction (`grade_pooled`). The evaluation reports both.
 
 ## Confidence rubric (code only)
 
@@ -103,14 +135,15 @@ An adapter declares its capabilities (`signals`, `product_docs`, `sellout`). The
 - **Planted complaint signal:** battery complaints rise in Premium Thin & Light (5% → 10% of comments, then
   8.5%).
 - **Planted products:**
-  - **A:** attractiveness ×4 and complaint rate ×0.35 in the positive variant; ×1 and ×1 in the zero-effect
-    variant.
+  - **A:** effect tiers (sales attractiveness × / complaint rate ×): strong 4.0/0.35 (demo), moderate
+    2.0/0.60, small 1.4/0.80, null 1.0/1.0, contradictory 4.0/1.0.
   - **B:** ASP −20% with units ×1.8 in months 3–6 after FOS.
   - **C:** history hidden until a coverage expansion, along with about 11 other models.
 - **Answer key location:** written outside the data directory; product IDs are shuffled.
-- **Effect size and power:** with the earlier, smaller effects (×3.0 sales, ×0.45 complaints), raw tests were
-  significant in most seeds but both survived FDR in only about 40%. Detection power depends on effect size,
-  and real effects may be smaller.
+- **Effect size and power:** the strong tier is a deliberately clear demonstration case. The evaluation keeps
+  the moderate, small, zero-effect and contradictory tiers, and scores *appropriateness* first: a grade above
+  what the planted truth justifies is an overclaim. Inconclusive results on small effects are correct
+  behaviour, not failures.
 
 ## Known limitations
 1. **Synthetic validation only.** Real noise, mapping errors and data gaps will reduce power.

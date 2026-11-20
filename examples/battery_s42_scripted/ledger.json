@@ -71,6 +71,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "code"
     },
     {
@@ -199,7 +201,9 @@
       "p_value": 0.0070075958732859975,
       "test_label": "battery complaint rate recent vs baseline (Budget)",
       "q_value": 0.014015191746571995,
-      "hypothesis_status": "declared",
+      "hypothesis_status": "confirmatory",
+      "test_family": "signal_screening",
+      "q_pooled": 0.015767090714893496,
       "requested_by": "code"
     },
     {
@@ -328,7 +332,9 @@
       "p_value": 0.08867359620359207,
       "test_label": "battery complaint rate recent vs baseline (Gaming)",
       "q_value": 0.11823146160478942,
-      "hypothesis_status": "declared",
+      "hypothesis_status": "confirmatory",
+      "test_family": "signal_screening",
+      "q_pooled": 0.1596124731664657,
       "requested_by": "code"
     },
     {
@@ -457,7 +463,9 @@
       "p_value": 0.949748812932534,
       "test_label": "battery complaint rate recent vs baseline (Mainstream)",
       "q_value": 0.949748812932534,
-      "hypothesis_status": "declared",
+      "hypothesis_status": "confirmatory",
+      "test_family": "signal_screening",
+      "q_pooled": 0.9497488129325339,
       "requested_by": "code"
     },
     {
@@ -586,7 +594,9 @@
       "p_value": 1.3321027653794764e-44,
       "test_label": "battery complaint rate recent vs baseline (Premium Thin & Light)",
       "q_value": 5.328411061517906e-44,
-      "hypothesis_status": "declared",
+      "hypothesis_status": "confirmatory",
+      "test_family": "signal_screening",
+      "q_pooled": 1.1988924888415288e-43,
       "requested_by": "code"
     },
     {
@@ -669,6 +679,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -694,6 +706,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -719,6 +733,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -825,6 +841,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -964,8 +982,10 @@
       },
       "p_value": 0.3543733865404353,
       "test_label": "P0050 launch-aligned share vs cohort",
-      "q_value": 0.4279823852515303,
-      "hypothesis_status": "declared",
+      "q_value": 0.3543733865404353,
+      "hypothesis_status": "confirmatory",
+      "test_family": "sales_confirmatory",
+      "q_pooled": 0.531560079810653,
       "requested_by": "scripted"
     },
     {
@@ -1005,6 +1025,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -1059,7 +1081,9 @@
       "p_value": 0.593329169218478,
       "test_label": "P0050 battery complaint rate vs cohort products (same months)",
       "q_value": 0.593329169218478,
-      "hypothesis_status": "declared",
+      "hypothesis_status": "confirmatory",
+      "test_family": "complaints_confirmatory",
+      "q_pooled": 0.6674953153707878,
       "requested_by": "scripted"
     },
     {
@@ -1085,6 +1109,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -1110,6 +1136,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -1216,6 +1244,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -1355,8 +1385,10 @@
       },
       "p_value": 0.001615298966886784,
       "test_label": "P0113 launch-aligned share vs cohort",
-      "q_value": 0.004845896900660352,
-      "hypothesis_status": "declared",
+      "q_value": 0.003230597933773568,
+      "hypothesis_status": "confirmatory",
+      "test_family": "sales_confirmatory",
+      "q_pooled": 0.007268845350990528,
       "requested_by": "scripted"
     },
     {
@@ -1385,6 +1417,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -1439,7 +1473,9 @@
       "p_value": 0.004913551699390928,
       "test_label": "P0113 battery complaint rate vs cohort products (same months)",
       "q_value": 0.009827103398781857,
-      "hypothesis_status": "declared",
+      "hypothesis_status": "confirmatory",
+      "test_family": "complaints_confirmatory",
+      "q_pooled": 0.014740655098172786,
       "requested_by": "scripted"
     },
     {
@@ -1465,6 +1501,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -1490,6 +1528,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -1515,6 +1555,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "scripted"
     },
     {
@@ -1655,7 +1697,9 @@
       "p_value": 0.4279823852515303,
       "test_label": "P0050 launch-aligned share vs cohort (pattern months excluded)",
       "q_value": 0.4279823852515303,
-      "hypothesis_status": "declared",
+      "hypothesis_status": "sensitivity",
+      "test_family": "sensitivity_exploratory",
+      "q_pooled": 0.5502630667519676,
       "requested_by": "critic"
     },
     {
@@ -1672,7 +1716,7 @@
         "theme": "battery",
         "grade": "Moderate",
         "status": "intensified_long_standing",
-        "reasons": "complaint labels come from a classifier whose accuracy is not validated in this dataset",
+        "reasons": "complaint labels come from a classifier whose accuracy is not validated in this dataset; pooled segment rates can move with product mix",
         "based_on": "E005"
       },
       "summary": "Signal grade for battery in Premium Thin & Light: Moderate.",
@@ -1681,6 +1725,8 @@
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "code"
     },
     {
@@ -1694,6 +1740,7 @@
       "values": {
         "product_id": "P0050",
         "grade": "Not supported",
+        "grade_pooled": "Not supported",
         "sales_status": "not_supported",
         "complaint_status": "no_detectable_difference",
         "first_sale_reliability": "usable",
@@ -1703,12 +1750,14 @@
         "ceiling_note": "Moderate is the ceiling: observational data without a causal design.",
         "based_on": "E008,E010,E022,E011,E012"
       },
-      "summary": "P0050: grade Not supported (sales: not_supported; complaints: no_detectable_difference; first sale: usable).",
+      "summary": "P0050: grade Not supported (sales: not_supported; complaints: no_detectable_difference; first sale: usable; grade under pooled FDR: Not supported).",
       "detail": {},
       "p_value": null,
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "code"
     },
     {
@@ -1722,6 +1771,7 @@
       "values": {
         "product_id": "P0113",
         "grade": "Moderate",
+        "grade_pooled": "Moderate",
         "sales_status": "supported",
         "complaint_status": "lower_than_cohort",
         "first_sale_reliability": "usable",
@@ -1731,12 +1781,14 @@
         "ceiling_note": "Moderate is the ceiling: observational data without a causal design.",
         "based_on": "E014,E016,E017,E018"
       },
-      "summary": "P0113: grade Moderate (sales: supported; complaints: lower_than_cohort; first sale: usable).",
+      "summary": "P0113: grade Moderate (sales: supported; complaints: lower_than_cohort; first sale: usable; grade under pooled FDR: Moderate).",
       "detail": {},
       "p_value": null,
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "code"
     },
     {
@@ -1750,6 +1802,7 @@
       "values": {
         "product_id": "P0120",
         "grade": "Insufficient",
+        "grade_pooled": "Insufficient",
         "sales_status": "not_tested",
         "complaint_status": "not_tested",
         "first_sale_reliability": "unreliable",
@@ -1759,12 +1812,14 @@
         "ceiling_note": "Moderate is the ceiling: observational data without a causal design.",
         "based_on": "E020"
       },
-      "summary": "P0120: grade Insufficient (sales: not_tested; complaints: not_tested; first sale: unreliable).",
+      "summary": "P0120: grade Insufficient (sales: not_tested; complaints: not_tested; first sale: unreliable; grade under pooled FDR: Insufficient).",
       "detail": {},
       "p_value": null,
       "test_label": null,
       "q_value": null,
       "hypothesis_status": null,
+      "test_family": null,
+      "q_pooled": null,
       "requested_by": "code"
     }
   ]

@@ -27,7 +27,7 @@ def test_live_path_runs_react_loop_and_revision(recorded):
     agent_tools = [e for e in live["ledger"].entries if e.requested_by == "agent"]
     assert {e.tool for e in agent_tools} >= {"search_product_docs", "first_observed_sale", "define_cohort",
                                              "launch_trajectory", "complaint_comparison"}
-    assert all(e.hypothesis_status == "declared" for e in agent_tools if e.p_value is not None)
+    assert all(e.hypothesis_status == "confirmatory" for e in agent_tools if e.p_value is not None)
     # first draft had a causal overclaim -> flagged -> one revision -> all verified
     assert st["revisions"] == 1
     assert all(c["status"] == "verified" for c in st["checks"])

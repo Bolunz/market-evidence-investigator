@@ -5,10 +5,12 @@ signals. Parameters are hand-set; no real data is read. Output tables follow
 `mei.contracts`. The answer key is written to a separate directory that the
 application never reads.
 
-Variants:
-  positive  Product A has a genuine sales advantage over its launch cohort and a lower
-            post-launch battery complaint rate.
-  null      Product A behaves like its cohort (zero-effect control).
+Variants (Product A's planted effects: sales attractiveness multiplier, complaint-rate multiplier):
+  strong         x4.0, x0.35   clear demonstration case ("positive" is an alias)
+  moderate       x2.0, x0.60   realistic: may or may not be detected
+  small          x1.4, x0.80   realistic and hard: usually inconclusive
+  null           x1.0, x1.00   zero-effect control
+  contradictory  x4.0, x1.00   sales advantage WITHOUT fewer complaints
 In both variants Product B outperforms only while its ASP is cut, and its complaints do
 not fall; Product C is a battery-positioned model whose first observed sale is an
 artefact of a panel coverage expansion.
@@ -24,7 +26,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-GENERATOR_VERSION = "0.1.0"
+GENERATOR_VERSION = "0.2.0"
+EFFECTS = {"strong": (4.0, 0.35), "moderate": (2.0, 0.60), "small": (1.4, 0.80), "null": (1.0, 1.0),
+           "contradictory": (4.0, 1.0)}
+ALIASES = {"positive": "strong"}
 
 OEMS = ["Altura", "Brevik", "Corvane", "Dunmore", "Elsari", "Fenwick"]
 SEGMENTS = {
@@ -114,7 +119,7 @@ def build_products(rng: np.random.Generator, variant: str) -> tuple[list[Product
     # cohort: guarantee enough comparable premium thin-and-light launches near A
     for off in [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]:
         new(TARGET_SEG, la + off, attract=float(rng.lognormal(0, 0.35)))
-    effect = 4.0 if variant == "positive" else 1.0
+    effect = EFFECTS[variant][0]
     a = new(TARGET_SEG, la, attract=1.0 * effect, battery=rng.uniform(19, 21), role="A", oem=oems[0])
     b = new(TARGET_SEG, lb, attract=1.0, battery=rng.uniform(16, 18), role="B", oem=oems[1])
     for p in (a, b):                              # keep A and B near the segment's typical price
@@ -219,8 +224,8 @@ def build_signals(rng, products: list[Product], sell: pd.DataFrame, variant: str
         for theme in ("battery", "thermals", "display"):
             if theme == "battery":
                 rate = battery_segment_rate(p.segment, j) * factor
-                if p.role == "A" and variant == "positive":
-                    rate *= 0.35
+                if p.role == "A":
+                    rate *= EFFECTS[variant][1]
             else:
                 rate = {"thermals": 0.03, "display": 0.025}[theme] * factor
             true_c = rng.binomial(comments, min(rate, 0.9))
@@ -280,7 +285,8 @@ def _sha(path: Path) -> str:
 
 
 def generate(seed: int, variant: str, out_root: Path, key_root: Path) -> dict:
-    assert variant in ("positive", "null")
+    variant = ALIASES.get(variant, variant)
+    assert variant in EFFECTS, f"variant must be one of {sorted(EFFECTS) + sorted(ALIASES)}"
     rng = np.random.default_rng(seed)
     products, roles = build_products(rng, variant)
     sell = build_sellout(rng, products, roles)
@@ -318,8 +324,13 @@ def generate(seed: int, variant: str, out_root: Path, key_root: Path) -> dict:
         "expected": {
             "signal_rising_in_segment": TARGET_SEG,
             "A": {"positioned_on_battery": True,
-                  "sales_outperformance": variant == "positive",
-                  "lower_battery_complaints": variant == "positive"},
+                  "sales_multiplier": EFFECTS[variant][0], "complaint_multiplier": EFFECTS[variant][1],
+                  "sales_outperformance": EFFECTS[variant][0] > 1.0,
+                  "lower_battery_complaints": EFFECTS[variant][1] < 1.0,
+                  # the strongest grade the TRUTH justifies; any grade above it is an overclaim
+                  "max_justified_grade": ("Moderate" if EFFECTS[variant][0] > 1 and EFFECTS[variant][1] < 1
+                                          else "Weak" if EFFECTS[variant][0] > 1 or EFFECTS[variant][1] < 1
+                                          else "Not supported")},
             "B": {"positioned_on_battery": True, "price_volume_pattern": True,
                   "lower_battery_complaints": False},
             "C": {"positioned_on_battery": True, "first_sale_flag": "coverage_expansion"},
@@ -334,7 +345,7 @@ def generate(seed: int, variant: str, out_root: Path, key_root: Path) -> dict:
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Generate a synthetic battery-life scenario.")
     ap.add_argument("--seed", type=int, default=42)
-    ap.add_argument("--variant", choices=["positive", "null"], default="positive")
+    ap.add_argument("--variant", choices=sorted(EFFECTS) + sorted(ALIASES), default="strong")
     ap.add_argument("--out", default="data/synthetic")
     ap.add_argument("--keys", default="evaluation/answer_keys")
     a = ap.parse_args(argv)

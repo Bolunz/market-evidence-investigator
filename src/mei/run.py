@@ -4,9 +4,9 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Callable, Optional
 
-from dotenv import load_dotenv
 
 from .adapters.synthetic import CsvMarketSource
+from .config import load_env
 from .agents.graph import RunContext, build_graph
 from .ledger import EvidenceLedger
 from .report.render import write_outputs
@@ -20,7 +20,7 @@ def run_investigation(data_dir: str | Path, out_dir: str | Path, mode: str = "sc
                       question: str = DEFAULT_QUESTION, cache_path: str | Path | None = None,
                       on_event: Optional[Callable[[dict], None]] = None, max_tool_calls: int = 24,
                       chat_factory=None) -> dict:
-    load_dotenv()                                       # reads a local, git-ignored .env if present
+    env = load_env()                                    # local, git-ignored .env; key never printed
     out_dir = Path(out_dir)
     md = CsvMarketSource(data_dir).load()
     ledger = EvidenceLedger(md.file_hashes)
@@ -41,6 +41,9 @@ def run_investigation(data_dir: str | Path, out_dir: str | Path, mode: str = "sc
             f"{' (synthetic)' if md.synthetic else ''}", "synthetic": md.synthetic, "theme": theme,
             "question": question, "trace": ctx.trace,
             "models": {"main": llm.model_main, "small": llm.model_small} if llm else None,
-            "usage": llm.usage.__dict__ if llm else None, "data_dir": str(data_dir)}
+            "usage": llm.usage.__dict__ if llm else None, "data_dir": str(data_dir),
+            "limits": {"max_calls": llm.max_calls, "max_cost_usd": llm.max_cost_usd, "effort": llm.effort,
+                       "max_tool_calls": max_tool_calls} if llm else None,
+            "key_source": env["key_source"] if mode == "live" else None}
     paths = write_outputs(out_dir, dict(state), state.get("checks", []), ledger, meta)
     return {"state": state, "ledger": ledger, "trace": ctx.trace, "paths": paths, "md": md, "meta": meta}

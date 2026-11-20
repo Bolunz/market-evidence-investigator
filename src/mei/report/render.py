@@ -34,6 +34,24 @@ PATH_TEXT = {
 }
 
 
+METHOD_NOTES = [
+    "- Unit of analysis is the PRODUCT, in both comparisons. Sales: each product's mean share of segment "
+    "sell-out over its own first 12 months since first observed sale (cohort products enter within +/-6 months, "
+    "so calendar windows differ by up to 6 months; share of segment removes common seasonality and market trend). "
+    "Complaints: every product's rate over the SAME calendar months (the target's first 12 months), so "
+    "market-wide complaint shifts are controlled but cohort products are at different lifecycle ages. The cohort "
+    "is the same set for both tests; products with fewer than 30 comments are dropped from the complaint test "
+    "(both n are reported).",
+    "- Dependencies not modelled: products from the same manufacturer; cohort products sharing calendar shocks; "
+    "segment shares summing to one (a strong product slightly lowers others' shares).",
+    "- These are aggregate, product-level relationships. They do not describe individual consumers: a lower "
+    "complaint rate among a product's commenters does not show that individual buyers chose it for battery life.",
+    "- Test families (Benjamini-Hochberg within each): signal screening; confirmatory sales tests; confirmatory "
+    "complaint tests; sensitivity + exploratory tests. Families are defined by the question a test answers; "
+    "the pooled q across all tests and the grade under pooled correction are shown for comparison.",
+]
+
+
 def _fig_to_b64(fig) -> str:
     buf = io.BytesIO()
     fig.savefig(buf, format="png", dpi=110, bbox_inches="tight")
@@ -118,35 +136,40 @@ def build_markdown(state, checks, ledger, meta) -> str:
         lines.append(f"- ~~{claims[c['claim_id']]['text']}~~  \n  _Reason:_ {'; '.join(c['problems'])}")
     lines.append("")
     lines += ["## Evidence assessment (code rubric)", "",
-              "| Subject | Grade | Sales | Complaints | First observed sale | Contradiction | Notes |",
-              "|---|---|---|---|---|---|---|"]
+              "| Subject | Grade | Grade (pooled FDR) | Sales | Complaints | First observed sale | Contradiction | Notes |",
+              "|---|---|---|---|---|---|---|---|"]
     for e in ledger.by_type("confidence_assessment"):
         v = e.values
         if "product_id" in v:
-            lines.append(f"| {v['product_id']} ({e.evidence_id}) | {v['grade']} | {v['sales_status']} | "
+            lines.append(f"| {v['product_id']} ({e.evidence_id}) | {v['grade']} | {v.get('grade_pooled', '')} | "
+                         f"{v['sales_status']} | "
                          f"{v['complaint_status']} | {v['first_sale_reliability']} | {v['contradiction']} | "
                          f"{v['reasons']} |")
         else:
             lines.append(f"| {v.get('theme', '')} signal, {v.get('segment')} ({e.evidence_id}) | {v['grade']} | - | - | "
-                         f"- | - | {v.get('reasons', '')} |")
+                         f"- | - | - | {v.get('reasons', '')} |")
     lines += ["", "Grades: Moderate (sales advantage AND lower complaints) > Weak (one of the two) > Not supported > "
-              "Insufficient. Moderate is the ceiling for observational data.", ""]
+              "Insufficient. Moderate is the ceiling for observational data. Only confirmatory (pre-declared) tests "
+              "can support a grade; sensitivity re-runs can only restrict it; exploratory tests are reported, not graded.",
+              "", "### Method notes: unit of analysis and test families", "", *METHOD_NOTES, ""]
     lines += ["## Investigation trail", ""]
     for t in meta["trace"]:
         lines.append(f"{t['step']}. `[{t['node']}:{t['kind']}]` {t['text']}")
-    lines += ["", "## Evidence ledger", "", "| ID | Tool | Requested by | Summary | p | BH q | Hypothesis |",
-              "|---|---|---|---|---|---|---|"]
+    lines += ["", "## Evidence ledger", "",
+              "| ID | Tool | Requested by | Summary | p | q (family) | q (pooled) | Status | Family |",
+              "|---|---|---|---|---|---|---|---|---|"]
     for e in ledger.entries:
         p = f"{e.p_value:.3f}" if e.p_value is not None else ""
         q = f"{e.q_value:.3f}" if e.q_value is not None else ""
+        qp = f"{e.q_pooled:.3f}" if getattr(e, "q_pooled", None) is not None else ""
         lines.append(f"| {e.evidence_id} | {e.tool} | {e.requested_by} | {e.summary.replace('|', '/')} | {p} | {q} | "
-                     f"{e.hypothesis_status or ''} |")
+                     f"{qp} | {e.hypothesis_status or ''} | {getattr(e, 'test_family', '') or ''} |")
     u = meta.get("usage") or {}
     lines += ["", "## Run metadata", "", f"- Models: {meta.get('models')}",
               f"- LLM calls: {u.get('calls', 0)}; input tokens: {u.get('input_tokens', 0)}; "
               f"output tokens: {u.get('output_tokens', 0)}",
-              f"- Tests run: {len(ledger.tests())} (Benjamini-Hochberg within each test family: signal screening, "
-              f"sales vs cohort, complaints vs cohort)",
+              f"- Tests run: {len(ledger.tests())} (Benjamini-Hochberg within each family; pooled q shown alongside)",
+              f"- Cost: ${u.get('cost_usd', 0):.4f} (list prices; limits: {meta.get('limits')})",
               f"- Data file hashes: {json.dumps(ledger.data_hashes)}", ""]
     return "\n".join(lines)
 

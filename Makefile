@@ -32,7 +32,7 @@ demo-replay:      ## replay the recorded agent run: no API key, no cost
 check:            ## re-execute every tool result in the recorded example run
 	$(BIN)/mei check --run $(DEMO_RUN) --data $(DEMO_DATA)
 
-eval:             ## scripted-policy evaluation over 20 positive + 20 zero-effect seeds
+eval:             ## scripted-policy evaluation: 20 seeds x 5 effect tiers
 	$(BIN)/python evaluation/run_eval.py --seeds 20
 
 publish-check:    ## scan for credentials, private data and restricted references before pushing

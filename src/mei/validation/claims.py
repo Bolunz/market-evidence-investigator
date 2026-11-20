@@ -187,8 +187,9 @@ def check_claim(claim, ledger, products, implied: list[str]) -> ClaimCheck:
             tests = [evs[i] for i in a.evidence_ids if i in evs and evs[i].p_value is not None]
             if not any(e.q_value is not None and e.q_value < 0.05 for e in tests):
                 chk.problems.append(f"{a.type}: cited tests are not significant after BH adjustment (q >= 0.05)")
-            if any(e.hypothesis_status == "exploratory" for e in tests) and "exploratory" not in claim.text.lower():
-                chk.problems.append(f"{a.type}: relies on an exploratory test but the text does not say so")
+            for status in ("exploratory", "sensitivity"):
+                if any(e.hypothesis_status == status for e in tests) and status not in claim.text.lower():
+                    chk.problems.append(f"{a.type}: relies on a {status} test but the text does not say so")
         if a.type == "confidence_grade":
             for i in a.evidence_ids:
                 g = evs.get(i)
@@ -213,7 +214,7 @@ def check_claim(claim, ledger, products, implied: list[str]) -> ClaimCheck:
     for e in evs.values():
         _collect_numbers(e.values, cands)
         _collect_numbers(e.params, cands)
-        _collect_numbers([e.p_value, e.q_value], cands)
+        _collect_numbers([e.p_value, e.q_value, e.q_pooled], cands)
     for tok, val, pct, dec in _numbers_in(claim.text):
         if not _number_supported(val, pct, dec, cands):
             chk.problems.append(f"number '{tok}' not found in cited evidence")

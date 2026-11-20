@@ -121,6 +121,8 @@ def signal_by_segment(md: MarketData, theme: str, window: tuple[str, str] | None
     for r in rows:
         key = r["segment"].lower().replace(" & ", "_").replace(" ", "_")
         values[f"rate_{key}"] = r["rate"]
+        values[f"ci_low_{key}"] = r["ci_low"]
+        values[f"ci_high_{key}"] = r["ci_high"]
     return {"evidence_type": "signal_by_segment", "values": values, "detail": {"segments": rows},
             "summary": "; ".join(f"{r['segment']}: {r['rate']:.1%} [{r['ci_low']:.1%}, {r['ci_high']:.1%}]"
                                  for r in rows)}

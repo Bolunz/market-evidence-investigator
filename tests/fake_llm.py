@@ -93,7 +93,7 @@ class FakeChat:
             return self._reply("InvestigationPlan", {
                 "focus_segment": seg, "rationale": "largest increase", "search_terms": list(GOOD_TERMS),
                 "hypotheses": [{"hypothesis_id": "H1", "statement": "positioned products gained share vs cohort",
-                                "test_tool": "launch_trajectory", "alternative": "greater"},
+                                "test_tool": "launch_trajectory", "alternative": "two-sided"},
                                {"hypothesis_id": "H2", "statement": "positioned products have fewer complaints",
                                 "test_tool": "complaint_comparison", "alternative": "less"}]}, n)
         if self.choice == "Critique":
@@ -133,7 +133,7 @@ class FakeChat:
         cohort = next(o for o in obs if "cohort_ids" in o.get("values", {}))["values"]["cohort_ids"].split(",")
         return AIMessage(content="Testing declared hypotheses.", tool_calls=[
             {"name": "launch_trajectory", "args": {"product_id": hit["product_id"], "cohort_ids": cohort,
-                                                   "alternative": "greater"}, "id": _id("tr", n)},
+                                                   "alternative": "two-sided"}, "id": _id("tr", n)},
             {"name": "complaint_comparison", "args": {"product_id": hit["product_id"], "cohort_ids": cohort,
                                                       "alternative": "less"}, "id": _id("cc", n)}],
             usage_metadata={"input_tokens": 100, "output_tokens": 20, "total_tokens": 120})

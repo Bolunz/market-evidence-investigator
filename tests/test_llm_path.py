@@ -28,6 +28,10 @@ def test_live_path_runs_react_loop_and_revision(recorded):
     assert {e.tool for e in agent_tools} >= {"search_product_docs", "first_observed_sale", "define_cohort",
                                              "launch_trajectory", "complaint_comparison"}
     assert all(e.hypothesis_status == "confirmatory" for e in agent_tools if e.p_value is not None)
+    # like the real planner in the smoke test, the fake declares a TWO-SIDED sales hypothesis;
+    # the rubric must still grade it (regression: it used to count only one-sided "greater" tests)
+    grades = [e.values for e in live["ledger"].by_type("confidence_assessment") if "product_id" in e.values]
+    assert grades and all(g["sales_status"] not in ("exploratory_only", "not_tested") for g in grades)
     # first draft had a causal overclaim -> flagged -> one revision -> all verified
     assert st["revisions"] == 1
     assert all(c["status"] == "verified" for c in st["checks"])

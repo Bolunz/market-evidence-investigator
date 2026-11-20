@@ -95,3 +95,40 @@ def test_smoke_test_code_paths_offline(tmp_path, monkeypatch):
     assert res["passed"] == 7
     assert (tmp_path / "smoke" / "smoke_report.json").exists()
     assert FAKE not in (tmp_path / "smoke" / "smoke_report.json").read_text()
+
+
+def test_provider_errors_mapped_by_status_code_not_class_name():
+    """Regression from the live smoke test: langchain-anthropic raises AnthropicModelNotFoundError."""
+    from mei.llm.client import LLMRequestError, _explain
+
+    class AnthropicModelNotFoundError(Exception):
+        status_code = 404
+
+    class SomeWrapperRateLimitThing(Exception):
+        status_code = 429
+
+    class Unauthorized(Exception):
+        status_code = 401
+
+    assert isinstance(_explain(AnthropicModelNotFoundError("x"), "m"), LLMRequestError)
+    assert "404" in str(_explain(AnthropicModelNotFoundError("x"), "m"))
+    assert "after 3 automatic retries" in str(_explain(SomeWrapperRateLimitThing("x"), "m"))
+    assert "401" in str(_explain(Unauthorized("x"), "m"))
+
+
+def _traj(led, pid, alt, ratio, p, status="confirmatory"):
+    led.record("launch_trajectory", {"product_id": pid, "alternative": alt, "exclude_price_volume_months": False},
+               {"values": {"ratio_to_cohort_median": ratio}, "test": {"p_value": p}}, hypothesis_status=status)
+
+
+def test_rubric_accepts_two_sided_declared_hypothesis_with_direction():
+    from mei.validation.rubric import assess_product
+    led = EvidenceLedger()
+    _traj(led, "PA", "two-sided", 3.5, 0.001)
+    _traj(led, "PB", "two-sided", 0.4, 0.001)
+    _traj(led, "PC", "two-sided", 3.5, 0.40)
+    _traj(led, "PD", "greater", 3.5, 0.001, status="exploratory")
+    assert assess_product(led, "PA")["sales_status"] == "supported"
+    assert assess_product(led, "PB")["sales_status"] == "underperformed_cohort"
+    assert assess_product(led, "PC")["sales_status"] == "not_supported"
+    assert assess_product(led, "PD")["sales_status"] == "exploratory_only"

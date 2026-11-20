@@ -5,19 +5,32 @@ packages from PyPI. You need Python 3.11+ and `make` (included with the Xcode Co
 
 ## 1. Install
 
+Run each line on its own. Do not paste comments: interactive zsh does not treat `#` as a comment.
+If conda's `(base)` environment is active, run `conda deactivate` first.
+
 ```bash
 unzip market-evidence-investigator.zip
 cd market-evidence-investigator
-make setup PY=python3.12          # creates .venv, installs requirements.lock (about 1 minute)
-make test                         # expect: all tests passed, no network or key needed
+make setup PY=python3.12
+make test
 ```
+
+`make setup` creates `.venv`, installs `requirements.lock`, and installs the project code with a
+regular (non-editable) install (about 1 minute). `make test` should report all tests passed; it needs
+no network or key.
+
+**After any code update**, re-copy the code into `.venv` with `make install`. The install is regular
+rather than editable because on one macOS setup the editable link file was ignored and `mei` could
+not be imported.
 
 ## 2. Configure the API key (local only)
 
 ```bash
 cp .env.example .env
-open -e .env                      # set ANTHROPIC_API_KEY=sk-ant-...  then save
+open -e .env
 ```
+
+In the editor, set `ANTHROPIC_API_KEY=sk-ant-...` and save.
 
 `.env` is git-ignored and is read only by the application. The key is never printed: the smoke test
 shows only its first 7 and last 4 characters, and where it came from.
@@ -57,9 +70,12 @@ and send me that file.**
 ## 4. Estimate, then the full live investigation
 
 ```bash
-.venv/bin/mei estimate            # no API calls; prints a low / central / high cost estimate
-make demo-live                    # full investigation, live terminal view
+.venv/bin/mei estimate
+make demo-live
 ```
+
+`mei estimate` makes no API calls and prints a low / central / high cost estimate. `make demo-live`
+runs the full investigation with a live terminal view.
 
 At list prices on 2026-11-20 (Sonnet 5.5 $2/$10, Haiku 5.5 $0.10/$0.50 per million tokens) the estimate
 is **about $0.63, range $0.29–$1.55**. It is capped at $3.00 by default. The final panel shows the
@@ -71,7 +87,9 @@ Outputs are in `runs/demo_live/`: `report.html`, `ledger.json`, `trace.jsonl`, `
 ## 5. Send back for review
 
 ```bash
-cd runs && zip -r demo_live.zip demo_live && cd ..
+cd runs
+zip -r demo_live.zip demo_live
+cd ..
 ```
 
 Attach `runs/demo_live.zip`. It contains only synthetic data and model outputs, no key.
@@ -86,3 +104,5 @@ Attach `runs/demo_live.zip`. It contains only synthetic data and model outputs, 
 | `Anthropic rejected the API key (401)` | wrong or revoked key, or no credits on the account |
 | `spending cap ... would be exceeded` | raise `MEI_MAX_COST_USD`, or rerun; nothing was sent |
 | `RateLimitError after 3 automatic retries` | wait a minute and rerun |
+| `ModuleNotFoundError: No module named 'mei'` | run `make install` (re-copies the code into `.venv`) |
+| `cd: too many arguments` or `command not found: #` | a comment was pasted; run each command alone |

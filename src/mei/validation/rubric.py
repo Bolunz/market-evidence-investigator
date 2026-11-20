@@ -33,8 +33,15 @@ def _sig(e, qattr: str) -> bool:
 
 def _status(ledger, pid: str, qattr: str) -> dict:
     traj = _for_product(ledger, "launch_trajectory", pid)
-    confirm = [e for e in traj if e.hypothesis_status == "confirmatory" and e.params.get("alternative") == "greater"]
+    # a declared one-sided ("greater") or two-sided hypothesis both count; a two-sided result supports
+    # OUTperformance only when the product is above its cohort (ratio > 1)
+    confirm = [e for e in traj if e.hypothesis_status == "confirmatory"
+               and e.params.get("alternative") in ("greater", "two-sided")]
     sens = [e for e in traj if e.hypothesis_status == "sensitivity" and e.params.get("exclude_price_volume_months")]
+
+    def above(e):
+        r = e.values.get("ratio_to_cohort_median")
+        return r is not None and r > 1
     pv = _for_product(ledger, "price_volume_pattern", pid)
     comp = [e for e in _for_product(ledger, "complaint_comparison", pid) if "p_value" in e.values]
     comp_c = [e for e in comp if e.hypothesis_status == "confirmatory" and e.params.get("alternative") in ("less", "two-sided")]
@@ -42,10 +49,12 @@ def _status(ledger, pid: str, qattr: str) -> dict:
 
     if not confirm:
         sales = "exploratory_only" if traj else "not_tested"
-    elif any(_sig(e, qattr) for e in confirm):
+    elif any(_sig(e, qattr) and not above(e) for e in confirm) and not any(_sig(e, qattr) and above(e) for e in confirm):
+        sales = "underperformed_cohort"
+    elif any(_sig(e, qattr) and above(e) for e in confirm):
         if not pattern:
             sales = "supported"
-        elif sens and any(_sig(e, qattr) for e in sens):
+        elif sens and any(_sig(e, qattr) and above(e) for e in sens):
             sales = "supported_excluding_pattern_months"
         elif sens:
             sales = "not_robust_to_price_volume_pattern"

@@ -4,13 +4,16 @@ BIN = $(VENV)/bin
 DEMO_DATA = examples/data/battery_s42
 DEMO_RUN = examples/battery_s42_agent
 
-.PHONY: setup data test demo demo-live demo-replay check eval publish-check
+.PHONY: setup install data test demo demo-live demo-replay check eval publish-check
 
 setup:            ## create the virtual environment and install pinned dependencies
 	$(PY) -m venv $(VENV)
 	$(BIN)/pip install -q --upgrade pip
 	$(BIN)/pip install -q -r requirements.lock
-	$(BIN)/pip install -q -e . --no-deps
+	$(BIN)/pip install -q --no-deps --force-reinstall .
+
+install:          ## re-copy the project code into .venv after code changes (regular, non-editable install)
+	$(BIN)/pip install -q --no-deps --force-reinstall .
 
 data:             ## regenerate synthetic demo scenarios (positive seed 42, zero-effect seed 7)
 	$(BIN)/python -m mei_synth.generate --seed 42 --variant positive

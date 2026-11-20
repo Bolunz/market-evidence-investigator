@@ -195,17 +195,22 @@ class LLMClient:
 
 
 def _explain(e: Exception, model: str) -> Exception:
+    """Map provider errors to actionable messages. Uses the HTTP status code first, because
+    wrappers rename the exception classes (e.g. langchain-anthropic raises
+    AnthropicModelNotFoundError for Anthropic's NotFoundError)."""
     name = type(e).__name__
     msg = str(e)
-    if name == "AuthenticationError":
+    status = getattr(e, "status_code", None) or getattr(getattr(e, "response", None), "status_code", None)
+    if status == 401 or "Authentication" in name:
         return LLMRequestError("Anthropic rejected the API key (401). Check ANTHROPIC_API_KEY in .env.")
-    if name == "NotFoundError":
+    if status == 404 or "NotFound" in name:
         return LLMRequestError(f"Model '{model}' not found or not available to this key (404). "
                                "Set MEI_MODEL_MAIN / MEI_MODEL_SMALL in .env.")
-    if name == "PermissionDeniedError":
+    if status == 403 or "PermissionDenied" in name:
         return LLMRequestError(f"This key cannot use '{model}' (403).")
-    if name in ("RateLimitError", "InternalServerError", "APIConnectionError", "APITimeoutError", "OverloadedError"):
-        return LLMRequestError(f"{name} after 3 automatic retries: {msg[:300]}")
-    if name == "BadRequestError" or isinstance(e, ValueError):
+    if status in (429, 500, 502, 503, 504, 529) or any(k in name for k in (
+            "RateLimit", "Overloaded", "InternalServer", "APIConnection", "Timeout")):
+        return LLMRequestError(f"{name} ({status}) after 3 automatic retries: {msg[:300]}")
+    if status == 400 or "BadRequest" in name or isinstance(e, ValueError):
         return LLMRequestError(f"Request rejected ({name}): {msg[:500]}")
     return e

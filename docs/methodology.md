@@ -156,3 +156,7 @@ correction (`grade_pooled`). The evaluation reports both.
    assortment share with placebo tests) is designed but not built.
 4. **No distribution or assortment data.** Velocity (sales ÷ distribution) cannot be computed.
 5. **History length.** One history window means earlier complaint episodes cannot be compared.
+
+Limitations in the agents' behaviour observed in the two live runs (critic misreading the comparison
+group; writer mislabelling descriptive statements), with causes and proposed fixes, are in the README,
+section 9.

@@ -35,8 +35,11 @@ Different, and better:
 - The investigator was more systematic: first sale for all three candidates and price-and-volume checks
   for both positioned products before testing.
 - The critic's placebo request (display complaints for P0113, no comparison group given) now ran, reusing
-  the group from E019. Result: 2.5% vs 2.2%, q = 0.64, no difference. The writer reported it cautiously
-  ("this one check does not rule these out").
+  the group from E019. Result: 2.5% vs 2.2%, q = 0.64, no detectable difference. This is consistent with
+  P0113's lower complaint rate being specific to battery, but it is a single diagnostic: it does not show
+  that the battery finding is causal, and it does not rule out other explanations (buyer mix, comment
+  propensity, other product differences). The writer reported it in those terms ("this one check does not
+  rule these out").
 - The critic did not misread the rank reference figure this time (one run; it cannot show the fix works
   in general). All its numbers trace to the ledger.
 

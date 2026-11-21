@@ -37,8 +37,9 @@ Problems found:
 2. **Critic's requested test was lost.** It asked for a placebo-theme check (P0113 display complaints)
    but omitted the required `cohort_ids`, and the request was rejected. Offline check (ours, not the
    agent's): P0113 is at the cohort median on display (2.5% vs 2.2%, p=0.72) and thermals (3.3% vs 3.0%,
-   p=0.60), low only on battery — the test would have argued against the critic's "comment mix"
-   explanation. (In synthetic data this is expected by construction.)
+   p=0.60), low only on battery. That would have been one piece of evidence against the critic's
+   "comment mix" explanation, not proof of it being wrong, and nothing causal. (In synthetic data this
+   pattern is expected by construction.)
 3. **Validator false positive on document numbers.** "Up to 20 / 17 / 18 hours" are in the cited
    documents, but the number check searches only computed values, so the revision dropped correct figures.
 4. **Critic errors (not adopted by the writer):** it said P0113 inflated P0050's comparison although

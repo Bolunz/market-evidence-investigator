@@ -98,8 +98,13 @@ class FakeChat:
                                 "test_tool": "complaint_comparison", "alternative": "less"}]}, n)
         if self.choice == "Critique":
             pid = next(f["product_id"] for f in ctx["findings"]["findings"] if f["positioning"] == "positioned_on_need")
+            # like the real critic in live run 01: a placebo-theme check WITHOUT cohort_ids
             return self._reply("Critique", {"alternative_explanations": [
-                {"product_id": pid, "explanation": "buyer mix may differ", "would_distinguish": "owner reviews"}]}, n)
+                {"product_id": pid, "explanation": "buyer mix may differ", "would_distinguish": "owner reviews"}],
+                "requested_test": {"tool": "complaint_comparison",
+                                   "args": {"product_id": pid, "theme": "display", "months": 12,
+                                            "alternative": "less"},
+                                   "reason": "placebo theme"}}, n)
         if self.choice == "ImpliedAssertions":
             text = " ".join(m.content for m in messages if isinstance(m, HumanMessage) and isinstance(m.content, str))
             return self._reply("ImpliedAssertions", {"implied": ["causal_effect"] if "drove" in text else [],
@@ -155,7 +160,7 @@ class FakeChat:
         hit = self._target_hit(obs, plan)
         ids = {k: o["evidence_id"] for o in obs for k in ("first_observed_sale_month", "cohort_ids")
                if k in o.get("values", {})}
-        tests = [o["evidence_id"] for o in obs if "p_value" in o]
+        tests = [o["evidence_id"] for o in obs if "test" in o]
         return {"findings": [{"product_id": hit["product_id"], "positioning": "positioned_on_need",
                               "doc_id": hit["doc_id"], "quote": hit["snippet"],
                               "first_sale_evidence_id": ids.get("first_observed_sale_month"),

@@ -30,6 +30,9 @@ Open `runs/demo_replay/report.html` to read the report.
 
 `make demo-replay` re-executes **every analytical tool for real** and plays back only the recorded LLM
 responses, then re-checks each ledger entry against its recorded inputs (`mei check`).
+`make verify-replay` goes further: it replays the recording and requires every output (state, ledger,
+validation checks, trace, report, call and token counts) to be identical to the recorded run. A replay
+uses the models, effort and tool budget stored with the recording, not the local `.env`.
 
 ## Live run with the Anthropic API
 
@@ -40,7 +43,11 @@ cp .env.example .env          # .env is git-ignored; set ANTHROPIC_API_KEY=...
 .venv/bin/mei smoke           # 7 checks, a few cents, capped at $0.50
 .venv/bin/mei estimate        # cost estimate for a full run (no API calls)
 make demo-live                # full investigation; writes runs/demo_live/ incl. an LLM cache for replay
+make verify-replay RUN=runs/demo_live   # replay it (no API calls) and compare every output
 ```
+
+A live run refuses to start if its output folder already holds a recording, so it can never silently
+reuse earlier answers; use a new folder, or `--resume` to continue an interrupted run.
 
 The key is read only from the environment (or the local, git-ignored `.env`). It is never written to code,
 config, caches or logs. Each run has a USD spending cap (`MEI_MAX_COST_USD`, default $3.00): a call is

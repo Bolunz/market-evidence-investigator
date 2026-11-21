@@ -9,5 +9,6 @@
   "usage": null,
   "data_dir": "examples/data/battery_s42",
   "limits": null,
-  "key_source": null
+  "key_source": null,
+  "replay_settings_from_recording": false
 }

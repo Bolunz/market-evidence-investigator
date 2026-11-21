@@ -23,6 +23,7 @@ from langgraph.graph import END, START, StateGraph
 from ..adapters.base import CAP_PRODUCT_DOCS, CAP_SELLOUT, CAP_SIGNALS
 from ..tools import REGISTRY, ToolError, anthropic_tool_defs, observation, run_tool
 from ..validation.claims import validate_claims
+from ..tools import resolve_comparison_group
 from ..validation.rubric import record_assessments
 from . import prompts, scripted
 from .schemas import Critique, ImpliedAssertions, InvestigationFindings, InvestigationPlan, ReportDraft
@@ -178,6 +179,7 @@ def build_graph(ctx: RunContext, interrupt_after: list[str] | None = None):
         for a in c.alternative_explanations:
             ctx.emit("decision", f"Alternative for {a.product_id}: {a.explanation}")
         rt = c.requested_test
+        out = c.model_dump()
         if rt is not None:
             positioned = {f.product_id for f in inv.findings if f.positioning == "positioned_on_need"}
             pid = rt.args.get("product_id")
@@ -185,12 +187,17 @@ def build_graph(ctx: RunContext, interrupt_after: list[str] | None = None):
                 ctx.emit("guard", f"Critic requested a test on {pid}, which is not a positioned product; skipped.")
             else:
                 try:
-                    ev, _ = run_tool(rt.tool, rt.args, ctx.md, ctx.ledger, requested_by="critic",
-                                     declared=ctx.declared)
+                    args, source = resolve_comparison_group(ctx.ledger, rt.tool, rt.args)
+                    if source:
+                        ctx.emit("guard", f"Critic's {rt.tool} on {pid}: comparison group reused from {source} "
+                                          "(the investigator's test of the same product and question).")
+                        out["requested_test"]["cohort_source"] = source
+                    ev, _ = run_tool(rt.tool, args, ctx.md, ctx.ledger, requested_by="critic",
+                                     declared=ctx.declared, theme=ctx.theme)
                     ctx.emit("tool", f"[critic] {rt.tool} -> {ev.evidence_id}: {ev.summary}", evidence_id=ev.evidence_id)
                 except ToolError as e:
                     ctx.emit("guard", f"Critic's requested test rejected: {e}")
-        return {"critique": c.model_dump()}
+        return {"critique": out}
 
     def assess(state: State) -> State:
         ctx.node = "assess"
@@ -325,7 +332,7 @@ def _react_investigation(ctx: RunContext, p: InvestigationPlan) -> Investigation
             else:
                 try:
                     ev, obs = run_tool(tc["name"], tc["args"], ctx.md, ctx.ledger, requested_by="agent",
-                                       declared=ctx.declared)
+                                       declared=ctx.declared, theme=ctx.theme)
                     content = json.dumps(obs, default=str)
                     shown = {k: v for k, v in tc["args"].items() if k != "cohort_ids"}
                     ctx.emit("tool", f"{tc['name']}({shown}) -> {ev.evidence_id}: {ev.summary}",

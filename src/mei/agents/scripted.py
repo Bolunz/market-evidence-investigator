@@ -36,7 +36,8 @@ def plan(ctx, profile: dict) -> InvestigationPlan:
 
 def investigate(ctx, plan_: InvestigationPlan) -> InvestigationFindings:
     def tool(name, **args):
-        ev, _ = run_tool(name, args, ctx.md, ctx.ledger, requested_by="scripted", declared=ctx.declared)
+        ev, _ = run_tool(name, args, ctx.md, ctx.ledger, requested_by="scripted", declared=ctx.declared,
+                         theme=ctx.theme)
         ctx.emit("tool", f"{name}({', '.join(f'{k}={v}' for k, v in args.items() if k != 'cohort_ids')}) "
                          f"-> {ev.evidence_id}: {ev.summary}")
         return ev

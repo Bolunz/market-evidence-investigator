@@ -1,4 +1,4 @@
-"""Command line: `mei run` (investigate) and `mei check` (re-execute a run's ledger)."""
+"""Command line: `mei run`, `mei check` (re-execute a ledger), `mei verify-replay`, `mei smoke`, `mei estimate`."""
 from __future__ import annotations
 
 import argparse
@@ -23,8 +23,14 @@ def cmd_run(a) -> int:
     from .run import run_investigation
     console.print(Panel(f"[bold]Market Evidence Investigator[/bold]\nmode: {a.mode} · data: {a.data} · theme: {a.theme}",
                         expand=False))
-    res = run_investigation(a.data, a.out, mode=a.mode, theme=a.theme, cache_path=a.cache,
-                            on_event=None if a.quiet else _show, max_tool_calls=a.max_tool_calls)
+    from .run import RecordingExists
+    try:
+        res = run_investigation(a.data, a.out, mode=a.mode, theme=a.theme, cache_path=a.cache,
+                                on_event=None if a.quiet else _show, max_tool_calls=a.max_tool_calls,
+                                resume=a.resume)
+    except RecordingExists as e:
+        console.print(f"[red]{e}[/red]")
+        return 2
     checks = res["state"].get("checks", [])
     flagged = sum(c["status"] == "flagged" for c in checks)
     u = res["meta"].get("usage") or {}
@@ -51,6 +57,20 @@ def cmd_check(a) -> int:
         return 1
     console.print(f"[green]All {n} tool results re-executed from recorded inputs and matched.[/green]")
     return 0
+
+
+def cmd_verify_replay(a) -> int:
+    from .verify import verify_replay
+    res = verify_replay(a.run, a.data)
+    for name, ok, detail in res["items"]:
+        console.print(("[green]PASS[/green]  " if ok else "[red]FAIL[/red]  ") + f"{name}: "
+                      + (detail if ok else ""), highlight=False, soft_wrap=True)
+        if not ok:
+            console.print(detail, highlight=False, soft_wrap=True)
+    console.print(Panel("Replay verified: the recording reproduces every output exactly." if res["ok"] else
+                        "Replay FAILED: see the differences above.",
+                        title="verify-replay " + ("PASSED" if res["ok"] else "FAILED"), expand=False))
+    return 0 if res["ok"] else 1
 
 
 def cmd_smoke(a) -> int:
@@ -94,7 +114,12 @@ def main(argv=None) -> int:
     r.add_argument("--cache", default=None, help="LLM cache file (live writes, replay reads)")
     r.add_argument("--max-tool-calls", type=int, default=24)
     r.add_argument("--quiet", action="store_true")
+    r.add_argument("--resume", action="store_true", help="live mode: continue a run whose cache already exists")
     r.set_defaults(fn=cmd_run)
+    v = sub.add_parser("verify-replay", help="replay a recorded run (no API calls) and compare every output")
+    v.add_argument("--run", required=True, help="recorded run folder (with llm_cache.jsonl and run_meta.json)")
+    v.add_argument("--data", default=None, help="data directory (default: the one in run_meta.json)")
+    v.set_defaults(fn=cmd_verify_replay)
     c = sub.add_parser("check", help="re-execute every ledger entry of a run and compare")
     c.add_argument("--run", required=True)
     c.add_argument("--data", required=True)

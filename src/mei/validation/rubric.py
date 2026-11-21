@@ -31,7 +31,7 @@ def _sig(e, qattr: str) -> bool:
     return q is not None and q < ALPHA
 
 
-def _status(ledger, pid: str, qattr: str) -> dict:
+def _status(ledger, pid: str, qattr: str, theme: str | None = None) -> dict:
     traj = _for_product(ledger, "launch_trajectory", pid)
     # a declared one-sided ("greater") or two-sided hypothesis both count; a two-sided result supports
     # OUTperformance only when the product is above its cohort (ratio > 1)
@@ -43,7 +43,9 @@ def _status(ledger, pid: str, qattr: str) -> dict:
         r = e.values.get("ratio_to_cohort_median")
         return r is not None and r > 1
     pv = _for_product(ledger, "price_volume_pattern", pid)
-    comp = [e for e in _for_product(ledger, "complaint_comparison", pid) if "p_value" in e.values]
+    # only complaint tests on the theme under investigation (a placebo theme is never graded)
+    comp = [e for e in _for_product(ledger, "complaint_comparison", pid) if "p_value" in e.values
+            and (theme is None or e.params.get("theme", theme) == theme)]
     comp_c = [e for e in comp if e.hypothesis_status == "confirmatory" and e.params.get("alternative") in ("less", "two-sided")]
     pattern = any(e.values.get("pattern_detected") for e in pv)
 
@@ -93,11 +95,11 @@ def _grade(reliability: str, st: dict) -> str:
     return "Not supported"
 
 
-def assess_product(ledger, pid: str) -> dict:
+def assess_product(ledger, pid: str, theme: str | None = None) -> dict:
     fos = _for_product(ledger, "first_observed_sale", pid)
     reliability = fos[-1].values.get("reliability") if fos else "not_checked"
-    st = _status(ledger, pid, "q_value")
-    st_pooled = _status(ledger, pid, "q_pooled")
+    st = _status(ledger, pid, "q_value", theme)
+    st_pooled = _status(ledger, pid, "q_pooled", theme)
     grade = _grade(reliability, st)
     reasons = []
     if reliability == "unreliable":
@@ -153,7 +155,7 @@ def record_assessments(ledger, segment: str, theme: str, product_ids: list[str])
                              {"evidence_type": "confidence_assessment", "values": sig,
                               "summary": f"Signal grade for {theme} in {segment}: {sig['grade']}."}))
     for pid in product_ids:
-        a = assess_product(ledger, pid)
+        a = assess_product(ledger, pid, theme)
         out.append(ledger.record("rubric", {"kind": "product", "product_id": pid},
                                  {"evidence_type": "confidence_assessment", "values": a,
                                   "summary": (f"{pid}: grade {a['grade']} (sales: {a['sales_status']}; complaints: "

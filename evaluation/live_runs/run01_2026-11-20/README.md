@@ -47,3 +47,12 @@ Problems found:
 5. Minor: the terminal view omits list arguments such as `cohort_ids`; the report trail truncates
    decisions at 300 characters; first-draft validation flags were mostly level/assertion-type
    mismatches that one revision fixed.
+
+## Changes made after this run (commit after `0963ea1`)
+
+Fixes 2–4 and the replay audit are in the next commit: the critic's comparison group is resolved from
+the investigator's own tests (rejected if none or ambiguous); off-theme complaint tests are never
+confirmatory or graded; document figures pass only when attributed to the right product, with the same
+unit, as manufacturer claims; the test result is a separate `test` block and the rank figure is renamed
+`empirical_rank_reference` with a definition. This ledger still re-executes (the old key name is mapped).
+Re-validating this run's first draft with the new validator: C4 now passes; the other five flags are unchanged.

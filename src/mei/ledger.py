@@ -125,6 +125,10 @@ def _close(a: Any, b: Any) -> bool:
     return a == b
 
 
+# renamed value keys -> current name (live run 01 was recorded with p_value_exceedance)
+LEGACY_VALUE_KEYS = {"p_value_exceedance": "empirical_rank_reference"}
+
+
 def replay_check(ledger: EvidenceLedger, md, registry) -> list[str]:
     """Re-execute every entry from its recorded params; return mismatches (empty = reproducible)."""
     problems = []
@@ -137,6 +141,7 @@ def replay_check(ledger: EvidenceLedger, md, registry) -> list[str]:
         res = spec.fn(md, **e.params)
         vals = _clean(res.get("values", {}))
         for k, v in e.values.items():
-            if not _close(v, vals.get(k)):
-                problems.append(f"{e.evidence_id} {e.tool}.{k}: recorded {v!r} vs recomputed {vals.get(k)!r}")
+            k_now = LEGACY_VALUE_KEYS.get(k, k)          # ledgers recorded before a key was renamed
+            if not _close(v, vals.get(k_now)):
+                problems.append(f"{e.evidence_id} {e.tool}.{k}: recorded {v!r} vs recomputed {vals.get(k_now)!r}")
     return problems

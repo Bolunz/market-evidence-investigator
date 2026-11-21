@@ -58,7 +58,10 @@ class AlternativeExplanation(BaseModel):
 class RequestedTest(BaseModel):
     tool: Literal["launch_trajectory", "complaint_comparison", "price_volume_pattern", "first_observed_sale",
                   "define_cohort"]
-    args: dict
+    args: dict = Field(description="Arguments for the tool. For launch_trajectory / complaint_comparison you "
+                                   "may omit cohort_ids: code reuses the comparison group the investigator used "
+                                   "for the same product and tool, and rejects the request if there is none or "
+                                   "more than one.")
     reason: str
 
 

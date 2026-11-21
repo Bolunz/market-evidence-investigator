@@ -92,7 +92,7 @@ class LLMClient:
 
     def __init__(self, mode: str, cache_path: Path, model_main: str | None = None,
                  model_small: str | None = None, max_calls: int | None = None,
-                 max_cost_usd: float | None = None, chat_factory=None):
+                 max_cost_usd: float | None = None, chat_factory=None, effort: dict | None = None):
         assert mode in ("live", "replay")
         self.mode = mode
         self.cache_path = Path(cache_path)
@@ -100,7 +100,8 @@ class LLMClient:
         self.model_small = model_small or os.getenv("MEI_MODEL_SMALL", "claude-haiku-5-5")
         self.max_calls = max_calls or int(os.getenv("MEI_MAX_LLM_CALLS", "60"))
         self.max_cost_usd = max_cost_usd if max_cost_usd is not None else float(os.getenv("MEI_MAX_COST_USD", "3.00"))
-        self.effort = {"main": os.getenv("MEI_EFFORT_MAIN", "medium"), "small": os.getenv("MEI_EFFORT_SMALL", "low")}
+        self.effort = dict(effort) if effort else {"main": os.getenv("MEI_EFFORT_MAIN", "medium"),
+                                                    "small": os.getenv("MEI_EFFORT_SMALL", "low")}
         self.usage = Usage()
         self._cache: dict[str, dict] = {}
         if self.cache_path.exists():

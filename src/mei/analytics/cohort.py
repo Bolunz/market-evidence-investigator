@@ -114,7 +114,7 @@ def launch_trajectory(md, product_id: str, cohort_ids: list[str], months: int = 
         "excluded_price_volume_months": exclude_price_volume_months,
         "target_mean_segment_share": t_mean, "cohort_median_segment_share": c_med,
         "ratio_to_cohort_median": t_mean / c_med if c_med else float("nan"),
-        "percentile_in_cohort": pr, "p_value_exceedance": pex, "n_cohort": len(c_means),
+        "percentile_in_cohort": pr, "empirical_rank_reference": pex, "n_cohort": len(c_means),
         "n_products_compared": len(c_means) + 1,
         "t_stat": tstat, "p_value": p_pred, "alternative": alternative,
         "rank_in_cohort": int(sum(1 for c in c_means if c > t_mean) + 1),

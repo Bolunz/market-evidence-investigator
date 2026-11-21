@@ -40,8 +40,11 @@ An adapter declares its capabilities (`signals`, `product_docs`, `sellout`). The
 - **Metric:** mean share of segment sell-out over the first 12 months since FOS. Using share removes market
   seasonality and trend.
 - **Test:** product-level prediction-interval t-test on log mean share, where each cohort product is one
-  observation, with a pre-declared direction. Rank-based exceedance p is reported alongside, but with ~15
-  cohort products it cannot fall below about 0.06, so it is not the test.
+  observation, with a pre-declared direction. A rank-based reference figure (`empirical_rank_reference`,
+  formerly `p_value_exceedance`) is reported alongside, but with ~15 cohort products it cannot fall below
+  about 0.06 and it is one-sided, so it is not the test. In the view the agents see, the test is a separate
+  `test` block (p, BH q, method, reading rule) and descriptive figures carry definitions, because in live
+  run 01 the critic mistook the reference figure for the test's p-value.
 
 ## Price-and-volume pattern
 - **Trigger:** a month where ASP is at least 12% below its trailing 3-month median AND units are at least

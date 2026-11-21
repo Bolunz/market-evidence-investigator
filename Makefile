@@ -4,7 +4,7 @@ BIN = $(VENV)/bin
 DEMO_DATA = examples/data/battery_s42
 DEMO_RUN = examples/battery_s42_agent
 
-.PHONY: setup install data test demo demo-live demo-replay check eval publish-check
+.PHONY: setup install data test demo demo-live verify-replay demo-replay check eval publish-check
 
 setup:            ## create the virtual environment and install pinned dependencies
 	$(PY) -m venv $(VENV)
@@ -27,6 +27,9 @@ demo:             ## scripted run (no LLM) on the committed demo data
 
 demo-live:        ## live agent run (needs ANTHROPIC_API_KEY in .env); records an LLM cache
 	$(BIN)/mei run --data $(DEMO_DATA) --out runs/demo_live --mode live --cache runs/demo_live/llm_cache.jsonl
+
+verify-replay:    ## replay a recorded run and compare every output: make verify-replay RUN=runs/demo_live
+	$(BIN)/mei verify-replay --run $(or $(RUN),$(DEMO_RUN))
 
 demo-replay:      ## replay the recorded agent run: no API key, no cost
 	$(BIN)/mei run --data $(DEMO_DATA) --out runs/demo_replay --mode replay --cache $(DEMO_RUN)/llm_cache.jsonl

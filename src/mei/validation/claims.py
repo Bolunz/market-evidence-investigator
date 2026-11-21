@@ -6,7 +6,11 @@ Claims are checked for what they ASSERT against the evidence they CITE, not for 
      verified launch date or a confirmed promotion, need evidence this data cannot provide)
   3. association assertions cite a test with BH q < 0.05
   4. claim level is compatible with its assertions
-  5. every number in the text matches a value in the cited evidence
+  5. every number in the text matches a computed value in the cited evidence. The one exception
+     is a specification figure from a cited product document (e.g. "up to 20 hours"): it passes only
+     in a positioning_claim citing that document, with the same unit, attributed to the document's
+     own product, and framed as a manufacturer claim rather than verified performance.
+     Percentages, statistics and sales metrics can only come from computed evidence.
   6. quoted text appears in a cited document
   7. product IDs and model names exist
   8. an auditor (LLM in live/replay mode, heuristic otherwise) extracts what the text implies;
@@ -143,6 +147,82 @@ def _number_supported(val: float, pct: bool, dec: int, candidates: list[float]) 
     return False
 
 
+
+# --- specification figures quoted from cited product documents -------------------------------
+SPEC_NUM_RE = re.compile(r"(?<![\w.])(\d+(?:\.\d+)?)\s?-?\s?(hours?|hrs?|hr|wh|mah|kg|gb|tb|nits|hz|inch(?:es)?|"
+                         r"mm|w)\b", re.I)
+_UNIT = {"hour": "hour", "hours": "hour", "hr": "hour", "hrs": "hour", "inches": "inch"}
+MANUFACTURER_CUES = ("up to", "claim", "advertis", "rated", "manufacturer", "document", "stated", "states",
+                     "according to", "marketed", "promis", "spec", "announce", "headline", "position",
+                     "quoted", "listed")
+VERIFIED_CUES = ("measured", "tested", "real-world", "real world", "verified", "independently", "in practice",
+                 "actual battery", "observed battery", "confirmed", "proven")
+
+
+def _unit(u: str) -> str:
+    u = u.lower()
+    return _UNIT.get(u, u)
+
+
+def _doc_sources(claim, evs) -> list[tuple[str, str]]:
+    """(product_id, text) of documents cited by the claim's positioning_claim assertions."""
+    out = []
+    for a in claim.assertions:
+        if a.type != "positioning_claim":
+            continue
+        for i in a.evidence_ids:
+            e = evs.get(i)
+            if e is None:
+                continue
+            if e.evidence_type == "product_doc" and e.detail.get("text"):
+                out.append((e.values.get("product_id"), e.detail["text"]))
+            for h in e.detail.get("hits", []) if e.evidence_type == "product_doc_search" else []:
+                out.append((h.get("product_id"), h.get("snippet", "")))
+    return out
+
+
+def _product_refs(text: str, products) -> list[tuple[int, str]]:
+    """(position, product_id) of every product ID or exact model name in the text."""
+    refs = [(m.start(), m.group(0)) for m in PID_RE.finditer(text)]
+    for pid, model in zip(products["product_id"], products["model"]):
+        for m in re.finditer(re.escape(model), text):
+            refs.append((m.start(), pid))
+    return sorted(refs)
+
+
+def spec_figure_checks(claim, evs, products) -> dict[float, list[str]]:
+    """For each specification figure in the claim that appears (same value, same unit) in a cited
+    document: {value: problems}. An empty list means the figure is supported as a manufacturer claim."""
+    sources = _doc_sources(claim, evs)
+    if not sources:
+        return {}
+    doc_figs = [(pid, float(m.group(1)), _unit(m.group(2))) for pid, txt in sources
+                for m in SPEC_NUM_RE.finditer(txt)]
+    refs = _product_refs(claim.text, products)
+    out: dict[float, list[str]] = {}
+    for m in SPEC_NUM_RE.finditer(claim.text):
+        val, unit = float(m.group(1)), _unit(m.group(2))
+        owners = sorted({pid for pid, v, u in doc_figs if v == val and u == unit})
+        if not owners:
+            continue                                   # not a document figure: the strict check decides
+        probs = out.setdefault(val, [])
+        before = [pid for pos, pid in refs if pos < m.start()]
+        subject = before[-1] if before else (refs[0][1] if len({p for _, p in refs}) == 1 else None)
+        fig = f"{m.group(1)} {m.group(2)}"
+        if subject is None:
+            probs.append(f"'{fig}' is a document figure but the claim does not say which product it belongs to")
+        elif subject not in owners:
+            probs.append(f"'{fig}' appears in a document for {', '.join(owners)}, not for {subject}, "
+                         "to which the claim attributes it")
+        sent = next((x for x in re.split(r"(?<=[.;!?])\s+", claim.text) if m.group(0) in x), claim.text).lower()
+        if any(c in sent for c in VERIFIED_CUES):
+            probs.append(f"'{fig}' is a manufacturer-claimed specification presented as verified performance")
+        elif not any(c in sent for c in MANUFACTURER_CUES):
+            probs.append(f"'{fig}' must be attributed as a manufacturer claim (e.g. 'up to', 'advertised', "
+                         "'claimed'), not stated as product performance")
+    return out
+
+
 @dataclass
 class ClaimCheck:
     claim_id: str
@@ -215,9 +295,17 @@ def check_claim(claim, ledger, products, implied: list[str]) -> ClaimCheck:
         _collect_numbers(e.values, cands)
         _collect_numbers(e.params, cands)
         _collect_numbers([e.p_value, e.q_value, e.q_pooled], cands)
-    for tok, val, pct, dec in _numbers_in(claim.text):
-        if not _number_supported(val, pct, dec, cands):
-            chk.problems.append(f"number '{tok}' not found in cited evidence")
+    spec = spec_figure_checks(claim, evs, products)
+    text_for_numbers = claim.text
+    for m in sorted(products["model"], key=len, reverse=True):     # digits in model names are not claims
+        text_for_numbers = text_for_numbers.replace(m, " ")
+    for tok, val, pct, dec in _numbers_in(text_for_numbers):
+        if _number_supported(val, pct, dec, cands):
+            continue                                                 # computed evidence: strict, unchanged
+        if not pct and val in spec:
+            chk.problems.extend(p for p in spec[val] if p not in chk.problems)
+            continue
+        chk.problems.append(f"number '{tok}' not found in cited evidence")
 
     # quotes
     docs_text = " ".join(str(e.detail.get("text", "")) + " " +

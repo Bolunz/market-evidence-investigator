@@ -84,7 +84,20 @@ actual calls, tokens and cost.
 Outputs are in `runs/demo_live/`: `report.html`, `ledger.json`, `trace.jsonl`, `state.json`,
 `checks.json`, `run_meta.json` and `llm_cache.jsonl`, the recording used for replay.
 
-## 5. Send back for review
+`make demo-live` refuses to start if `runs/demo_live/` already holds a recording, so a live run never
+reuses earlier answers. Move the old folder aside first if you want to record again.
+
+## 5. Verify the replay (no API calls, no cost)
+
+```bash
+make verify-replay RUN=runs/demo_live
+```
+
+Each output is printed as PASS or FAIL. It replays the recording in a new process and requires state,
+ledger, validation checks, trace, both reports and the call and token counts to be identical, then
+re-executes every ledger entry from its recorded inputs.
+
+## 6. Send back for review
 
 ```bash
 cd runs
@@ -105,4 +118,5 @@ Attach `runs/demo_live.zip`. It contains only synthetic data and model outputs, 
 | `spending cap ... would be exceeded` | raise `MEI_MAX_COST_USD`, or rerun; nothing was sent |
 | `RateLimitError after 3 automatic retries` | wait a minute and rerun |
 | `ModuleNotFoundError: No module named 'mei'` | run `make install` (re-copies the code into `.venv`) |
+| `... already holds a recording` | the output folder has an earlier run; move it aside (`mv runs/demo_live runs/demo_live_old`) |
 | `cd: too many arguments` or `command not found: #` | a comment was pasted; run each command alone |

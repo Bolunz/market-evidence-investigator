@@ -1,0 +1,590 @@
+{
+  "question": "Consumers appear to be complaining more about battery life. Have we seen this before, what did manufacturers do about it, what happened to those products afterwards, and what can we reasonably learn from the evidence?",
+  "theme": "battery",
+  "path": "direct_response",
+  "profile": {
+    "by_segment_id": "E001",
+    "trend_ids": {
+      "Budget": "E002",
+      "Gaming": "E003",
+      "Mainstream": "E004",
+      "Premium Thin & Light": "E005"
+    },
+    "statuses": {
+      "Budget": "no_material_change",
+      "Gaming": "no_material_change",
+      "Mainstream": "no_material_change",
+      "Premium Thin & Light": "intensified_long_standing"
+    },
+    "candidate_segments": [
+      "Premium Thin & Light"
+    ]
+  },
+  "plan": {
+    "focus_segment": "Premium Thin & Light",
+    "rationale": "Premium Thin & Light has the highest recent battery complaint rate (6.9% [6.7%, 7.1%], E001). It is also the only segment with a material rise: 4.4% to 6.9%, diff +2.5% (CI +2.2% to +2.8%), q_value_bh 0.0, status intensified_long_standing (E005). So the issue is long-standing and has intensified, not new. Budget rose by only +0.3% and was labelled no_material_change even though q=0.014 (E002). Gaming (E003) and Mainstream (E004) show no significant change. Complaints are spread across 28 products, and the top product accounts for 12.6% of recent complaints (E005), so the signal is not driven by one product. These are descriptive complaint rates only. They contain no distribution or consumer-preference measures, and they cannot show cause.",
+    "search_terms": [
+      "all-day battery life",
+      "up to 20 hours battery",
+      "extended battery life",
+      "battery efficiency low-power processor",
+      "fast charging battery",
+      "larger battery capacity Wh",
+      "long-lasting battery thin and light",
+      "power-efficient design for battery endurance"
+    ],
+    "hypotheses": [
+      {
+        "hypothesis_id": "H1",
+        "statement": "Premium Thin & Light products positioned on battery life have a different post-first-sale battery complaint rate than their segment cohort.",
+        "test_tool": "complaint_comparison",
+        "alternative": "two-sided"
+      },
+      {
+        "hypothesis_id": "H2",
+        "statement": "Premium Thin & Light products positioned on battery life have lower post-first-sale battery complaint rates than non-positioned cohort products. This would be an association only, not evidence that the product solved the need.",
+        "test_tool": "complaint_comparison",
+        "alternative": "less"
+      },
+      {
+        "hypothesis_id": "H3",
+        "statement": "Premium Thin & Light products positioned on battery life show different sales per active model after their estimated first observed sale than the cohort.",
+        "test_tool": "launch_trajectory",
+        "alternative": "two-sided"
+      }
+    ],
+    "evidence_ids": []
+  },
+  "findings": {
+    "findings": [
+      {
+        "product_id": "P0113",
+        "positioning": "positioned_on_need",
+        "doc_id": "D0113A",
+        "quote": "Introducing the Altura Aero 13 G4: engineered for endurance, with up to 20 hours of battery life so you can work a full day and evening without a charger.",
+        "first_sale_evidence_id": "E009",
+        "cohort_evidence_id": "E012",
+        "sales_evidence_ids": [
+          "E016"
+        ],
+        "price_volume_evidence_id": "E014",
+        "complaint_evidence_ids": [
+          "E019"
+        ],
+        "observations": "Battery endurance is the headline selling point. Estimated first observed sale is 2023-M10 and usable (E009). Cohort has 15 models (E012). I removed P0050 from the comparison set because it is also positioned on battery. No price-and-volume pattern (E014). Mean segment share over the first 12 months was 18.09% vs cohort median 3.88%, rank 1 of 15, q=0.0037, significant (E016). Battery complaint rate was 3.2% vs cohort median 9.0%, q=0.0066, significant and lower (E019). These are associations only. They do not show the product solved battery life, and the data hold no distribution or preference measures. The cohort includes unlabeled products whose positioning I did not check.",
+        "open_questions": [
+          "Why does this product have such a high share? The data cannot separate battery positioning from other factors.",
+          "Do comment volumes and complaint rates measure the same thing across products?"
+        ]
+      },
+      {
+        "product_id": "P0050",
+        "positioning": "positioned_on_need",
+        "doc_id": "D0050A",
+        "quote": "The new Brevik Aero 14 G4 brings all-day battery that lasts up to 17 hours, in a design under 1.3 kg.",
+        "first_sale_evidence_id": "E010",
+        "cohort_evidence_id": "E013",
+        "sales_evidence_ids": [
+          "E017",
+          "E018"
+        ],
+        "price_volume_evidence_id": "E015",
+        "complaint_evidence_ids": [
+          "E020"
+        ],
+        "observations": "All-day battery is a lead claim, so I judged this positioned. Estimated first observed sale is 2023-M11 and usable (E010). Cohort has 15 models (E013). An observed price-and-volume pattern appears in 2024-M02 and 2024-M03; no promotion records exist, so none can be confirmed (E015). Share was 5.66% vs cohort median 3.88%, q=0.47, not significant (E017). With the pattern months excluded it was 5.05%, q=0.64, not significant (E018). Battery complaint rate was 8.8% vs cohort median 8.7%, q=0.54, no detectable difference (E020).",
+        "open_questions": [
+          "Its complaint rate matched the cohort despite the battery claim. The data do not show why."
+        ]
+      },
+      {
+        "product_id": "P0120",
+        "positioning": "positioned_on_need",
+        "doc_id": "D0120A",
+        "quote": "Meet the Corvane Lumen 14 G2: up to 18 hours of battery life and a brilliant OLED display.",
+        "first_sale_evidence_id": "E011",
+        "cohort_evidence_id": null,
+        "sales_evidence_ids": [],
+        "price_volume_evidence_id": null,
+        "complaint_evidence_ids": [],
+        "observations": "Battery life is one of two headline claims, so this is weak or borderline positioning. Its first observed sale is unreliable (coverage_expansion_month, no_visible_ramp, and the document precedes first sale by 7 months) (E011). I did not run launch or cohort comparisons for it.",
+        "open_questions": [
+          "A reliable entry date is needed before any launch comparison."
+        ]
+      }
+    ],
+    "products_considered_and_excluded": [
+      "P0084: Gaming segment, 'long-lasting battery for gaming on the go' is positioned on battery but outside the focus segment, so segment_mismatch.",
+      "P0013, P0025, P0029, P0108, P0148 (Premium Thin & Light) and other products in all segments: only a battery-saver mode and battery health monitoring in the companion app, which is an incidental feature, not positioning.",
+      "Spec-sheet Wh figures: not positioning."
+    ],
+    "summary": "Battery complaints in Premium Thin & Light rose from 4.4% to 6.9% (E005). It is long-standing and intensified, and no other segment shows a material rise (E002\u2013E004). Three products in the segment were positioned on battery life: P0113, P0050 and P0120. P0120 has an unreliable first observed sale (E011), so I did not compare it. P0113 had higher segment share (E016, q=0.0037) and a lower battery complaint rate (E019, q=0.0066) than its cohort. P0050 was indistinguishable from its cohort on both measures (E017, E018, E020). So the evidence is mixed: one of the two testable positioned products did better, and one did not. These are observational associations from two products. They do not show that the battery claims worked, nor why P0113 differs. The data have no promotion records, distribution data or preference measures. The evidence supports only a limited conclusion. Battery positioning alone did not consistently go with better outcomes."
+  },
+  "critique": {
+    "alternative_explanations": [
+      {
+        "product_id": "P0113",
+        "explanation": "Cohort-composition artefact: the cohort was matched only on first-sale month and early ASP. It includes P0050, which is also battery-positioned, and unlabeled products. P0113's 18.09% share may reflect factors the matching ignores, such as brand, form factor, display, or channel. The data hold no distribution or availability measures. The note that P0113's first-month units were 5,860 and its early peak 21,541 (E009) suggests an unusually large launch scale.",
+        "would_distinguish": "Compare P0113 with cohorts rebuilt on other attributes, such as brand or screen size. Check whether its share was high from the first month or built gradually. Label every cohort member's positioning.",
+        "addressed_by": [
+          "E012",
+          "E016",
+          "E009"
+        ]
+      },
+      {
+        "product_id": "P0113",
+        "explanation": "Complaint-pool dilution: a large buyer base (share 18%) could mean a different buyer mix, with more casual users who complain less. Comment volume may also scale differently. P0113 has 4,826 comments versus 1,465 for P0050, so the rate may reflect who comments, not battery performance. Comment propensity could differ by product.",
+        "would_distinguish": "A placebo theme (non-battery) in complaint_comparison for P0113. If its rate is also much lower there, the result reflects a general commenting or buyer-mix effect, not battery.",
+        "addressed_by": [
+          "E019",
+          "E020"
+        ]
+      },
+      {
+        "product_id": "P0113",
+        "explanation": "Timing and first-sale artefact: 'first 12 months' is anchored on an estimated first observed sale. A panel-coverage change could shift the window. Share is also relative to the segment total in those months. Segment composition, and entries or exits by competitors, could change P0113's share without any change in the product.",
+        "would_distinguish": "A sensitivity test with different window lengths, such as 6 or 9 months. Check the segment's active-model count over the same months.",
+        "addressed_by": [
+          "E009",
+          "E016"
+        ]
+      },
+      {
+        "product_id": "P0050",
+        "explanation": "Small-sample and low-power issue: the null results (q=0.47, 0.64, 0.54) do not show that the product matched its cohort. Wide cohort variance (complaint rates 4.3% to 14.1%) and n=14 limit power. P0050 has only 1,465 comments. Its price-and-volume months reduce the usable window to 10 months. An absence of difference is not evidence of equivalence.",
+        "would_distinguish": "Confidence intervals on the share difference and the equivalence margin. Longer follow-up windows.",
+        "addressed_by": [
+          "E017",
+          "E018",
+          "E020",
+          "E015"
+        ]
+      },
+      {
+        "product_id": "P0050",
+        "explanation": "Price effects: the ASP drop of up to 22.9% with a unit rise in 2024-M02 and 2024-M03 could affect both share and the buyer mix, which may include more price-sensitive buyers. Excluding those months did not change the outcome, but price differences within the cohort (30% tolerance) remain uncontrolled.",
+        "would_distinguish": "Narrower ASP tolerance in the cohort, for example \u00b110%.",
+        "addressed_by": [
+          "E015",
+          "E018",
+          "E012"
+        ]
+      },
+      {
+        "product_id": "P0113",
+        "explanation": "Segment-level battery complaint rise (E005) concerns 2024-M07 onward, while the product comparisons use 2023-M10 to 2024-M10 windows. The windows only partially overlap, so the product-level results cannot speak to the segment rise. Product-level explanations such as firmware updates or battery hardware are also not tested.",
+        "would_distinguish": "Product-level complaint trends over the 2024-M07..2025-M12 window. Firmware or spec data.",
+        "addressed_by": [
+          "E005",
+          "E019",
+          "E020"
+        ]
+      }
+    ],
+    "requested_test": {
+      "tool": "complaint_comparison",
+      "args": {
+        "product_id": "P0113",
+        "theme": "display",
+        "months": 12,
+        "alternative": "less"
+      },
+      "reason": "Placebo theme check. If P0113 also has a markedly lower complaint rate for a non-battery theme, its low battery rate likely reflects commenting behaviour or buyer mix, not battery performance. The theme name 'display' is an assumed placebo and should be swapped for any available theme unrelated to battery.",
+      "cohort_source": "E019"
+    },
+    "downgrade_recommendations": [
+      "P0113: treat the high share and low complaint rate as descriptive associations only. Avoid wording that implies battery positioning explains the outcome. Without a placebo theme, the complaint result may reflect a general commenting pattern.",
+      "Summary: the conclusion 'battery positioning alone did not consistently go with better outcomes' rests on n=2 products and a null result for P0050 that has low power. Downgrade it to 'insufficient evidence'.",
+      "P0050: describe 'indistinguishable from cohort' as 'no detectable difference', not as equivalence.",
+      "Segment-trend link: the product comparison windows do not match the recent rise window (E005), so no link between positioning and the segment complaint rise can be made."
+    ]
+  },
+  "draft": {
+    "title": "Battery complaints in Premium Thin & Light: long-standing, intensified, with limited evidence on positioned products",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "section": "A_consumer_signal",
+        "level": "observation",
+        "text": "Premium Thin & Light has the highest recent battery complaint rate at 6.9% [6.7%, 7.1%], versus Budget 3.8%, Gaming 3.4% and Mainstream 3.4%.",
+        "assertions": [
+          {
+            "type": "signal_level",
+            "subject": "Premium Thin & Light",
+            "evidence_ids": [
+              "E001"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C2",
+        "section": "A_consumer_signal",
+        "level": "association",
+        "text": "In Premium Thin & Light the battery complaint rate rose from 4.4% to 6.9% (diff +2.5%, CI +2.2% to +2.8%, q_value_bh 0.0), status intensified_long_standing. This is descriptive of complaint rates and does not show cause.",
+        "assertions": [
+          {
+            "type": "signal_change",
+            "subject": "Premium Thin & Light",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C3",
+        "section": "A_consumer_signal",
+        "level": "observation",
+        "text": "Other segments show no material change: Budget +0.3% (labelled no_material_change), Gaming and Mainstream not significant after BH correction.",
+        "assertions": [
+          {
+            "type": "signal_change",
+            "subject": null,
+            "evidence_ids": [
+              "E002",
+              "E003",
+              "E004"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C4",
+        "section": "B_historical_context",
+        "level": "observation",
+        "text": "The issue is not new: the baseline window 2021-M01..2022-M06 already showed a 4.4% battery complaint rate in Premium Thin & Light, so the recent rise is an intensification of a long-standing signal.",
+        "assertions": [
+          {
+            "type": "signal_change",
+            "subject": "Premium Thin & Light",
+            "evidence_ids": [
+              "E005"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C5",
+        "section": "C_market_response",
+        "level": "observation",
+        "text": "Three Premium Thin & Light products have documents positioning on battery life: P0113 (Altura Aero 13 G4, advertised as up to 20 hours), P0050 (Brevik Aero 14 G4, advertised as up to 17 hours) and P0120 (Corvane Lumen 14 G2, advertised as up to 18 hours). These are manufacturer claims, not real-world performance.",
+        "assertions": [
+          {
+            "type": "positioning_claim",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "type": "positioning_claim",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E008"
+            ]
+          },
+          {
+            "type": "positioning_claim",
+            "subject": "P0120",
+            "evidence_ids": [
+              "E008"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C6",
+        "section": "D_sales_evidence",
+        "level": "observation",
+        "text": "Estimated first observed sale (a panel-based estimate, not a verified launch date) is 2023-M10 for P0113 and 2023-M11 for P0050, both usable. For P0120 it is 2022-M04 but unreliable.",
+        "assertions": [
+          {
+            "type": "first_observed_sale",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E009"
+            ]
+          },
+          {
+            "type": "first_observed_sale",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E010"
+            ]
+          },
+          {
+            "type": "first_observed_sale",
+            "subject": "P0120",
+            "evidence_ids": [
+              "E011"
+            ]
+          },
+          {
+            "type": "fos_reliability",
+            "subject": null,
+            "evidence_ids": [
+              "E009",
+              "E010",
+              "E011"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C7",
+        "section": "D_sales_evidence",
+        "level": "association",
+        "text": "P0113 had a mean segment share of 18.09% over its first 12 months versus a cohort median of 3.88% (rank 1 of 15, q_value_bh 0.0074). This is a descriptive association; it does not show the battery positioning caused it.",
+        "assertions": [
+          {
+            "type": "sales_association",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E016"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C8",
+        "section": "D_sales_evidence",
+        "level": "observation",
+        "text": "P0050 showed no detectable share difference: 5.66% versus cohort median 3.88% (q_value_bh 0.4675), and 5.05% with price-and-volume months excluded (q_value_bh 0.6397). An observed price-and-volume pattern appears in 2024-M02 and 2024-M03; promotion is not confirmed.",
+        "assertions": [
+          {
+            "type": "sales_comparison",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E017",
+              "E018"
+            ]
+          },
+          {
+            "type": "price_volume_pattern",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E015"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C9",
+        "section": "D_sales_evidence",
+        "level": "association",
+        "text": "P0113's battery complaint rate was 3.2% versus a cohort median of 9.0% (q_value_bh 0.0132, lower). This is an association only and does not show the product solved battery life.",
+        "assertions": [
+          {
+            "type": "complaint_association",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E019"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C10",
+        "section": "D_sales_evidence",
+        "level": "observation",
+        "text": "P0050's battery complaint rate was 8.8% versus cohort median 8.7% (q_value_bh 0.542): no detectable difference, which is not evidence of equivalence.",
+        "assertions": [
+          {
+            "type": "complaint_comparison",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E020"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C11",
+        "section": "E_evidence_assessment",
+        "level": "observation",
+        "text": "Rubric grades: signal Moderate; P0113 Moderate; P0050 Not supported; P0120 Insufficient.",
+        "assertions": [
+          {
+            "type": "confidence_grade",
+            "subject": "Premium Thin & Light",
+            "evidence_ids": [
+              "E022"
+            ]
+          },
+          {
+            "type": "confidence_grade",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E023"
+            ]
+          },
+          {
+            "type": "confidence_grade",
+            "subject": "P0050",
+            "evidence_ids": [
+              "E024"
+            ]
+          },
+          {
+            "type": "confidence_grade",
+            "subject": "P0120",
+            "evidence_ids": [
+              "E025"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C12",
+        "section": "E_evidence_assessment",
+        "level": "explanation",
+        "text": "P0113's results could reflect factors other than battery positioning, such as brand, buyer mix or comment propensity; its display complaint rate showed no detectable difference from cohort (2.5% vs 2.2%, q_value_bh 0.6397), but this one check does not rule these out. P0050 comparisons have limited power. The data have no causal design.",
+        "assertions": [
+          {
+            "type": "alternative_explanation",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E021",
+              "E012",
+              "E019"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C13",
+        "section": "E_evidence_assessment",
+        "level": "evidence_gap",
+        "text": "Only two positioned products could be tested, and the comparison windows (2023-M10 onward) differ from the recent segment-rise window (2024-M07..2025-M12). The data contain no distribution, availability or preference measures, so what happened to positioned products after the rise is insufficiently evidenced.",
+        "assertions": [
+          {
+            "type": "evidence_gap",
+            "subject": null,
+            "evidence_ids": [
+              "E005",
+              "E019",
+              "E020",
+              "E011"
+            ]
+          }
+        ]
+      },
+      {
+        "claim_id": "C14",
+        "section": "F_opportunity_hypotheses",
+        "level": "hypothesis",
+        "text": "Hypothesis for human evaluation: P0113's profile may be worth examining for attributes beyond battery positioning (brand, form factor, channel). Battery positioning alone did not show a consistent pattern across the two testable products.",
+        "assertions": [
+          {
+            "type": "opportunity_hypothesis",
+            "subject": "P0113",
+            "evidence_ids": [
+              "E016",
+              "E019",
+              "E017",
+              "E020"
+            ]
+          }
+        ]
+      }
+    ],
+    "follow_ups": [
+      "Rebuild P0113's cohort on other attributes (brand, screen size) and label every cohort member's positioning.",
+      "Run sensitivity windows (6 or 9 months) for P0113's share.",
+      "Obtain a reliable entry date for P0120 before any launch comparison.",
+      "Track product-level battery complaints over 2024-M07..2025-M12 to link with the segment rise.",
+      "Validate the complaint classifier accuracy."
+    ]
+  },
+  "checks": [
+    {
+      "claim_id": "C1",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C2",
+      "status": "flagged",
+      "problems": [
+        "level 'association' needs one of ['complaint_association', 'sales_association']"
+      ],
+      "implied": []
+    },
+    {
+      "claim_id": "C3",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C4",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C5",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C6",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C7",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C8",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C9",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C10",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C11",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C12",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C13",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    },
+    {
+      "claim_id": "C14",
+      "status": "verified",
+      "problems": [],
+      "implied": []
+    }
+  ],
+  "revisions": 1
+}

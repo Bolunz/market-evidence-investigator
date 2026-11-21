@@ -1,0 +1,62 @@
+{
+  "mode": "live",
+  "mode_label": "live agent run (Anthropic API)",
+  "data_label": "battery_s42 (synthetic)",
+  "synthetic": true,
+  "theme": "battery",
+  "question": "Consumers appear to be complaining more about battery life. Have we seen this before, what did manufacturers do about it, what happened to those products afterwards, and what can we reasonably learn from the evidence?",
+  "models": {
+    "main": "claude-sonnet-5-5",
+    "small": "claude-haiku-5-5"
+  },
+  "usage": {
+    "calls": 19,
+    "input_tokens": 137179,
+    "output_tokens": 13988,
+    "cost_usd": 0.3753696999999999,
+    "by_role": {
+      "planner": {
+        "calls": 1,
+        "input_tokens": 4003,
+        "output_tokens": 771,
+        "cost_usd": 0.015716
+      },
+      "investigator": {
+        "calls": 6,
+        "input_tokens": 81305,
+        "output_tokens": 3411,
+        "cost_usd": 0.19672
+      },
+      "critic": {
+        "calls": 1,
+        "input_tokens": 11297,
+        "output_tokens": 1711,
+        "cost_usd": 0.039704
+      },
+      "writer": {
+        "calls": 2,
+        "input_tokens": 31882,
+        "output_tokens": 5742,
+        "cost_usd": 0.12118400000000001
+      },
+      "auditor": {
+        "calls": 9,
+        "input_tokens": 8692,
+        "output_tokens": 2353,
+        "cost_usd": 0.0020457
+      }
+    }
+  },
+  "data_dir": "examples/data/battery_s42",
+  "limits": {
+    "max_calls": 60,
+    "max_cost_usd": 3.0,
+    "effort": {
+      "main": "medium",
+      "small": "low"
+    },
+    "max_tool_calls": 24
+  },
+  "key_source": ".env file",
+  "replay_settings_from_recording": false
+}

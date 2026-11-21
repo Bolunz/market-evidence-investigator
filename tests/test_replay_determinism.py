@@ -68,3 +68,21 @@ def test_live_run_refuses_to_reuse_an_existing_recording(recording, tmp_path):
     with pytest.raises(RecordingExists):
         run_investigation(json.loads((recording / "run_meta.json").read_text())["data_dir"], recording,
                           mode="live", cache_path=recording / "llm_cache.jsonl")
+
+
+def test_cross_platform_float_rounding_is_reported_but_real_differences_fail():
+    """Regression from live run 02 replayed on Linux after recording on macOS: p-values differed only
+    in their last digits (e.g. 0.0036856349233613003 vs 0.0036856349233613)."""
+    from mei.verify import compare_output
+    rec = json.dumps({"entries": [{"p_value": 0.0036856349233613003, "status": "verified", "n": 15}]})
+    ok, detail = compare_output("ledger.json", rec, rec.replace("0.0036856349233613003", "0.0036856349233613"))
+    assert ok and "floating-point rounding" in detail and "1 numbers" in detail
+    ok, detail = compare_output("ledger.json", rec, rec.replace("0.0036856349233613003", "0.0036857"))
+    assert not ok and "p_value" in detail                       # a real numerical difference
+    ok, _ = compare_output("ledger.json", rec, rec.replace('"verified"', '"flagged"'))
+    assert not ok
+    html = "<p>table 18.09%</p><img src=\"data:image/png;base64,AAAA\">"
+    ok, detail = compare_output("report.html", html, html.replace("AAAA", "BBBB"))
+    assert ok and "chart images" in detail
+    ok, _ = compare_output("report.html", html, html.replace("18.09%", "18.10%").replace("AAAA", "BBBB"))
+    assert not ok

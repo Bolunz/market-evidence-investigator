@@ -64,7 +64,7 @@ def cmd_verify_replay(a) -> int:
     res = verify_replay(a.run, a.data)
     for name, ok, detail in res["items"]:
         console.print(("[green]PASS[/green]  " if ok else "[red]FAIL[/red]  ") + f"{name}: "
-                      + (detail if ok else ""), highlight=False, soft_wrap=True)
+                      + (detail if ok else ""), highlight=False, soft_wrap=False, crop=False, overflow="ignore")
         if not ok:
             console.print(detail, highlight=False, soft_wrap=True)
     console.print(Panel("Replay verified: the recording reproduces every output exactly." if res["ok"] else
